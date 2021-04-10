@@ -24,7 +24,7 @@ comentarios para cualquier sugerencia o corrección!
 ## Se necesita ayuda
 
 Si está buscando formas de ayudar que no impliquen una gran cantidad de
-lectura o escritura, consulte los [problemas abiertos con la etiqueta E-help-wanted][se busca ayuda]. 
+lectura o escritura, consulte los [problemas abiertos con la etiqueta E-help-wanted][help-wanted]. 
 Pueden ser pequeñas correcciones en el texto, en el código de Rust,
 en el código frontend, o en scripts de shell que nos ayudarían a ser más eficientes o
 mejorar el libro de alguna manera!
