@@ -17,7 +17,7 @@ este repositorio, ya que las versiones se actualizan con menos frecuencia.
 [beta]: https://doc.rust-lang.org/beta/book/
 [nocturno]: https://doc.rust-lang.org/nightly/book/
 
-Consulte [releases] para descargar solo los listados de códigos que aparecen en el libro.
+Consulte [releases] para descargar solo los listados de código que aparecen en el libro.
 
 [releases]: https://github.com/rust-lang/book/releases
 
