@@ -21,13 +21,13 @@ comentarios para cualquier sugerencia o corrección!
 
 [pulls]: https://github.com/rust-lang/book/pulls
 
-## Help wanted
+## Se necesita ayuda
 
-If you're looking for ways to help that don't involve large amounts of
-reading or writing, check out the [open issues with the E-help-wanted
-label][help-wanted]. These might be small fixes to the text, Rust code,
-frontend code, or shell scripts that would help us be more efficient or
-enhance the book in some way!
+Si está buscando formas de ayudar que no impliquen una gran cantidad de
+lectura o escritura, consulte los [problemas abiertos con la etiqueta E-help-wanted][se busca ayuda]. 
+Pueden ser pequeñas correcciones en el texto, en el código de Rust,
+en el código frontend, o en scripts de shell que nos ayudarían a ser más eficientes o
+mejorar el libro de alguna manera!
 
 [help-wanted]: https://github.com/rust-lang/book/issues?q=is%3Aopen+is%3Aissue+label%3AE-help-wanted
 
