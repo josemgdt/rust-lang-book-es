@@ -10,7 +10,7 @@ repositorio.
 
 ## Código de conducta
 
-El proyecto Rust tiene [un código de conducta] (http://rust-lang.org/policies/code-of-conduct)
+El proyecto Rust tiene [un código de conducta](http://rust-lang.org/policies/code-of-conduct)
 que rige todos los subproyectos, incluido éste. ¡Respételo, por favor!
 
 ## Revisiones
