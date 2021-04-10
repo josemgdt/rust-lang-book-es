@@ -9,7 +9,7 @@ Este repositorio contiene las fuentes del libro "El Lenguaje de Programación Ru
 [nostarch]: https://nostarch.com/rust
 
 También puede leer el libro en línea gratuitamente. Consulte el libro según 
-los últimos lanzamientos de Rust [estable], [beta] o [nocturno]. Tenga en 
+los últimos lanzamientos [estable], [beta] o [nocturno] de Rust. Tenga en 
 cuenta que los problemas en esas versiones puede que ya se hayan corregido en 
 este repositorio, ya que las versiones se actualizan con menos frecuencia.
 
@@ -73,12 +73,12 @@ información sobre los tipos de contribuciones que estamos buscando.
 
 [contrib]: https://github.com/rust-lang/book/blob/master/CONTRIBUTING.md
 
-### Translations
+### Traducciones
 
-We'd love help translating the book! See the [Translations] label to join in
-efforts that are currently in progress. Open a new issue to start working on
-a new language! We're waiting on [mdbook support] for multiple languages
-before we merge any in, but feel free to start!
+¡Nos encantaría ayuda para traducir el libro! Ver la etiqueta [Translations] para unirse a
+los esfuerzos que se encuentran actualmente en curso. Abra un nuevo asunto para empezar a trabajar
+¡un nuevo idioma!. Estamos esperando [mdbook support] tener varios idiomas
+antes de fusionar cualquiera, ¡pero siéntase libre de comenzar el suyo!
 
 [Translations]: https://github.com/rust-lang/book/issues?q=is%3Aopen+is%3Aissue+label%3ATranslations
 [mdbook support]: https://github.com/rust-lang-nursery/mdBook/issues/5
