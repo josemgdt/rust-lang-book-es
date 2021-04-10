@@ -15,7 +15,7 @@ que rige todos los subproyectos, incluido éste. ¡Respételo, por favor!
 
 ## Revisiones
 
-Nuestras [solicitudes de extracción] [pulls] son nuevos capítulos o ediciones en las que 
+Nuestras [solicitudes de extracción][pulls] son nuevos capítulos o ediciones en las que 
 estamos actualmente trabajando. Nos encantaría que los leyeras y los hicieras
 comentarios para cualquier sugerencia o corrección!
 
