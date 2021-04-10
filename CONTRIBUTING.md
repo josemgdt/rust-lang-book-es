@@ -1,23 +1,23 @@
-# Contributing
+# Contribuciones
 
-We'd love your help! Thanks for caring about the book.
+¡Nos encantaría tu ayuda! Gracias por preocuparte por este libro.
 
-## Licensing
+## Licencia
 
-This repository is under the same license as Rust itself, MIT/Apache2. You
-can find the full text of each license in the `LICENSE-*` files in this
-repository.
+Este repositorio está bajo la misma licencia que el propio Rust, MIT / Apache2. Ustéd
+puede encontrar el texto completo de cada licencia en los archivos `LICENSE-*` en este
+repositorio.
 
-## Code of Conduct
+## Código de conducta
 
-The Rust project has [a code of conduct](http://rust-lang.org/policies/code-of-conduct)
-that governs all sub-projects, including this one. Please respect it!
+El proyecto Rust tiene [un código de conducta] (http://rust-lang.org/policies/code-of-conduct)
+que rige todos los subproyectos, incluido éste. ¡Respételo, por favor!
 
-## Review
+## Revisiones
 
-Our [open pull requests][pulls] are new chapters or edits that we're
-currently working on. We would love if you would read through those and make
-comments for any suggestions or corrections!
+Nuestras [solicitudes de extracción] [pulls] son nuevos capítulos o ediciones en las que 
+estamos actualmente trabajando. Nos encantaría que los leyeras y los hicieras
+comentarios para cualquier sugerencia o corrección!
 
 [pulls]: https://github.com/rust-lang/book/pulls
 
