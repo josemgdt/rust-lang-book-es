@@ -31,12 +31,12 @@ mejorar el libro de alguna manera!
 
 [help-wanted]: https://github.com/rust-lang/book/issues?q=is%3Aopen+is%3Aissue+label%3AE-help-wanted
 
-## Translations
+## Traducciones
 
-We'd love help translating the book! See the [Translations] label to join in
-efforts that are currently in progress. Open a new issue to start working on
-a new language! We're waiting on [mdbook support] for multiple languages
-before we merge any in, but feel free to start!
+¡Nos encantaría ayuda para traducir el libro! Ver la etiqueta [Traducciones] para unirse a los
+esfuerzos que se encuentran actualmente en curso. Abra un nuevo problema para empezar a trabajar
+¡un nuevo idioma! Estamos esperando [soporte mdbook] para varios idiomas
+antes de fusionar cualquiera, ¡pero siéntase libre de comenzar una traducción!
 
-[Translations]: https://github.com/rust-lang/book/issues?q=is%3Aopen+is%3Aissue+label%3ATranslations
-[mdbook support]: https://github.com/rust-lang-nursery/mdBook/issues/5
+[Traducciones]: https://github.com/rust-lang/book/issues?q=is%3Aopen+is%3Aissue+label%3ATranslations
+[soporte mdbook]: https://github.com/rust-lang-nursery/mdBook/issues/5
