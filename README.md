@@ -35,14 +35,14 @@ $ cargo install mdbook --vers [num-version]
 
 ## Creación
 
-To build the book, type:
+Para construir el libro, escriba:
 
 ```bash
 $ mdbook build
 ```
 
-The output will be in the `book` subdirectory. To check it out, open it in
-your web browser.
+La salida estará en el subdirectorio `book`. Para comprobarlo, ábralo en
+su navegador web.
 
 _Firefox:_
 ```bash
@@ -60,16 +60,16 @@ $ Start-Process "chrome.exe" .\book\index.html  # Windows (PowerShell)
 $ start chrome.exe .\book\index.html            # Windows (Cmd)
 ```
 
-To run the tests:
+Para ejecutar los tests:
 
 ```bash
 $ mdbook test
 ```
 
-## Contributing
+## Contribuir
 
-We'd love your help! Please see [CONTRIBUTING.md][contrib] to learn about the
-kinds of contributions we're looking for.
+¡Nos encantaría tu ayuda! Consulte [CONTRIBUTING.md][contrib] para obtener más 
+información sobre los tipos de contribuciones que estamos buscando.
 
 [contrib]: https://github.com/rust-lang/book/blob/master/CONTRIBUTING.md
 
