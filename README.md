@@ -8,10 +8,10 @@ This repository contains the source of "The Rust Programming Language" book.
 
 [nostarch]: https://nostarch.com/rust
 
-You can also read the book for free online. Please see the book as shipped with
-the latest [stable], [beta], or [nightly] Rust releases. Be aware that issues
-in those versions may have been fixed in this repository already, as those
-releases are updated less frequently.
+También puede leer el libro en línea gratuitamente. Consulte el libro según 
+los últimos lanzamientos de Rust [estable], [beta] o [nocturno]. Tenga en 
+cuenta que los problemas en esas versiones puede que ya se hayan corregido en 
+este repositorio, ya que las versiones se actualizan con menos frecuencia.
 
 [stable]: https://doc.rust-lang.org/stable/book/
 [beta]: https://doc.rust-lang.org/beta/book/
