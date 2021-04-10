@@ -23,17 +23,17 @@ Consulte [releases] para descargar solo los listados de códigos que aparecen en
 
 ## Requisitos
 
-La construcción del libro requiere [mdBook], ideally the same version that
-rust-lang/rust uses in [this file][rust-mdbook]. To get it:
+La construcción del libro requiere [mdBook], idealmente la misma versión que
+rust-lang/rust utiliza en [este archivo][rust-mdbook]. Para conseguirlo:
 
 [mdBook]: https://github.com/rust-lang-nursery/mdBook
 [rust-mdbook]: https://github.com/rust-lang/rust/blob/master/src/tools/rustbook/Cargo.toml
 
 ```bash
-$ cargo install mdbook --vers [version-num]
+$ cargo install mdbook --vers [num-version]
 ```
 
-## Building
+## Creación
 
 To build the book, type:
 
