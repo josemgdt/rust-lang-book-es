@@ -21,9 +21,9 @@ Consulte [releases] para descargar solo los listados de códigos que aparecen en
 
 [releases]: https://github.com/rust-lang/book/releases
 
-## Requirements
+## Requisitos
 
-Building the book requires [mdBook], ideally the same version that
+La construcción del libro requiere [mdBook], ideally the same version that
 rust-lang/rust uses in [this file][rust-mdbook]. To get it:
 
 [mdBook]: https://github.com/rust-lang-nursery/mdBook
