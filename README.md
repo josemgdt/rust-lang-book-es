@@ -13,9 +13,9 @@ los últimos lanzamientos de Rust [estable], [beta] o [nocturno]. Tenga en
 cuenta que los problemas en esas versiones puede que ya se hayan corregido en 
 este repositorio, ya que las versiones se actualizan con menos frecuencia.
 
-[stable]: https://doc.rust-lang.org/stable/book/
+[estable]: https://doc.rust-lang.org/stable/book/
 [beta]: https://doc.rust-lang.org/beta/book/
-[nightly]: https://doc.rust-lang.org/nightly/book/
+[nocturno]: https://doc.rust-lang.org/nightly/book/
 
 See the [releases] to download just the code of all the code listings that appear in the book.
 
