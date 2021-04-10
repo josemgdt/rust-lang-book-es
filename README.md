@@ -77,17 +77,16 @@ información sobre los tipos de contribuciones que estamos buscando.
 
 ¡Nos encantaría ayuda para traducir el libro! Ver la etiqueta [Translations] para unirse a
 los esfuerzos que se encuentran actualmente en curso. Abra un nuevo asunto para empezar a trabajar
-¡un nuevo idioma!. Estamos esperando [mdbook support] tener varios idiomas
+¡un nuevo idioma!. Estamos esperando [soporte mdbook] para varios idiomas
 antes de fusionar cualquiera, ¡pero siéntase libre de comenzar el suyo!
 
 [Translations]: https://github.com/rust-lang/book/issues?q=is%3Aopen+is%3Aissue+label%3ATranslations
-[mdbook support]: https://github.com/rust-lang-nursery/mdBook/issues/5
+[soporte mdbook]: https://github.com/rust-lang-nursery/mdBook/issues/5
 
-## Spellchecking
+## Correcciones ortográficas
 
-To scan source files for spelling errors, you can use the `spellcheck.sh`
-script available in the `ci` directory. It needs a dictionary of valid words,
-which is provided in `ci/dictionary.txt`. If the script produces a false
-positive (say, you used word `BTreeMap` which the script considers invalid),
-you need to add this word to `ci/dictionary.txt` (keep the sorted order for
-consistency).
+Para escanear errores ortográficos en archivos fuente, puede utilizar el script
+`spellcheck.sh` disponible en el directorio `ci`. Necesitará un diccionario de palabras válidas,
+que se proporciona en `ci/dictionary.txt`. Si el script produce un falso
+positivo (por ejemplo, usó la palabra "BTreeMap" que el script considera inválida),
+debe agregar esa palabra a `ci/dictionary.txt` (mantenga el orden para consistencia).
