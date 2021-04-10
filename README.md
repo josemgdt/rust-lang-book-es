@@ -33,7 +33,7 @@ rust-lang/rust utiliza en [este archivo][rust-mdbook]. Para conseguirlo:
 $ cargo install mdbook --vers [num-version]
 ```
 
-## Creación
+## Construcción
 
 Para construir el libro, escriba:
 
@@ -66,7 +66,7 @@ Para ejecutar los tests:
 $ mdbook test
 ```
 
-## Contribuir
+## Contribuciones
 
 ¡Nos encantaría tu ayuda! Consulte [CONTRIBUTING.md][contrib] para obtener más 
 información sobre los tipos de contribuciones que estamos buscando.
