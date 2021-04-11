@@ -95,89 +95,55 @@ Encontrará dos tipos de capítulos en este libro: capítulos de conceptos y cap
 los capítulos de conceptos, aprenderá sobre aspectos de Rust. En los capítulos de proyectos crearemos pequeños 
 programas, aplicando lo que ha aprendido antes. Los capítulos 2, 12 y 20 son capítulos de proyectos; el resto 
 son capítulos de conceptos.
+El capítulo 1 explica cómo instalar Rust, cómo escribir un  programa "¡Hola, mundo!",
+y cómo utilizar Cargo, el administrador de paquetes y la herramienta de compilación de Rust. 
+El capítulo 2 es una introducción práctica al lenguaje Rust. Aquí cubrimos conceptos a alto
+nivel, y los capítulos posteriores proporcionarán detalles adicionales. Si quieres que tus
+manos se ensucien de inmediato, el Capítulo 2 es el lugar para eso. Al principio, incluso podrías querer omitir el Capítulo 3, que cubre características de Rust similares a las de otros lenguajes de programación, y dirijirte directamente al Capítulo 4 para aprender sobre el sistema de propiedad de Rust. Sin embargo, si eres un aprendiz particularmente meticuloso que prefiere aprender cada detalle antes de pasar al siguiente, es posible que desees omitir el Capítulo 2 e ir directamente al Capítulo 3, volviendo al Capítulo 2 cuando quiera trabajar en un proyecto aplicando los detalles que ha aprendido.
 
-Chapter 1 explains how to install Rust, how to write a “Hello, world!” program,
-and how to use Cargo, Rust’s package manager and build tool. Chapter 2 is a
-hands-on introduction to the Rust language. Here we cover concepts at a high
-level, and later chapters will provide additional detail. If you want to get
-your hands dirty right away, Chapter 2 is the place for that. At first, you
-might even want to skip Chapter 3, which covers Rust features similar to those
-of other programming languages, and head straight to Chapter 4 to learn about
-Rust’s ownership system. However, if you’re a particularly meticulous learner
-who prefers to learn every detail before moving on to the next, you might want
-to skip Chapter 2 and go straight to Chapter 3, returning to Chapter 2 when
-you’d like to work on a project applying the details you’ve learned.
+El Capítulo 5 discute estructuras y métodos, y el Capítulo 6 cubre enumeraciones,expresiones  `match` y la construcción de control de flujo "if let". Usarás estructuras y enumeraciones para hacer tipos personalizados en Rust.
 
-Chapter 5 discusses structs and methods, and Chapter 6 covers enums, `match`
-expressions, and the `if let` control flow construct. You’ll use structs and
-enums to make custom types in Rust.
+En el Capítulo 7, aprenderas sobre el sistema de módulos de Rust y sobre las reglas de privacidad 
+para organizar el código y su interfaz de programación de aplicaciones (API) pública. El capítulo 8 analiza algunas estructuras comunes de recopilación de datos que proporciona la biblioteca estándar, como vectores, cadenas y mapas hash. El Capítulo 9 explora la filosofía y las técnicas de manejo de errores de Rust.
 
-In Chapter 7, you’ll learn about Rust’s module system and about privacy rules
-for organizing your code and its public Application Programming Interface
-(API). Chapter 8 discusses some common collection data structures that the
-standard library provides, such as vectors, strings, and hash maps. Chapter 9
-explores Rust’s error-handling philosophy and techniques.
+El capítulo 10 profundiza en genéricos, traits y tiempos de vida, que te dan el poder para definir el código que se aplica a varios tipos. El capítulo 11 trata sobre las pruebas, que incluso con las garantías de seguridad de Rust es necesario para garantizar que la lógica del programa es correcta. En el Capítulo 12, crearemos nuestra propia implementación de un subconjunto de la funcionalidad de la herramienta de línea de comandos `grep` que busca texto dentro de los archivos. Para esto, usaremos muchos de los conceptos que discutimos en capítulos anteriores.
 
-Chapter 10 digs into generics, traits, and lifetimes, which give you the power
-to define code that applies to multiple types. Chapter 11 is all about testing,
-which even with Rust’s safety guarantees is necessary to ensure your program’s
-logic is correct. In Chapter 12, we’ll build our own implementation of a subset
-of functionality from the `grep` command line tool that searches for text
-within files. For this, we’ll use many of the concepts we discussed in the
-previous chapters.
+El capítulo 13 explora cierres e iteradores: características de Rust que provienen de lenguajes de programación funcionales. En el Capítulo 14, examinaremos Cargo en más profundidad y hablaremos sobre las mejores prácticas para compartir bibliotecas con otros.
+El capítulo 15 analiza los punteros inteligentes que proporciona la biblioteca estándar y los traits que habilitan su funcionalidad.
 
-Chapter 13 explores closures and iterators: features of Rust that come from
-functional programming languages. In Chapter 14, we’ll examine Cargo in more
-depth and talk about best practices for sharing your libraries with others.
-Chapter 15 discusses smart pointers that the standard library provides and the
-traits that enable their functionality.
+En el Capítulo 16 veremos diferentes modelos de programación concurrente y hablaremos sobre cómo Rust ayuda a programar múltiples subprocesos sin miedo. El capítulo 17 analiza cómo se compara Rust con la programación orientada a objetos, principios con los que quizás puedes estar familiarizado.
 
-In Chapter 16, we’ll walk through different models of concurrent programming
-and talk about how Rust helps you to program in multiple threads fearlessly.
-Chapter 17 looks at how Rust idioms compare to object-oriented programming
-principles you might be familiar with.
+El capítulo 18 es una referencia sobre patrones y coincidencia de patrones, que son poderosas formas de expresar ideas a través de los programas Rust. El capítulo 19 contiene una mezcla heterogénea de temas avanzados de interés, incluidos Rust inseguro, macros y más sobre vidas, traits, tipos, funciones y cierres.
 
-Chapter 18 is a reference on patterns and pattern matching, which are powerful
-ways of expressing ideas throughout Rust programs. Chapter 19 contains a
-smorgasbord of advanced topics of interest, including unsafe Rust, macros, and
-more about lifetimes, traits, types, functions, and closures.
+En el Capítulo 20, completaremos un proyecto en el que implementaremos un servidor web multiproceso!
 
-In Chapter 20, we’ll complete a project in which we’ll implement a low-level
-multithreaded web server!
+Por último, algunos apéndices contienen información útil sobre el idioma en un formato más parecido a una referencia. El Apéndice A cubre las palabras clave de Rust, el Apéndice B
+cubre los operadores y símbolos de Rust, el Apéndice C cubre los traits derivables
+proporcionada por la biblioteca estándar, el Apéndice D cubre algunos desarrollos útiles
+herramientas y el Apéndice E explica las ediciones de Rust.
 
-Finally, some appendices contain useful information about the language in a
-more reference-like format. Appendix A covers Rust’s keywords, Appendix B
-covers Rust’s operators and symbols, Appendix C covers derivable traits
-provided by the standard library, Appendix D covers some useful development
-tools, and Appendix E explains Rust editions.
-
-There is no wrong way to read this book: if you want to skip ahead, go for it!
-You might have to jump back to earlier chapters if you experience any
-confusion. But do whatever works for you.
+No hay una forma incorrecta de leer este libro: si quieres saltar adelante, ¡adelante!
+Puede que tengas que volver a los capítulos anteriores si experimentas alguna confusión. Pero haz lo que funcione para ti.
 
 <span id="ferris"></span>
 
-An important part of the process of learning Rust is learning how to read the
-error messages the compiler displays: these will guide you toward working code.
-As such, we’ll provide many examples that don’t compile along with the error
-message the compiler will show you in each situation. Know that if you enter
-and run a random example, it may not compile! Make sure you read the
-surrounding text to see whether the example you’re trying to run is meant to
-error. Ferris will also help you distinguish code that isn’t meant to work:
+Una parte importante del proceso de aprendizaje de Rust es aprender a leer mensajes de error que muestra el compilador: estos le guiarán en el trabajo sobre el código.
+Como tal, proporcionaremos muchos ejemplos que no se compilan junto con el mensaje de error que el compilador mostrará en cada situación. Debes saber que si entras y ejecutas un ejemplo aleatorio, ¡puede que no se compile! Asegúrate de leer el texto circundante para ver si el ejemplo que estás intentando ejecutar está destinado a error. Ferris también lo ayudará a distinguir el código que no está destinado a funcionar:
 
-| Ferris                                                                 | Meaning                                          |
+| Ferris                                                                 | Significado                                      |
 |------------------------------------------------------------------------|--------------------------------------------------|
-| <img src="img/ferris/does_not_compile.svg" class="ferris-explain"/>    | This code does not compile!                      |
-| <img src="img/ferris/panics.svg" class="ferris-explain"/>              | This code panics!                                |
-| <img src="img/ferris/unsafe.svg" class="ferris-explain"/>              | This code block contains unsafe code.            |
-| <img src="img/ferris/not_desired_behavior.svg" class="ferris-explain"/>| This code does not produce the desired behavior. |
+| <img src="img/ferris/does_not_compile.svg" class="ferris-explain"/>    | ¡Este código no se compila!                      |
+| <img src="img/ferris/panics.svg" class="ferris-explain"/>              | ¡Este código entra en pánico!                    |
+| <img src="img/ferris/unsafe.svg" class="ferris-explain"/>              | Este bloque de código contiene código inseguro.  |
+| <img src="img/ferris/not_desired_behavior.svg" class="ferris-explain"/>| Este código no produce el comportamiento deseado.|
 
-In most situations, we’ll lead you to the correct version of any code that
-doesn’t compile.
 
-## Source Code
+En la mayoría de las situaciones, te llevaremos a la versión correcta de cualquier código que
+no se compila.
 
-The source files from which this book is generated can be found on
+## Código Fuente
+
+Los archivos fuente a partir de los cuales se genera este libro se pueden encontrar en
 [GitHub][book].
 
 [book]: https://github.com/rust-lang/book/tree/master/src
