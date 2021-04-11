@@ -1,34 +1,32 @@
-# Programming a Guessing Game
+# Programación de un Juego de Adivinanzas
 
-Let’s jump into Rust by working through a hands-on project together! This
-chapter introduces you to a few common Rust concepts by showing you how to use
-them in a real program. You’ll learn about `let`, `match`, methods, associated
-functions, using external crates, and more! The following chapters will explore
-these ideas in more detail. In this chapter, you’ll practice the fundamentals.
+¡Entremos en Rust trabajando en un proyecto práctico! Este capítulo te presenta algunos 
+conceptos comunes de Rust mostrándote cómo utilizarlos en un programa real. Aprenderás 
+acerca de "let", "match", métodos, funciones asociadas, uso de cajas externas, ¡y más! 
+Los siguientes capítulos explorarán estas ideas con más detalle. En este capítulo, practicarás los fundamentos.
 
-We’ll implement a classic beginner programming problem: a guessing game. Here’s
-how it works: the program will generate a random integer between 1 and 100. It
-will then prompt the player to enter a guess. After a guess is entered, the
-program will indicate whether the guess is too low or too high. If the guess is
-correct, the game will print a congratulatory message and exit.
+Implementaremos un problema clásico de programación para principiantes: un juego de adivinanzas. Así es
+cómo funciona: el programa generará un número entero aleatorio entre 1 y 100.
+Le pedirá al jugador que ingrese una suposición. Después de ingresar una suposición, el
+programa indicará si la conjetura es demasiado baja o demasiado alta. Si la suposición es
+correcta, el juego imprimirá un mensaje de felicitación y saldrá.
 
-## Setting Up a New Project
+## Configuración de un Nuevo Proyecto
 
-To set up a new project, go to the *projects* directory that you created in
-Chapter 1 and make a new project using Cargo, like so:
+Para configurar un nuevo proyecto, ve al directorio *projects* que creaste en el
+Capítulo 1 y haz un nuevo proyecto usando Cargo, así:
 
 ```console
 $ cargo new guessing_game
 $ cd guessing_game
 ```
 
-The first command, `cargo new`, takes the name of the project (`guessing_game`)
-as the first argument. The second command changes to the new project’s
-directory.
+El primer comando, `cargo new`, toma el nombre del proyecto (`guess_game`)
+como primer argumento. El segundo comando cambia al directorio del nuevo proyecto.
 
-Look at the generated *Cargo.toml* file:
+Mira el archivo *Cargo.toml* generado:
 
-<span class="filename">Filename: Cargo.toml</span>
+<span class="filename">Nombre de archivo: Cargo.toml</span>
 
 ```toml
 {{#include ../listings/ch02-guessing-game-tutorial/no-listing-01-cargo-new/Cargo.toml}}
