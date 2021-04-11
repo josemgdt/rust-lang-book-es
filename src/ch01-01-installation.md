@@ -1,11 +1,11 @@
-## Installation
+## Instalación
 
-The first step is to install Rust. We’ll download Rust through `rustup`, a
-command line tool for managing Rust versions and associated tools. You’ll need
-an internet connection for the download.
+El primer paso es instalar Rust. Descargaremos Rust a través de "rustup", una
+herramienta de línea de comandos para administrar versiones de Rust y herramientas asociadas. Necesitarás
+una conexión a Internet para la descarga.
 
-> Note: If you prefer not to use `rustup` for some reason, please see [the Rust
-> installation page](https://www.rust-lang.org/tools/install) for other options.
+> Nota: Si prefiere no utilizar "rustup" por alguna razón, consulte la [Página
+> de instalación de Rust](https://www.rust-lang.org/tools/install) para otras opciones.
 
 The following steps install the latest stable version of the Rust compiler.
 Rust’s stability guarantees ensure that all the examples in the book that
