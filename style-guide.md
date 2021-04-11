@@ -22,14 +22,15 @@
 * Prefer not mixing code and not-code in one word, ex: ``Remember when we wrote
   `use std::io`?`` rather than ``Remember when we `use`d `std::io`?``
 
-## Code
+## Código
 
-* Add the file name before markdown blocks to make it clear which file we're
-  talking about, when applicable.
-* When making changes to code, make it clear which parts of the code changed
-  and which stayed the same... not sure how to do this yet
-* Split up long lines as appropriate to keep them under 80 chars if possible
-* Use `bash` syntax highlighting for command line output code blocks
+* Agregue el nombre del archivo antes de los bloques markdown para dejar claro de qué archivo 
+   estamos hablando, cuando corresponda.
+* Al realizar cambios en el código, aclare qué partes del código cambiaron y cuáles permanecieron                                            
+   igual ... no estoy seguro de cómo hacerlo todavía
+* Divida las líneas largas según corresponda para mantenerlas por debajo de 80 caracteres si es 
+   posible
+* Utilice la sintaxis de resaltado de `bash` para bloques de código de salida de línea de comando
 
 ## Links
 
