@@ -5,8 +5,8 @@
 * Se prefiere el título en mayúsculas y minúsculas para los títulos de los 
   capítulos/secciones, por ejemplo: `## Generación de un Número Secreto` 
   en lugar de `## Generación de un número secreto`.
-* Se prefiere cursiva a comillas simples cuando se llame un término, por 
-  ejemplo: `es una  *función asociada* de` en lugar de `es una 'función asociada' de`.
+* Se prefiere cursiva a comillas simples cuando se llame un término, por ejemplo: `es una 
+  *función asociada* de` en lugar de `es una 'función asociada' de`.
 * Cuando en la prosa mencione un método, NO incluya el paréntesis, por ejemplo:
    `read_line` en lugar de `read_line()`.
 * Limitar a 80 caracteres.
@@ -34,3 +34,15 @@ Once all the scripts are done:
   the book is read offline or on docs.rust-lang.org
 * Use markdown links and keep in mind that they will be changed into `text at
   *url*` in print, so word them in a way that it reads well in that format
+  
+## Enlaces
+
+Una vez que todos los scripts estén terminados:
+
+* Si un enlace no debe imprimirse, márquelo para ignorarlo
+   * Esto incluye todos los enlaces dentro del libro de "Capítulo XX", que *deberían* ser enlaces 
+     para la versión HTML
+* Haga que los enlaces intra-libro y los enlaces de documentos de la API stdlib sean relativos
+  para que funcionen tanto si el libro se lee sin conexión o en docs.rust-lang.org
+* Utilice enlaces markdown y tenga en cuenta que se cambiarán a `texto en 
+  *url*` en forma impresa, así que redactelos de una manera que se lea bien en ese formato
