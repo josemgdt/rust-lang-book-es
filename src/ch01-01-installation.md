@@ -63,56 +63,57 @@ se incluyen el SDK de Windows 10 y los componentes del paquete de idioma inglés
 El resto de este libro utiliza comandos que funcionan tanto en *cmd.exe* como en PowerShell.
 Si hay diferencias específicas, te explicaremos cuál usar.
 
-### Updating and Uninstalling
+### Actualización y Desinstalación
 
-After you’ve installed Rust via `rustup`, updating to the latest version is
-easy. From your shell, run the following update script:
+Después de haber instalado Rust a través de "rustup", la actualización a la última versión es
+fácil. Desde tu shell, ejecuta el siguiente script de actualización:
 
 ```console
 $ rustup update
 ```
 
-To uninstall Rust and `rustup`, run the following uninstall script from your
+Para desinstalar Rust y `rustup`, ejecuta el siguiente script de desinstalación desde tu
 shell:
 
 ```console
 $ rustup self uninstall
 ```
 
-### Troubleshooting
+### Solución de Problemas
 
-To check whether you have Rust installed correctly, open a shell and enter this
-line:
+Para verificar si tienes Rust instalado correctamente, abre un shell e ingresa esta
+línea:
+
 
 ```console
 $ rustc --version
 ```
 
-You should see the version number, commit hash, and commit date for the latest
-stable version that has been released in the following format:
+Deberías ver el número de versión, el hash de confirmación y la fecha de confirmación de la última
+versión estable que se ha lanzado en el siguiente formato:
 
 ```text
 rustc x.y.z (abcabcabc yyyy-mm-dd)
 ```
 
-If you see this information, you have installed Rust successfully! If you don’t
-see this information and you’re on Windows, check that Rust is in your `%PATH%`
-system variable. If that’s all correct and Rust still isn’t working, there are
-a number of places you can get help. The easiest is the #beginners channel on
-[the official Rust Discord][discord]. There, you can chat with other Rustaceans
-(a silly nickname we call ourselves) who can help you out. Other great
-resources include [the Users forum][users] and [Stack Overflow][stackoverflow].
+Si ve esta información, ¡ha instalado Rust correctamente! Si no
+ves esta información y estás en Windows, verifica que Rust esté en la
+variable de sistema "%PATH%". Si todo es correcto y Rust aún no funciona, hay
+varios lugares donde puedes obtener ayuda. El más fácil es el canal #beginners en
+[Discord oficial de Rust][discord]. Allí podrás charlar con otros rustáceos.
+(un apodo tonto que nos llamamos a nosotros mismos) que puede ayudarte. Otros grandes
+recursos incluyen [el foro de usuarios][users] y [Stack Overflow][stackoverflow].
 
 [discord]: https://discord.gg/rust-lang
 [users]: https://users.rust-lang.org/
 [stackoverflow]: https://stackoverflow.com/questions/tagged/rust
 
-### Local Documentation
+### Documentación Local
 
-The installation of Rust also includes a copy of the documentation locally, so
-you can read it offline. Run `rustup doc` to open the local documentation in
-your browser.
+La instalación de Rust también incluye una copia de la documentación localmente, por lo que
+puedes leerlo sin conexión. Ejecuta `rustup doc` para abrir la documentación local en
+tu navegador.
 
-Any time a type or function is provided by the standard library and you’re not
-sure what it does or how to use it, use the application programming interface
-(API) documentation to find out!
+Cada vez que la biblioteca estándar proporciona un tipo o función y no estás
+seguro de lo que hace o cómo usarlo, usa la interfaz de programación de la aplicación
+(API) para averiguarlo.
