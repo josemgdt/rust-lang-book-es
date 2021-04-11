@@ -127,7 +127,7 @@ se ingresaría como `println` (sin el `!`). Analizaremos las macros de Rust en
 más detalles en el Capítulo 19. Por ahora, solo necesitas saber que usar un `!`
 significa que estás llamando a una macro en lugar de a una función normal.
 
-En tercer lugar, verás la cadena "¡Hola, mundo!" `. Pasamos esta cadena como argumento
+En tercer lugar, verás la cadena `"¡Hola, mundo!"`. Pasamos esta cadena como argumento
 a `println!`, y la cadena se imprime en la pantalla.
 
 Cuarto, terminamos la línea con un punto y coma (`;`), que indica que esta
