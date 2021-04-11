@@ -7,6 +7,11 @@
   en lugar de `## Generación de un número secreto`.
 * Se prefiere cursiva a comillas simples cuando se llame un término, por 
   ejemplo: `es una  *función asociada* de` en lugar de `es una 'función asociada' de`.
+* Cuando en la prosa mencione un método, NO incluya el paréntesis, por ejemplo:
+   `read_line` en lugar de `read_line()`.
+* Limitar a 80 caracteres.
+* Se prefiere no mezclar código y no código en una palabra, por ejemplo: ``Recuerda cuando escribimos
+   `use std::io`?`` en lugar de ``¿Recuerdas cuando `use`d `std::io`?`` 
 * Prefer title case for chapter/section headings, ex: `## Generating a Secret
   Number` rather than `## Generating a secret number`.
 * Prefer italics over single quotes when calling out a term, ex: `is an
