@@ -13,33 +13,32 @@ entre una poderosa capacidad técnica y una grata experiencia durante el desarro
 te da la opción de controlar los detalles de bajo nivel (como el uso de la memoria) sin 
 todas las molestias tradicionalmente asociadas con dicho control.
 
-## Who Rust Is For
+## Para Quién Es Rust
 
-Rust is ideal for many people for a variety of reasons. Let’s look at a few of
-the most important groups.
+Rust es ideal para muchas personas por diversas razones. Veamos algunos de los 
+grupos más importantes.
 
-### Teams of Developers
+### Equipos de Desarrolladores
 
-Rust is proving to be a productive tool for collaborating among large teams of
-developers with varying levels of systems programming knowledge. Low-level code
-is prone to a variety of subtle bugs, which in most other languages can be
-caught only through extensive testing and careful code review by experienced
-developers. In Rust, the compiler plays a gatekeeper role by refusing to
-compile code with these elusive bugs, including concurrency bugs. By working
-alongside the compiler, the team can spend their time focusing on the program’s
-logic rather than chasing down bugs.
+Rust está demostrando ser una herramienta productiva para colaborar entre grandes equipos de
+desarrolladores con distintos niveles de conocimientos de programación de sistemas. El código 
+de bajo nivel es propenso a una variedad de errores sutiles, que en la mayoría de idiomas pueden ser
+capturados sólo a través de pruebas exhaustivas y la revisión cuidadosa del código por 
+desarrolladores experimentados. En Rust, el compilador juega un papel de guardián al negarse a
+compilar código con estos errores esquivos, incluidos los errores de concurrencia. Trabajando
+junto con el compilador, el equipo puede dedicar su tiempo a centrarse en la lógica del programa
+en lugar de perseguir errores.
 
-Rust also brings contemporary developer tools to the systems programming world:
+Rust también brinda herramientas de desarrollo coetaneas al mundo de la programación de sistemas:
 
-* Cargo, the included dependency manager and build tool, makes adding,
-  compiling, and managing dependencies painless and consistent across the Rust
-  ecosystem.
-* Rustfmt ensures a consistent coding style across developers.
-* The Rust Language Server powers Integrated Development Environment (IDE)
-  integration for code completion and inline error messages.
+* Cargo, el administrador de dependencias y la herramienta de compilación, hace que agregar,
+  compilar y gestionar dependencias sea sencillo y coherente en todo el ecosistema Rust.
+* Rustfmt garantiza un estilo de codificación coherente entre los desarrolladores.
+* Rust Language Server impulsa la integración del entorno de desarrollo integrado (IDE) para 
+  completar el código y dar mensajes de error en línea.
 
-By using these and other tools in the Rust ecosystem, developers can be
-productive while writing systems-level code.
+Al utilizar estas y otras herramientas en el ecosistema Rust, los desarrolladores pueden ser
+productivos al escribir código a nivel de sistemas.
 
 ### Students
 
