@@ -1,7 +1,12 @@
-# Style Guide
+# Guia de Estilos
 
-## Prose
+## Prosa
 
+* Se prefiere el título en mayúsculas y minúsculas para los títulos de los 
+  capítulos/secciones, por ejemplo: `## Generación de un Número Secreto` 
+  en lugar de `## Generación de un número secreto`.
+* Se prefiere cursiva a comillas simples cuando se llame un término, por 
+  ejemplo: `es una  *función asociada* de` en lugar de `es una 'función asociada' de`.
 * Prefer title case for chapter/section headings, ex: `## Generating a Secret
   Number` rather than `## Generating a secret number`.
 * Prefer italics over single quotes when calling out a term, ex: `is an
