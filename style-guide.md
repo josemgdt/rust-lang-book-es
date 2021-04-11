@@ -22,18 +22,6 @@
 * Divida las líneas largas según corresponda para mantenerlas por debajo de 80 caracteres si es 
    posible
 * Utilice la sintaxis de resaltado de `bash` para bloques de código de salida de línea de comando
-
-## Links
-
-Once all the scripts are done:
-
-* If a link shouldn't be printed, mark it to be ignored
-  * This includes all "Chapter XX" intra-book links, which *should* be links
-    for the HTML version
-* Make intra-book links and stdlib API doc links relative so they work whether
-  the book is read offline or on docs.rust-lang.org
-* Use markdown links and keep in mind that they will be changed into `text at
-  *url*` in print, so word them in a way that it reads well in that format
   
 ## Enlaces
 
