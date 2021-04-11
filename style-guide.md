@@ -12,15 +12,6 @@
 * Limitar a 80 caracteres.
 * Se prefiere no mezclar código y no código en una palabra, por ejemplo: ``Recuerda cuando escribimos
    `use std::io`?`` en lugar de ``¿Recuerdas cuando `use`d `std::io`?`` 
-* Prefer title case for chapter/section headings, ex: `## Generating a Secret
-  Number` rather than `## Generating a secret number`.
-* Prefer italics over single quotes when calling out a term, ex: `is an
-  *associated function* of` rather than `is an ‘associated function’ of`.
-* When talking about a method in prose, DO NOT include the parentheses, ex:
-  `read_line` rather than `read_line()`.
-* Hard wrap at 80 chars
-* Prefer not mixing code and not-code in one word, ex: ``Remember when we wrote
-  `use std::io`?`` rather than ``Remember when we `use`d `std::io`?``
 
 ## Código
 
