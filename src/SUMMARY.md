@@ -54,7 +54,7 @@
 - [Manejo de Errores](ch09-00-error-handling.md)
     - [Errores Irrecuperables con `¡panic!`](Ch09-01-unrecoverable-errors-with-panic.md)
     - [Errores Recuperables con `Result`](ch09-02-recoverable-errors-with-result.md)
-    - [`panic!` o No `panic!`](Ch09-03-to-panic-or-not-to-panic.md)
+    - [`panic!` o no `panic!`](Ch09-03-to-panic-or-not-to-panic.md)
 
 - [Tipos Genéricos, Caracteristicas y Tiempos de Vida](ch10-00-generics.md)
     - [Tipos de Datos Genéricos](ch10-01-syntax.md)
