@@ -40,66 +40,61 @@ Rust también brinda herramientas de desarrollo coetaneas al mundo de la program
 Al utilizar estas y otras herramientas en el ecosistema Rust, los desarrolladores pueden ser
 productivos al escribir código a nivel de sistemas.
 
-### Students
+### Estudiantes
 
-Rust is for students and those who are interested in learning about systems
-concepts. Using Rust, many people have learned about topics like operating
-systems development. The community is very welcoming and happy to answer
-student questions. Through efforts such as this book, the Rust teams want to
-make systems concepts more accessible to more people, especially those new to
-programming.
+Rust es para estudiantes y aquellos que estén interesados en aprender sobre conceptos de sistemas.
+Con Rust, muchas personas han aprendido sobre temas como desarrollo de sistemas operativos. La comunidad 
+es muy acogedora y presta a responder preguntas de los estudiantes. A través de esfuerzos como este libro, 
+los equipos de Rust quieren hacer que los conceptos de sistemas sean más accesibles para más personas, 
+especialmente para los nuevos en programación.
 
-### Companies
+### Compañías
 
-Hundreds of companies, large and small, use Rust in production for a variety of
-tasks. Those tasks include command line tools, web services, DevOps tooling,
-embedded devices, audio and video analysis and transcoding, cryptocurrencies,
-bioinformatics, search engines, Internet of Things applications, machine
-learning, and even major parts of the Firefox web browser.
+Cientos de empresas, grandes y pequeñas, utilizan Rust en la producción de variedad de tareas. 
+Esas tareas incluyen herramientas de línea de comandos, servicios web, herramientas DevOps,
+dispositivos integrados, análisis y transcodificación de audio y video, criptomonedas,
+bioinformática, motores de búsqueda, aplicaciones de Internet de las cosas, "machine learning", 
+e incluso partes importantes del navegador web Firefox.
 
-### Open Source Developers
+### Desarrolladores de Código Abierto
 
-Rust is for people who want to build the Rust programming language, community,
-developer tools, and libraries. We’d love to have you contribute to the Rust
-language.
+Rust es para personas que quieren construir el lenguaje de programación Rust, la comunidad,
+las herramientas de desarrollo y bibliotecas. Nos encantaría que contribuyeses al lenguaje Rust.
 
-### People Who Value Speed and Stability
+### Personas que Valoran la Velocidad y la Estabilidad
 
-Rust is for people who crave speed and stability in a language. By speed, we
-mean the speed of the programs that you can create with Rust and the speed at
-which Rust lets you write them. The Rust compiler’s checks ensure stability
-through feature additions and refactoring. This is in contrast to the brittle
-legacy code in languages without these checks, which developers are often
-afraid to modify. By striving for zero-cost abstractions, higher-level features
-that compile to lower-level code as fast as code written manually, Rust
-endeavors to make safe code be fast code as well.
+Rust es para personas que anhelan velocidad y estabilidad en un lenguaje. Por velocidad, nosotros
+entendemos la velocidad de los programas que puede crear con Rust y la velocidad a la que Rust 
+te permite escribirlos. Las comprobaciones del compilador de Rust garantizan la estabilidad
+mediante la incorporación de caracteristicas y la refactorización. Esto contrasta con el frágil
+código heredado en lenguajes sin estas comprobaciones, que los desarrolladores suelen no modificar 
+por temor. Al esforzarse por lograr abstracciones de coste cero, características de nivel superior 
+que se compilan en código de nivel inferior tan rápido como el código escrito manualmente, Rust 
+se esfuerza por hacer que el código seguro sea también código rápido.
 
-The Rust language hopes to support many other users as well; those mentioned
-here are merely some of the biggest stakeholders. Overall, Rust’s greatest
-ambition is to eliminate the trade-offs that programmers have accepted for
-decades by providing safety *and* productivity, speed *and* ergonomics. Give
-Rust a try and see if its choices work for you.
+El lenguaje Rust espera ser compatible también con muchos otros usuarios; los mencionados son solo 
+algunos de los principales interesados. En general, la mayor ambición de Rust es eliminar las 
+concesiones que los programadores han aceptado durante décadas, brindando seguridad *y* productividad, 
+velocidad *y* ergonomía. Prueba Rust y comprueba si sus opciones funcionan para ti.
 
-## Who This Book Is For
+## Para Quien Es Este Libro
 
-This book assumes that you’ve written code in another programming language but
-doesn’t make any assumptions about which one. We’ve tried to make the material
-broadly accessible to those from a wide variety of programming backgrounds. We
-don’t spend a lot of time talking about what programming *is* or how to think
-about it. If you’re entirely new to programming, you would be better served by
-reading a book that specifically provides an introduction to programming.
+Este libro asume que has escrito código en otro lenguaje de programación pero no hace ninguna 
+suposición sobre cuál. Intentamos hacer el material ampliamente accesible para aquellos con una amplia 
+variedad de antecedentes en programación. No dedicaremos mucho tiempo a hablar sobre qué *es* la 
+programación o cómo pensar sobre ella. Si es completamente nuevo en programación, estaría mejor leer 
+un libro que proporcione específicamente una introducción a la programación.
 
-## How to Use This Book
+## Como Usar Este Libro
 
-In general, this book assumes that you’re reading it in sequence from front to
-back. Later chapters build on concepts in earlier chapters, and earlier
-chapters might not delve into details on a topic; we typically revisit the
-topic in a later chapter.
+En general, este libro asume que lo está leyendo en secuencia, desde el principio hasta el final. 
+Los capítulos se basan en conceptos de capítulos anteriores y es posible que los capítulos no profundicen 
+en los detalles de un tema; normalmente volvemos a visitar el tema en un capítulo posterior.
 
-You’ll find two kinds of chapters in this book: concept chapters and project
-chapters. In concept chapters, you’ll learn about an aspect of Rust. In project
-chapters, we’ll build small programs together, applying what you’ve learned so
-far. Chapters 2, 12, and 20 are project chapters; the rest are concept chapters.
+Encontrará dos tipos de capítulos en este libro: capítulos de conceptos y capítulos de proyectos. En 
+los capítulos de conceptos, aprenderá sobre aspectos de Rust. En los capítulos de proyectos crearemos pequeños 
+programas, aplicando lo que ha aprendido antes. Los capítulos 2, 12 y 20 son capítulos de proyectos; el resto 
+son capítulos de conceptos.
 
 Chapter 1 explains how to install Rust, how to write a “Hello, world!” program,
 and how to use Cargo, Rust’s package manager and build tool. Chapter 2 is a
