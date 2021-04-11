@@ -163,7 +163,7 @@ main  main.rs
 Con CMD en Windows, debes ingresar lo siguiente:
 
 ```cmd
-> dir /B %= la opción / B dice que solo se muestren los nombres de los archivos =%
+> dir /B %= la opción /B dice que solo se muestren los nombres de los archivos =%
 main.exe
 main.pdb
 main.rs
