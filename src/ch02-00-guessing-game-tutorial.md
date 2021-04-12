@@ -32,10 +32,6 @@ Mira el archivo *Cargo.toml* generado:
 {{#include ../listings/ch02-guessing-game-tutorial/no-listing-01-cargo-new/Cargo.toml}}
 ```
 
-```toml
-{{#include ../listings/ch02-guessing-game-tutorial/no-listing-01-cargo-new/Cargo.toml}}
-```
-
 Si la información del autor que Cargo obtuvo del entorno no es correcta, corríjelo en el archivo y guárdalo nuevamente.
 
 Como viste en el Capítulo 1, `cargo new` genera un programa "¡Hola, mundo!".
