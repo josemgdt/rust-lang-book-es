@@ -1,0 +1,30 @@
+Previous step: Forking the original work and create a specific branch to work on
+*****************************************************************
+First of all. I (we?) need a repo in my github account: 
+https://github.com/josemgdt/rust-lang-book-es
+
+More github steeps
+***************
+a) https://github.com/rust-lang/book/ forked to https://github.com/josemgdt/rust-lang-book-es 
+b) Creation of spanish-branch "es-master" using the github branch selector from master branch.
+c) Making "es-master" the default branch using "Settings->Branches->Default branch"
+
+I'm not going to use a branch local copy. Instead, I'm going to edit directly on my github repo.
+
+Installation: curl, rustup (rustc, Cargo & folks)
+*************************************
+curl is a tool to transfer data from or to a server. This tool is not present on my Debian system, but there is an installation package in Synaptic. Here we go!
+
+a) Installation via script. Command: $ curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
+b) Test: $ rustc --version
+             -> rustc 1.51.0 (2fd73fabe 2021-03-23)  
+                          OK. Rust is working.
+c) README.md states that mdBook is required for build the book:
+             $ cargo install mdbook
+             -> . . . (a lot of output lines later . . .)
+             $ echo $PATH                 # We will have to add Cargo's bin directory to our PATH
+                                                     # This was already done in the Rust installation
+             -> /home/operarcnc/.cargo/bin:/usr/local/bin:  . . . OK
+             $ mdbook -V
+             -> mdbook v0.4.7
+                          OK. mdBook is working.
