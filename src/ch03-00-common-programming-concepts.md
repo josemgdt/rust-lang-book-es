@@ -17,7 +17,7 @@ temprano de ellos le darán una base fuerte para comenzar.
 > usar estas palabras como nombres de variables o funciones. La mayoría de las palabras clave tienen
 > significados especiales, y los usará para realizar varias tareas en sus programas
 > Rust; algunos no tienen una funcionalidad actual asociada con ellas, pero
-> se ha reservado para funciones que podrían agregarse a Rust en el futuro. Tú
-> puede encontrar una lista de las palabras clave en el [Apéndice A][appendix_a].
+> se ha reservado para funciones que podrían agregarse a Rust en el futuro.
+> Puede encontrar una lista de las palabras clave en el [Apéndice A][appendix_a].
 
 [appendix_a]: appendix-01-keywords.md
