@@ -45,6 +45,7 @@ ch03-00-common-programming-concepts.md
 ch03-01-variables-and-mutability.md
 ch03-02-data-types.md
 ch03-03-how-functions-work.md
+ch03-04-comments.md
 
 
 
