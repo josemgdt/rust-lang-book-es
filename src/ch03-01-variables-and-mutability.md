@@ -1,7 +1,7 @@
 ## Variables y Mutabilidad
 
 Como se mencionó en el Capítulo 2, las variables predeterminadas son inmutables. Este es uno de
-los muchos "codazos" que Rust le da para escribir su código de manera que aproveche
+los muchos "apoyos" que Rust le da para escribir su código de manera que aproveche
 la seguridad y facilidad de concurrencia que ofrece Rust. Sin embargo, todavía tienes la
 opción de hacer que tus variables sean mutables. Exploremos cómo y por qué Rust
 te anima a favorecer la inmutabilidad y por qué a veces es posible que no la desees.
