@@ -1,10 +1,10 @@
 Previous step: Forking the original work and create a specific branch to work on
-*****************************************************************
+********************************************************************************
 First of all. I (we?) need a repo in my github account: 
 https://github.com/josemgdt/rust-lang-book-es
 
 More github steeps
-***************
+******************
 a) https://github.com/rust-lang/book/ forked to https://github.com/josemgdt/rust-lang-book-es 
 b) Creation of spanish-branch "es-master" using the github branch selector from master branch.
 c) Making "es-master" the default branch using "Settings->Branches->Default branch"
@@ -12,7 +12,7 @@ c) Making "es-master" the default branch using "Settings->Branches->Default bran
 I'm not going to use a branch local copy. Instead, I'm going to edit directly on my github repo.
 
 Installation: curl, rustup (rustc, Cargo & folks)
-*************************************
+*************************************************
 curl is a tool to transfer data from or to a server. This tool is not present on my Debian system, but there is an installation package in Synaptic. Here we go!
 
 a) Installation via script. Command: $ curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
@@ -29,8 +29,11 @@ c) README.md states that mdBook is required for build the book:
              -> mdbook v0.4.7
                           OK. mdBook is working.
                          
-Progress in ./src. Translated files to date from this file:
-***********************************************************
+Progress in ./src. Translated files:
+************************************
+This list is updated with each new translated file.
+* First pass: raw translation; without debugging neither style nor spelling
+
 SUMMARY.md
 ch00-00-introduction.md
 ch01-00-getting-started.md
@@ -42,3 +45,12 @@ ch03-00-common-programming-concepts.md
 ch03-01-variables-and-mutability.md
 ch03-02-data-types.md
 ch03-03-how-functions-work.md
+
+
+
+* Second step: build book in a local clone of my repository. Hunting for bugs on mdBook syntax
+
+* Third step: debugging style/spelling
+
+
+
