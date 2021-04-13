@@ -28,3 +28,17 @@ c) README.md states that mdBook is required for build the book:
              $ mdbook -V
              -> mdbook v0.4.7
                           OK. mdBook is working.
+                         
+Progress in ./src. Translated files to date from this file:
+***********************************************************
+SUMMARY.md
+ch00-00-introduction.md
+ch01-00-getting-started.md
+ch01-01-installation.md
+ch01-02-hello-world.md
+ch01-03-hello-cargo.md
+ch02-00-guessing-game-tutorial.md
+ch03-00-common-programming-concepts.md
+ch03-01-variables-and-mutability.md
+ch03-02-data-types.md
+ch03-03-how-functions-work.md
