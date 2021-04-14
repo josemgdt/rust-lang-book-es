@@ -49,6 +49,7 @@ ch03-04-comments.md
 ch03-05-control-flow.md
 ch04-00-understanding-ownership.md
 ch04-01-what-is-ownership.md
+ch04-02-references-and-borrowing.md
 
 
 
