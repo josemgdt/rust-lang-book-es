@@ -48,6 +48,7 @@ ch03-03-how-functions-work.md
 ch03-04-comments.md
 ch03-05-control-flow.md
 ch04-00-understanding-ownership.md
+ch04-01-what-is-ownership.md
 
 
 
