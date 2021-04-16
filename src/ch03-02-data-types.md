@@ -8,8 +8,7 @@ Tenga en cuenta que Rust es un lenguaje *tipeado estáticamente*, lo que signifi
 debe conocer los tipos de todas las variables en tiempo de compilación. El compilador normalmente
 puede inferir qué tipo queremos usar según el valor y cómo lo usamos. En casos
 cuando son posibles muchos tipos, como cuando convertimos una `String` a un tipo numérico
-usando `parse` en la  sección ["Comparando la conjetura con el Número Secreto
-”][comparing-the-guess-to-the-secret-number]<!-- ignore --> en el
+usando `parse` en la  sección ["Comparando la conjetura con el Número Secreto”][comparing-the-guess-to-the-secret-number]<!-- ignore --> en el
 Capítulo 2, debemos agregar una anotación de tipo, como esta:
 
 ```rust
@@ -98,8 +97,8 @@ la que usaría `isize` o `usize` es cuando indexe algún tipo de colección.
 > sobre este comportamiento. Cuando compila en modo de depuración, Rust incluye
 > comprobacion de desbordamiento de enteros, que harian que su programa entre en pánico en tiempo de ejecución si
 > ocurre este comportamiento. Rust usa el término entrar en pánico cuando un programa sale con
-> error; analizaremos los pánicos con más profundidad en la sección ["Errores Irrecuperables
-> con `pánico!`”][unrecoverable-errors-with-panic]<!-- ignore --> en el Capítulo 9.
+> error; analizaremos los pánicos con más profundidad en la sección [“Unrecoverable Errors
+> with `panic!`”][unrecoverable-errors-with-panic]<!-- ignore --> en el Capítulo 9.
 >
 > Cuando compila en modo de lanzamiento con el indicador `--release`, Rust 
 > *no* incluyen comprobaciones de desbordamiento de enteros que provocan pánico. En cambio, si
@@ -129,7 +128,7 @@ más precisión.
 
 A continuación, se muestra un ejemplo que muestra números de punto flotante en acción:
 
-<span class="filename">​​Nombre de archivo: src/main.rs</span>
+<span class="filename">Nombre de archivo: src/main.rs</span>
 
 ```rust
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-06-floating-point/src/main.rs}}
@@ -144,7 +143,7 @@ Rust admite las operaciones matemáticas básicas que esperaría para todos los
 tipos de números: suma, resta, multiplicación, división y resto.
 El siguiente código muestra cómo usarías cada uno en una declaración "let":
 
-<span class="filename">​​Nombre de archivo: src/main.rs</span>
+<span class="filename">Nombre de archivo: src/main.rs</span>
 
 ```rust
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-07-numeric-operations/src/main.rs}}
@@ -160,7 +159,7 @@ Como en la mayoría de los otros lenguajes de programación, un tipo booleano en
 valores: `verdadero` y `falso`. Los booleanos tienen un tamaño de un byte. El tipo booleano en
 Rust se especifica mediante "bool". Por ejemplo:
 
-<span class="filename">​​Nombre de archivo: src/main.rs</span>
+<span class="filename">Nombre de archivo: src/main.rs</span>
 
 ```rust
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-08-boolean/src/main.rs}}
@@ -176,7 +175,7 @@ El tipo `char` es el tipo alfabético más primitivo del lenguaje y el siguiente
 código muestra una forma de usarlo. (Tenga en cuenta que los literales `char` se especifican con
 comillas simples, a diferencia de los literales de cadena, que usan comillas dobles).
 
-<span class="filename">​​Nombre de archivo: src/main.rs</span>
+<span class="filename">Nombre de archivo: src/main.rs</span>
 
 ```rust
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-09-char/src/main.rs}}
@@ -208,7 +207,7 @@ paréntesis. Cada posición en la tupla tiene un tipo, y los tipos de
 los diferentes valores de la tupla no tienen por qué ser iguales. Hemos agregado
 anotaciones de tipo opcionales en este ejemplo:
 
-<span class="filename">​​Nombre de archivo: src/main.rs</span>
+<span class="filename">Nombre de archivo: src/main.rs</span>
 
 ```rust
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-10-tuples/src/main.rs}}
@@ -255,7 +254,7 @@ longitud fija, como las tuplas.
 En Rust, los valores que entran en una matriz se escriben como una lista separada por comas
 dentro de corchetes:
 
-<span class="filename">​​Nombre de archivo: src/main.rs</span>
+<span class="filename">Nombre de archivo: src/main.rs</span>
 
 ```rust
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-13-arrays/src/main.rs}}
@@ -308,7 +307,7 @@ forma más concisa.
 Una matriz es una sola porción de memoria asignada en la pila. Puedes acceder a los
 elementos de una matriz usando indexación, asi:
 
-<span class="filename">​​Nombre de archivo: src/main.rs</span>
+<span class="filename">Nombre de archivo: src/main.rs</span>
 
 ```rust
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-14-array-indexing/src/main.rs}}
@@ -324,7 +323,7 @@ obtendrá el valor `2` del índice `[1]` en la matriz.
 de la matriz? Digamos que cambia el ejemplo a lo siguiente, que usa código
 similar al juego de adivinanzas del Capítulo 2 para obtener un índice de matriz del usuario:
 
-<span class="filename">​​Nombre de archivo: src/main.rs</span>
+<span class="filename">Nombre de archivo: src/main.rs</span>
 
 ```rust,ignore,panics
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-15-invalid-array-access/src/main.rs}}
