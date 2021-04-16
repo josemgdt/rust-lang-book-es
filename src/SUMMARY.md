@@ -10,8 +10,8 @@
 
 - [Introducción](ch01-00-getting-started.md)
     - [Instalación](ch01-01-installation.md)
-    - [¡Hola, Mundo!](Ch01-02-hello-world.md)
-    - [¡Hola, Cargo!](Ch01-03-hello-cargo.md)
+    - [¡Hola, Mundo!](ch01-02-hello-world.md)
+    - [¡Hola, Cargo!](ch01-03-hello-cargo.md)
 
 - [Programación de un Juego de Adivinanzas](ch02-00-guessing-game-tutorial.md)
 
@@ -23,7 +23,7 @@
     - [Control de Flujo](ch03-05-control-flow.md)
 
 - [Entendiendo la Propiedad](ch04-00-understanding-ownership.md)
-    - [¿Qué es Propiedad?](Ch04-01-what-is-ownership.md)
+    - [¿Qué es Propiedad?](ch04-01-what-is-ownership.md)
     - [Referencias y Préstamos](ch04-02-references-and-borrowing.md)
     - [El Tipo Slice](ch04-03-slices.md)
 
@@ -52,9 +52,9 @@
     - [Almacenamiento de Claves con Valores Asociados en Mapas Hash](ch08-03-hash-maps.md)
 
 - [Manejo de Errores](ch09-00-error-handling.md)
-    - [Errores Irrecuperables con `¡panic!`](Ch09-01-unrecoverable-errors-with-panic.md)
+    - [Errores Irrecuperables con `¡panic!`](ch09-01-unrecoverable-errors-with-panic.md)
     - [Errores Recuperables con `Result`](ch09-02-recoverable-errors-with-result.md)
-    - [`panic!` o no `panic!`](Ch09-03-to-panic-or-not-to-panic.md)
+    - [`panic!` o no `panic!`](ch09-03-to-panic-or-not-to-panic.md)
 
 - [Tipos Genéricos, Caracteristicas y Tiempos de Vida](ch10-00-generics.md)
     - [Tipos de Datos Genéricos](ch10-01-syntax.md)
