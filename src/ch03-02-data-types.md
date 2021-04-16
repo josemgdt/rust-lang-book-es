@@ -217,7 +217,7 @@ La variable `tup` se une a la tupla completa, porque una tupla se considera un
 elemento compuesto único. Para obtener los valores individuales de una tupla, podemos
 usar la coincidencia de patrones para desestructurar un valor de tupla, como esto:
 
-<span class="filename">​​Nombre de archivo: src / main.rs</span>
+<span class="filename">Nombre de archivo: src / main.rs</span>
 
 ```rust
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-11-destructuring-tuples/src/main.rs}}
@@ -233,7 +233,7 @@ Además de desestructurar mediante la coincidencia de patrones, podemos acceder 
 tupla directamente mediante el uso de un punto (`.`) seguido del índice del valor que
 quiere acceder. Por ejemplo:
 
-<span class="filename">​​Nombre de archivo: src/main.rs</span>
+<span class="filename">Nombre de archivo: src/main.rs</span>
 
 
 ```rust
@@ -292,7 +292,7 @@ indica que la matriz contiene cinco elementos.
 Escribir el tipo matriz de esta manera parece similar a una sintaxis alternativa para
 inicializar una matriz: si desea crear una matriz que contenga el mismo
 valor para cada elemento, puede especificar el valor inicial, seguido de un
-punto y coma, y ​​luego la longitud de la matriz entre corchetes, como se muestra aquí:
+punto y coma, y luego la longitud de la matriz entre corchetes, como se muestra aquí:
 
 ```rust
 let a = [3; 5];
