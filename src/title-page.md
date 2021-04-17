@@ -1,48 +1,48 @@
-# The Rust Programming Language
+# El lenguaje de programación Rust
 
-*by Steve Klabnik and Carol Nichols, with contributions from the Rust Community*
+*por Steve Klabnik y Carol Nichols, con contribuciones de la Comunidad Rust *
 
-This version of the text assumes you’re using Rust 1.50 or later with
-`edition="2018"` in *Cargo.toml* of all projects to use Rust 2018 Edition
-idioms. See the [“Installation” section of Chapter 1][install]<!-- ignore -->
-to install or update Rust, and see the new [Appendix E][editions]<!-- ignore
---> for information on editions.
+Esta versión del texto asume que estás usando Rust 1.50 o posterior con
+`edition="2018 "` en el archivo *Cargo.toml* de todos los proyectos, para usar el estilo
+Rust 2018 Edition. Consulte la sección [“Instalación” del Capítulo 1][instalar]<!-- ignore -->
+para instalar o actualizar Rust, y vea el nuevo [Apéndice E][ediciones]<!-- ignore --> para información sobre ediciones.
 
-The 2018 Edition of the Rust language includes a number of improvements that
-make Rust more ergonomic and easier to learn. This iteration of the book
-contains a number of changes to reflect those improvements:
+La edición 2018 del lenguaje Rust incluye una serie de mejoras que
+hacen que Rust sea más ergonómico y fácil de aprender. Esta iteración del libro
+contiene una serie de cambios para reflejar esas mejoras:
 
-- Chapter 7, “Managing Growing Projects with Packages, Crates, and Modules,”
-  has been mostly rewritten. The module system and the way paths work in the
-  2018 Edition were made more consistent.
-- Chapter 10 has new sections titled “Traits as Parameters” and “Returning
-  Types that Implement Traits” that explain the new `impl Trait` syntax.
-- Chapter 11 has a new section titled “Using `Result<T, E>` in Tests” that
-  shows how to write tests that use the `?` operator.
-- The “Advanced Lifetimes” section in Chapter 19 was removed because compiler
-  improvements have made the constructs in that section even rarer.
-- The previous Appendix D, “Macros,” has been expanded to include procedural
-  macros and was moved to the “Macros” section in Chapter 19.
-- Appendix A, “Keywords,” also explains the new raw identifiers feature that
-  enables code written in the 2015 Edition and the 2018 Edition to interoperate.
-- Appendix D is now titled “Useful Development Tools” and covers recently
-  released tools that help you write Rust code.
-- We fixed a number of small errors and imprecise wording throughout the book.
-  Thank you to the readers who reported them!
+- El Capítulo 7, "Gestión de Proyectos en Crecimiento con Paquetes, Cajas y Módulos",
+  se ha reescrito en su mayor parte. El sistema de módulos y la forma en que funcionan las rutas en
+  la edición 2018 se hizo más consistente.
+- El capítulo 10 tiene nuevas secciones tituladas "Traits como parámetros" y "Retornando
+  Tipos que Implementan Traits” que explican la nueva sintaxis de los Traits implícitos.
+- El Capítulo 11 tiene una nueva sección titulada "Uso de `Result<T, E>` en Tests" que
+  muestra cómo escribir tests que utilizan el operador `?`.
+- La sección "Lifetimes avanzados" del Capítulo 19 se eliminó porque las mejoras
+  del compilador han hecho que las construcciones en esa sección sean de uso raro.
+- El Apéndice D anterior, "Macros", se ha ampliado para incluir procedimientos
+  macros y se movió a la sección "Macros" en el Capítulo 19.
+- El Apéndice A, "Palabras clave", también explica la nueva función de identificadores sin procesar que
+  permite que el código escrito en la edición 2015 y la edición 2018 interoperen.
+- El Apéndice D ahora se titula "Herramientas de desarrollo útiles" y cubre
+  herramientas publicadas recientemente que le ayudarán a escribir código Rust.
+- Corregimos una serie de pequeños errores y una redacción imprecisa a lo largo del libro.
+  ¡Gracias a los lectores que los informaron!
 
-Note that any code in earlier iterations of *The Rust Programming Language*
-that compiled will continue to compile without `edition="2018"` in the
-project’s *Cargo.toml*, even as you update the Rust compiler version you’re
-using. That’s Rust’s backward compatibility guarantees at work!
+Tenga en cuenta que cualquier código en iteraciones anteriores de *The Rust Programming Language*
+que compilaba continuará compilando sin `edition="2018 "` en el archivo
+*Cargo.toml* del proyecto, incluso si actualiza la versión del compilador de Rust,
+utilizado. ¡Eso garantíza de compatibilidad con versiones anteriores de Rust!
 
-The HTML format is available online at
+El formato HTML (en inglés) está disponible en línea en
 [https://doc.rust-lang.org/stable/book/](https://doc.rust-lang.org/stable/book/)
-and offline with installations of Rust made with `rustup`; run `rustup docs
---book` to open.
+y offline con instalaciones de Rust hechas con "rustup"; ejecutar `rustup docs
+--book` para abrirlo.
 
-This text is available in [paperback and ebook format from No Starch
+Este texto (en inglés) está disponible en [formato de bolsillo y libro electrónico de No Starch
 Press][nsprust].
 
-[install]: ch01-01-installation.html
-[editions]: appendix-05-editions.html
+[instalar]: ch01-01-installation.html
+[ediciones]: appendix-05-editions.html
 [nsprust]: https://nostarch.com/rust
+
