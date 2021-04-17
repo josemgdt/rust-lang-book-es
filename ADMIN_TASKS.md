@@ -1,7 +1,7 @@
 # Tareas administrativas
 
-Esta documentación es para que Carol, Steve y cualquier otra persona que administre el repositorio
-recuerde cómo realizar tareas de mantenimiento ocasionales.
+Esta documentación es un recordatorio para que Carol, Steve y cualquier otra persona que 
+administre el repositorio sobre cómo realizar tareas de mantenimiento ocasionales.
 
 ## Actualizar la versión `rustc`
 
