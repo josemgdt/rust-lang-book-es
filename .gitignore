@@ -1,5 +1,6 @@
 book/
 *~
+*.odt
 .idea
 .DS_Store
 target
