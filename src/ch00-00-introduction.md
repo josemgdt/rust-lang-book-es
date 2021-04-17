@@ -117,7 +117,8 @@ El capítulo 18 es una referencia sobre patrones y coincidencia de patrones, que
 
 En el Capítulo 20, completaremos un proyecto en el que implementaremos un servidor web multiproceso!
 
-Por último, algunos apéndices contienen información útil sobre el idioma en un formato más parecido a una referencia. El Apéndice A cubre las palabras clave de Rust, el Apéndice B
+Por último, algunos apéndices contienen información útil sobre el idioma en un formato más parecido a una referencia. 
+El Apéndice A cubre las palabras clave de Rust, el Apéndice B
 cubre los operadores y símbolos de Rust, el Apéndice C cubre los traits derivables
 proporcionada por la biblioteca estándar, el Apéndice D cubre algunos desarrollos útiles
 herramientas y el Apéndice E explica las ediciones de Rust.
