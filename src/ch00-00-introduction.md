@@ -140,14 +140,11 @@ y cierres.
 
 En el Capítulo 20, completaremos un proyecto en el que implementaremos un servidor web multiproceso!
 
-Por último, algunos apéndices contienen información útil sobre el idioma en un formato más parecido a 
-una referencia. El Apéndice A cubre las palabras clave de Rust, el Apéndice B
+Por último, algunos apéndices contienen información útil sobre el idioma en un formato más parecido a una referencia. 
+El Apéndice A cubre las palabras clave de Rust, el Apéndice B
 cubre los operadores y símbolos de Rust, el Apéndice C cubre los traits derivables
 proporcionada por la biblioteca estándar, el Apéndice D cubre algunos desarrollos útiles
 herramientas y el Apéndice E explica las ediciones de Rust.
-
-No hay una forma incorrecta de leer este libro: si quieres saltar adelante, ¡adelante!
-Puede que tengas que volver a los capítulos anteriores si experimentas alguna confusión. Pero haz lo que funcione para ti.
 
 <span id="ferris"></span>
 
@@ -175,3 +172,4 @@ Los archivos fuente a partir de los cuales se genera este libro se pueden encont
 [GitHub][book].
 
 [book]: https://github.com/rust-lang/book/tree/master/src
+
