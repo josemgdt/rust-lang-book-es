@@ -39,7 +39,7 @@ The `area` function is supposed to calculate the area of one rectangle, but the
 function we wrote has two parameters. The parameters are related, but that’s
 not expressed anywhere in our program. It would be more readable and more
 manageable to group width and height together. We’ve already discussed one way
-we might do that in [“The Tuple Type”][the-tuple-type]<!-- ignore --> section
+we might do that in [“The Tuple Type”][El Tipo Tupla]<!-- ignore --> section
 of Chapter 3: by using tuples.
 
 ### Refactoring with Tuples
