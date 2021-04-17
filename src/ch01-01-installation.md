@@ -100,8 +100,8 @@ Si ve esta información, ¡ha instalado Rust correctamente! Si no
 ves esta información y estás en Windows, verifica que Rust esté en la
 variable de sistema "%PATH%". Si todo es correcto y Rust aún no funciona, hay
 varios lugares donde puedes obtener ayuda. El más fácil es el canal #beginners en
-[Discord oficial de Rust][discord]. Allí podrás charlar con otros rustáceos.
-(un apodo tonto que nos llamamos a nosotros mismos) que puede ayudarte. Otros grandes
+[Discord oficial de Rust][discord]. Allí podrás charlar con otros rustáceos
+(un apodo tonto que nos llamamos a nosotros mismos) que pueden ayudarte. Otros grandes
 recursos incluyen [el foro de usuarios][users] y [Stack Overflow][stackoverflow].
 
 [discord]: https://discord.gg/rust-lang

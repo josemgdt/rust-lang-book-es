@@ -78,8 +78,8 @@ En Windows, ingrese el comando `.\main.exe` en lugar de `./main`:
 ```
 
 Independientemente del sistema operativo, la cadena "¡Hola, mundo!" debería imprimirse en
-la terminal. Si no ves este resultado, consulta la
-[“Solución de problemas”][troubleshooting]<!-- ignore --> parte de la sección
+la terminal. Si no ves este resultado, consulta la parte de
+[“Solución de problemas”][troubleshooting]<!-- ignore -->  la sección
 Instalación para obtener ayuda.
 
 Si se imprimió "¡Hola, mundo!", ¡Felicitaciones! Has escrito oficialmente un
@@ -195,4 +195,5 @@ crece, querrás administrar todas las opciones y facilitar el intercambio de
 código. A continuación, le presentaremos la herramienta Cargo, que lo ayudará a escribir
 programas de Rust en el mundo real.
 
-[troubleshooting]: ch01-01-installation.html#troubleshooting
+[troubleshooting]: ch01-01-installation.html#Solución de Problemas
+
