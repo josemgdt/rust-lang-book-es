@@ -244,4 +244,4 @@ y escritura de código Rust. En el Capítulo 2, crearemos un programa de juego d
 Si prefieres comenzar por aprender cómo funcionan los conceptos de programación comunes en
 Rust, ve al Capítulo 3 y luego regresa al Capítulo 2.
 
-[installation]: ch01-01-installation.html#Instalación
+[installation]: ch01-01-installation.html#Instalacion

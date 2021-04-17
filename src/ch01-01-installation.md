@@ -1,4 +1,4 @@
-## Instalación
+## Instalacion
 
 El primer paso es instalar Rust. Descargaremos Rust a través de "rustup", una
 herramienta de línea de comandos para administrar versiones de Rust y herramientas asociadas. Necesitarás
