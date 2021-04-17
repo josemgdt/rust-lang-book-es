@@ -10,7 +10,7 @@ Recall from [“Handling Potential Failure with the `Result`
 Type”][handle_failure]<!-- ignore --> in Chapter 2 that the `Result` enum is
 defined as having two variants, `Ok` and `Err`, as follows:
 
-[handle_failure]: ch02-00-guessing-game-tutorial.html#handling-potential-failure-with-the-result-type
+[handle_failure]: ch02-00-guessing-game-tutorial.html#Manejo de Fallos Potenciales con el Tipo `Result`
 
 ```rust
 enum Result<T, E> {
