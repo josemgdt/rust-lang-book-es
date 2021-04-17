@@ -1,4 +1,4 @@
-## El Tipo  Slice
+## El Tipo Slice
 
 Otro tipo de datos que no tiene propiedad es el *slice*. Los Slices permiten
 hacer referencia a una secuencia contigua de elementos en una colección en lugar de 
