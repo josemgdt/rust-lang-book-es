@@ -214,7 +214,7 @@ del Listado 4-1 usando una `String` en lugar de una cadena literal:
 
 Hay un punto natural en el que podemos devolver la memoria que requirio nuestra `String`
 al asignador: cuando `s` sale del alcance. Cuando una variable sale del
-alcance, Rust llama a una función especial por nosotros. Esta función se llama [`drop`],
+alcance, Rust llama a una función especial por nosotros. Esta función se llama [drop],
 y es donde el autor de "String" puede poner el código para devolver la memoria.
 Rust llama `drop` automáticamente en el corchete de cierre.
 
@@ -464,5 +464,5 @@ común. Afortunadamente para nosotros, Rust tiene una función para este concept
 [derivable-traits]: appendix-03-derivable-traits.html
 [method-syntax]: ch05-03-method-syntax.html#method-syntax
 [paths-module-tree]: ch07-03-paths-for-referring-to-an-item-in-the-module-tree.html
-[`drop`]: https://doc.rust-lang.org/std/ops/trait.Drop.html#tymethod.drop
+[drop]: https://doc.rust-lang.org/std/ops/trait.Drop.html#tymethod.drop
 
