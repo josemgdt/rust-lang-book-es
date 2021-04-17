@@ -766,7 +766,7 @@ programa está haciendo exactamente lo que le dijimos que hiciera: ¡pedir otra 
 El usuario siempre puede interrumpir el programa usando el atajo de teclado <span
 class="keystroke">ctrl-c</span>. Pero hay otra forma de escapar de este
 monstruo insaciable, como se menciona en la discusión de "parse" en ["Comparando 
-la Conjetura con el Número Secreto”](#comparing-the-guess-to-the-secret-number)<!--
+la Conjetura con el Número Secreto”](#Comparando la Conjetura con el Número Secreto)<!--
 ignore -->: si el usuario ingresa una respuesta no numérica, el programa se bloqueará.
 El usuario puede aprovechar eso para salir, como se muestra aquí:
 
@@ -921,4 +921,4 @@ lenguajes. El Capítulo 5 analiza las estructuras y la sintaxis de métodos, y e
 explica cómo funcionan las enumeraciones.
 
 [variables-and-mutability]:
-ch03-01-variables-and-mutability.html#variables-and-mutability
+ch03-01-variables-and-mutability.html#Variables y Mutabilidad

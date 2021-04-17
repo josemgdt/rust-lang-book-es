@@ -287,5 +287,5 @@ is also sometimes used as part of the prelude pattern: see [the standard
 library documentation](../std/prelude/index.html#other-preludes)<!-- ignore -->
 for more information on that pattern.
 
-[rand]: ch02-00-guessing-game-tutorial.html#generating-a-random-number
+[rand]: ch02-00-guessing-game-tutorial.html#Generando un Número Aleatorio
 [writing-tests]: ch11-01-writing-tests.html#how-to-write-tests
