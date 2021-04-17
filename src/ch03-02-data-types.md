@@ -361,7 +361,7 @@ tipo de error al salir inmediatamente en lugar de permitir el acceso a la memori
 continuar. El capítulo 9 trata más sobre el manejo de errores de Rust.
 
 [comparing-the-guess-to-the-secret-number]:
-ch02-00-guessing-game-tutorial.html#comparing-the-guess-to-the-secret-number
+ch02-00-guessing-game-tutorial.html#Comparando la Conjetura con el Número Secreto
 [control-flow]: ch03-05-control-flow.html#control-flow
 [strings]: ch08-02-strings.html#storing-utf-8-encoded-text-with-strings
 [unrecoverable-errors-with-panic]: ch09-01-unrecoverable-errors-with-panic.html
