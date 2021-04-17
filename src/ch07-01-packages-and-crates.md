@@ -61,4 +61,4 @@ our crate, it refers to the `struct Rng` that we defined. We would access the
 Let’s move on and talk about the module system!
 
 [modules]: ch07-02-defining-modules-to-control-scope-and-privacy.html
-[rand]: ch02-00-guessing-game-tutorial.html#generating-a-random-number
+[rand]: ch02-00-guessing-game-tutorial.html#Generando un Número Secreto

@@ -676,6 +676,6 @@ of the call to `job()`, meaning other workers cannot receive jobs.
 
 [creating-type-synonyms-with-type-aliases]:
 ch19-04-advanced-types.html#creating-type-synonyms-with-type-aliases
-[integer-types]: ch03-02-data-types.html#integer-types
+[integer-types]: ch03-02-data-types.html#Tipos de Enteros
 [storing-closures-using-generic-parameters-and-the-fn-traits]:
 ch13-01-closures.html#storing-closures-using-generic-parameters-and-the-fn-traits

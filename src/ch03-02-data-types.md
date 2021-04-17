@@ -31,7 +31,7 @@ Un tipo *escalar* representa un valor único. Rust tiene cuatro tipos escalares 
 enteros, números de punto flotante, booleanos y caracteres. Puedes reconocer
 estos de otros lenguajes de programación. Veamos cómo funcionan en Rust.
 
-#### Tipos de enteros
+#### Tipos de Enteros
 
 Un *entero* es un número sin componente fraccionario. Usamos un tipo entero
 en el Capítulo 2, el tipo `u32`. Esta declaración de tipo indica que el
@@ -168,7 +168,7 @@ Rust se especifica mediante "bool". Por ejemplo:
 La forma principal de utilizar valores booleanos es a través de condicionales, como una expresión "if". 
 Cubriremos cómo funcionan las expresiones "if" en Rust en la sección ["Control de Flujo”][control-flow]<!-- ignore -->.
 
-#### El tipo Carácter
+#### El Tipo Carácter
 
 Hasta ahora hemos trabajado solo con números, pero Rust también admite letras.
 El tipo `char` es el tipo alfabético más primitivo del lenguaje y el siguiente
