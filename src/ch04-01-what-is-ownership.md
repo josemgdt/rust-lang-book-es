@@ -460,7 +460,7 @@ Pero esto es demasiada ceremonia y mucho trabajo para un concepto que debería s
 común. Afortunadamente para nosotros, Rust tiene una función para este concepto, llamada
 *referencias*.
 
-[data-types]: ch03-02-data-types.html#data-types
+[data-types]: ch03-02-data-types.html#Tipos de Datos
 [derivable-traits]: appendix-03-derivable-traits.html
 [method-syntax]: ch05-03-method-syntax.html#method-syntax
 [paths-module-tree]: ch07-03-paths-for-referring-to-an-item-in-the-module-tree.html

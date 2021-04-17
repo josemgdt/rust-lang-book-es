@@ -362,7 +362,7 @@ Cuando esté listo para seguir adelante, hablaremos sobre un concepto en Rust qu
 existe comúnmente en otros lenguajes de programación: propiedad.
 
 [comparing-the-guess-to-the-secret-number]:
-ch02-00-guessing-game-tutorial.html#comparing-the-guess-to-the-secret-number
+ch02-00-guessing-game-tutorial.html#Comparando la Conjetura con el Número Secreto
 [quitting-after-a-correct-guess]:
-ch02-00-guessing-game-tutorial.html#quitting-after-a-correct-guess
+ch02-00-guessing-game-tutorial.html#Salir Después de una Suposición Correcta
 

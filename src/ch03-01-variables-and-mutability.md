@@ -185,5 +185,5 @@ Ahora que hemos explorado cómo funcionan las variables, veamos más tipos de da
 podemos tener.
 
 [comparing-the-guess-to-the-secret-number]:
-ch02-00-guessing-game-tutorial.html#comparing-the-guess-to-the-secret-number
-[data-types]: ch03-02-data-types.html#data-types
+ch02-00-guessing-game-tutorial.html#Comparando la Conjetura con el Número Secreto
+[data-types]: ch03-02-data-types.html#Tipos de Datos

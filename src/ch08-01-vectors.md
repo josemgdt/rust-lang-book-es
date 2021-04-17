@@ -237,7 +237,7 @@ to review [the API documentation][vec-api] for all the many useful methods defin
 method removes and returns the last element. Let’s move on to the next
 collection type: `String`!
 
-[data-types]: ch03-02-data-types.html#data-types
+[data-types]: ch03-02-data-types.html#Tipos de Datos
 [nomicon]: ../nomicon/vec.html
 [vec-api]: ../std/vec/struct.Vec.html
 [deref]: ch15-02-deref.html#following-the-pointer-to-the-value-with-the-dereference-operator
