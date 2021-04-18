@@ -54,6 +54,7 @@ ch04-03-slices.md
 ch05-00-structs.md
 ch05-01-defining-structs.md
 ch05-02-example-structs.md
+ch05-03-method-syntax.md
 
 
 

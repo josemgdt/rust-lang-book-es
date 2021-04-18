@@ -338,4 +338,4 @@ inner value, the value is copied in and out of the `Cell<T>`. There’s also
 we’ll discuss its use in Chapter 16. Check out the standard library docs for
 more details on the differences between these types.
 
-[wheres-the---operator]: ch05-03-method-syntax.html#wheres-the---operator
+[wheres-the---operator]: ch05-03-method-syntax.html#Donde esta el operador `->`?

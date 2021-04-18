@@ -58,7 +58,7 @@ instancia de un tipo en un bloque `impl` en lugar de hacer que futuros usuarios 
 de código tengan que buscar las capacidades de `Rectangle` en varios lugares de la biblioteca que
 proveemos.
 
-> ### Dónde está el operador `->`?
+> ### Donde esta el operador `->`?
 >
 > En C y C ++, se usan dos operadores diferentes para llamar a los métodos; usted usa
 > `.` si está llamando a un método directamente en el objeto y `->` si está
