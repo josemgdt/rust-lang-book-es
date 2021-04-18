@@ -179,7 +179,7 @@ The `Default` trait is required when you use the method `unwrap_or_default` on
 `T` stored in the `Option<T>`.
 
 [creating-instances-from-other-instances-with-struct-update-syntax]:
-ch05-01-defining-structs.html#creating-instances-from-other-instances-with-struct-update-syntax
+ch05-01-defining-structs.html#Creación de Instancias a Partir de Otras Instancias con Sintaxis de Actualización de Estructuras
 [stack-only-data-copy]:
 ch04-01-what-is-ownership.html#Datos solo en Pila: Copy
 [ways-variables-and-data-interact-clone]:
