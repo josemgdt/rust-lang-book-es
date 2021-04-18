@@ -50,6 +50,10 @@ ch03-05-control-flow.md
 ch04-00-understanding-ownership.md
 ch04-01-what-is-ownership.md
 ch04-02-references-and-borrowing.md
+ch04-03-slices.md
+ch05-00-structs.md
+ch05-01-defining-structs.md
+
 
 
 
