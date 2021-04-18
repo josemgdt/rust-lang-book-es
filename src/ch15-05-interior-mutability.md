@@ -312,7 +312,7 @@ can both refer to `a`, which is what we did in Listing 15-18.
 After we’ve created the lists in `a`, `b`, and `c`, we add 10 to the value in
 `value`. We do this by calling `borrow_mut` on `value`, which uses the
 automatic dereferencing feature we discussed in Chapter 5 (see the section
-[“Where’s the `->` Operator?”][wheres-the---operator]<!-- ignore -->) to
+[“Donde esta el operador `->`?”][wheres-the---operator]<!-- ignore -->) to
 dereference the `Rc<T>` to the inner `RefCell<T>` value. The `borrow_mut`
 method returns a `RefMut<T>` smart pointer, and we use the dereference operator
 on it and change the inner value.
@@ -339,3 +339,4 @@ we’ll discuss its use in Chapter 16. Check out the standard library docs for
 more details on the differences between these types.
 
 [wheres-the---operator]: ch05-03-method-syntax.html#Donde esta el operador `->`?
+
