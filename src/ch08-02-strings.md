@@ -1,4 +1,4 @@
-## Storing UTF-8 Encoded Text with Strings
+## Almacenando Texto Codificado UTF-8 con Strings
 
 We talked about strings in Chapter 4, but we’ll look at them in more depth now.
 New Rustaceans commonly get stuck on strings for a combination of three
