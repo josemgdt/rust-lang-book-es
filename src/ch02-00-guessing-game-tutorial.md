@@ -766,7 +766,7 @@ programa está haciendo exactamente lo que le dijimos que hiciera: ¡pedir otra 
 El usuario siempre puede interrumpir el programa usando el atajo de teclado <span
 class="keystroke">ctrl-c</span>. Pero hay otra forma de escapar de este
 monstruo insaciable, como se menciona en la discusión de "parse" en ["Comparando 
-la Conjetura con el Número Secreto”](#comparando-la-conjetura-con-el-número-secreto)<!--
+la Conjetura con el Número Secreto”](#comparando-la-conjetura-con-el-numero-secreto)<!--
 ignore -->: si el usuario ingresa una respuesta no numérica, el programa se bloqueará.
 El usuario puede aprovechar eso para salir, como se muestra aquí:
 

@@ -1,4 +1,4 @@
-## Unrecoverable Errors with `panic!`
+## Errores Irrecuperables con `panic!`
 
 Sometimes, bad things happen in your code, and there’s nothing you can do about
 it. In these cases, Rust has the `panic!` macro. When the `panic!` macro

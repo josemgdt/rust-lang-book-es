@@ -361,7 +361,7 @@ lenguajes de bajo nivel, este tipo de comprobación no se realiza y, cuando prop
 tipo de error al salir inmediatamente en lugar de permitir el acceso a la memoria y
 continuar. El capítulo 9 trata más sobre el manejo de errores de Rust.
 
-[comparing-the-guess-to-the-secret-number]:ch02-00-guessing-game-tutorial.html#comparando-la-conjetura-con-el-número-secreto
+[comparing-the-guess-to-the-secret-number]:ch02-00-guessing-game-tutorial.html#comparando-la-conjetura-con-el-numero-secreto
 [control-flow]: ch03-05-control-flow.html#control-de-flujo
 [strings]: ch08-02-strings.html#almacenando-texto-codificado-utf-8-con-strings
 [unrecoverable-errors-with-panic]: ch09-01-unrecoverable-errors-with-panic.html

@@ -183,5 +183,5 @@ El error dice que no podemos mutar el tipo de una variable:
 Ahora que hemos explorado cómo funcionan las variables, veamos más tipos de datos que
 podemos tener.
 
-[comparing-the-guess-to-the-secret-number]:ch02-00-guessing-game-tutorial.html#comparando-la-conjetura-con-el-número-secreto
+[comparing-the-guess-to-the-secret-number]:ch02-00-guessing-game-tutorial.html#comparando-la-conjetura-con-el-numero-secreto
 [data-types]: ch03-02-data-types.html#tipos-de-datos
