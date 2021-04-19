@@ -84,7 +84,7 @@ Instalación para obtener ayuda.
 Si se imprimió "¡Hola, mundo!", ¡Felicitaciones! Oficialmente ha escrito un
 programa Rust. Eso le convierte en un programador Rust, ¡bienvenido!
 
-### Anatomía de un Programa Rust
+### Anatomia de un Programa Rust
 
 Repasemos en detalle lo que acaba de suceder en su programa "¡Hola, mundo!".
 Esta es la primera pieza del rompecabezas:
@@ -133,7 +133,7 @@ Cuarto, terminamos la línea con un punto y coma (`;`), que indica que esta
 expresión ha terminado y la siguiente está lista para comenzar. La mayoría de las líneas de código Rust
 terminan con un punto y coma.
 
-### La Compilación y la Ejecución son Pasos Separados
+### La Compilacion y la Ejecución son Pasos Separados
 
 Acaba de ejecutar un programa recién creado, así que examinemos cada paso del
 proceso.
@@ -194,5 +194,5 @@ crece, querrás administrar todas las opciones y facilitar el intercambio de
 código. A continuación, le presentaremos la herramienta Cargo, que lo ayudará a escribir
 programas de Rust en el mundo real.
 
-[troubleshooting]: ch01-01-installation.html#solución-de-problemas
+[troubleshooting]: ch01-01-installation.html#solucion-de-problemas
 
