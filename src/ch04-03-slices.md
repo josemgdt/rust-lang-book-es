@@ -335,4 +335,4 @@ estos conceptos más adelante a lo largo del resto del libro. Movámonos al
 Capítulo 5 y observe cómo agrupar piezas de datos en una `struct`.
 
 
-[strings]: ch08-02-strings.html#storing-utf-8-encoded-text-with-strings
+[strings]: ch08-02-strings.html#almacenando-texto-codificado-utf-8-con-strings
