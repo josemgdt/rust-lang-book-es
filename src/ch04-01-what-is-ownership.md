@@ -13,8 +13,8 @@ corriendo.
 
 Dado que la propiedad es un concepto nuevo para muchos programadores, lleva algún tiempo
 acostumbrarse a el. La buena noticia es que cuanto más experiencia tengas con Rust
-y las reglas del sistema de propiedad, más podrá 
-desarrollar naturalmente código que sea seguro y eficiente.
+y las reglas del sistema de propiedad, más naturalmente podrá 
+desarrollar código que sea seguro y eficiente.
 
 Cuando comprenda la propiedad, tendrá una base sólida para comprender
 las características que hacen que Rust sea único. En este capítulo, aprenderá sobre propiedad
@@ -24,24 +24,24 @@ trabajando con algunos ejemplos que se centran en una estructura de datos muy co
 >
 > En muchos lenguajes de programación, no es necesario pensar en la pila y
 > el montón muy a menudo. Pero en un lenguaje de programación de sistemas como Rust, el que
-> un valor esté en la pila o en el montón tiene más efecto sobre cómo el lenguaje
+> un valor esté en la pila o en el montón tiene más efectos sobre cómo el lenguaje
 > se comporta y por qué tiene que tomar determinadas decisiones. Partes de la propiedad
 > se describiran en relación con la pila y el montón más adelante en este capítulo, por lo que
 > preparemos aquí una breve explicación.
 >
 > Tanto la pila como el montón son partes de la memoria que están disponibles para ser usadas por su
 > código en tiempo de ejecución, pero están estructurados de diferentes maneras. La pila
-> almacena valores en el orden en que los obtiene y elimina los valores en el
+> almacena valores en el orden en que los obtiene, y los elimina en el
 > orden opuesto. Esto se conoce como FIFO *último en entrar, primero en salir*. Piense en una pila
-> de platos: cuando añades más platos, los colocas encima de la pila y
-> cuando necesitas un plato, quitas uno de la parte superior. Agregar o quitar platos
+> de platos: cuando añade más platos, se colocan encima de la pila y
+> cuando se necesita un plato, quita uno de la parte superior. Agregar o quitar platos
 > ¡desde el medio o desde abajo no funcionaría tan bien! Agregar datos se llama
-> *pushing en la pila *, y eliminar datos se llama * popping de la pila *.
+> *pushing en la pila*, y eliminar datos se llama *popping de la pila*.
 >
-> Todos los datos almacenados en la pila deben tener un tamaño fijo conocido. Datos con un
-> un tamaño desconocido en el momento de la compilación o un tamaño que pueda cambiar debe almacenarse en
-> el montón en su lugar. El montón está menos organizado: cuando pones datos en el montón,
-> solicitas una cierta cantidad de espacio. El asignador de memoria encuentra un lugar vacío
+> Todos los datos almacenados en la pila deben tener un tamaño fijo conocido. Los datos con un
+> un tamaño desconocido en el momento de la compilación, o un tamaño que pueda cambiar, debe almacenarse en
+> el montón. El montón está menos organizado; cuando se ponen datos en el montón,
+> se solicita una cierta cantidad de espacio. El asignador de memoria encuentra un lugar vacío
 > en el montón que es lo suficientemente grande, lo marca como en uso y devuelve un
 > *puntero*, que es la dirección de esa ubicación. Este proceso se llama
 > *asignacion en el montón* y a veces se abrevia simplemente como *asignación*.
@@ -51,18 +51,18 @@ trabajando con algunos ejemplos que se centran en una estructura de datos muy co
 >
 > Piense que está sentado en un restaurante. Cuando entró, indicó el número de
 > personas en su grupo, y el personal encuentró una mesa vacía que se adapta a todos
-> y te lleva a ella. Si alguien de su grupo llega tarde, puede preguntar dónde
-> te has sentado para encontrarte.
+> y le lleva a ella. Si alguien de su grupo llega tarde, puede preguntar dónde
+> se ha sentado usted para encontrarle.
 >
 > Empujar a la pila es más rápido que asignar en el montón porque el
 > el asignador nunca tiene que buscar un lugar para almacenar nuevos datos;
-> la ubicación siempre está en la parte superior de la pila. Comparativamente, asignando espacio
+> la ubicación siempre está en la parte superior de la pila. Comparativamente, asignar espacio
 > en el montón requiere más trabajo, porque el asignador primero debe encontrar
-> un espacio lo suficientemente grande para guardar los datos y luego realizar la contabilidad para preparar
-> para la próxima asignación.
+> un espacio lo suficientemente grande para guardar los datos y luego contabilizar memoria para preparar
+> una próxima asignación.
 >
 > Acceder a los datos del montón es más lento que acceder a los datos de la pila porque
-> tienes que seguir un puntero para llegar allí. Los procesadores contemporáneos son más rápidos
+> se tiene que seguir un puntero para llegar allí. Los procesadores contemporáneos son más rápidos
 > si saltan menos en la memoria. Continuando con la analogía, considere un camarero
 > en un restaurante tomando pedidos de muchas mesas. Es más eficaz conseguir
 > todos los pedidos en una mesa antes de pasar a la siguiente mesa. Tomando un
@@ -79,7 +79,7 @@ trabajando con algunos ejemplos que se centran en una estructura de datos muy co
 >
 > Hacer un seguimiento de qué partes del código están usando qué datos en el montón,
 > minimizar la cantidad de datos duplicados en el montón y limpiar los no utilizados
-> para que no te quedes sin espacio son todos problemas sobre los que trata la propiedad.
+> para que no quedarse sin espacio son todos problemas sobre los que trata la propiedad.
 > Una vez comprenda la propiedad, no tendrá que pensar en la
 > pila y el montón muy a menudo, pero saber que la gestión de los datos del montón es la razón
 > de que la propiedad exista puede ayudar a explicar por qué funciona de la manera en que lo hace.
@@ -93,7 +93,7 @@ trabajar con los ejemplos que las ilustran:
 * Solo puede haber un propietario a la vez.
 * Cuando el propietario sale del alcance, el valor se eliminará.
 
-### Alcance de Variable
+### Alcance de la Variable
 
 Ya analizamos un ejemplo de un programa Rust en el Capítulo 2. Ahora
 que hemos superado la sintaxis básica, no incluiremos todo el código `fn main() {` en los
@@ -128,7 +128,7 @@ En otras palabras, hay dos momentos importantes en el tiempo:
 * Sigue siendo válido hasta que se *sale del alcance*.
 
 En este punto, la relación entre los alcances y cuándo las variables son válidas es
-similar al de otros lenguajes de programación. Ahora construiremos sobre esta idea
+similar al de otros lenguajes de programación. Ahora trabajaremos sobre esta idea
 introduciendo el tipo `String`.
 
 ### El Tipo `String`
@@ -137,7 +137,7 @@ Para ilustrar las reglas de propiedad, necesitamos un tipo de datos que sea más
 que los que cubrimos en la sección ["Tipos de datos"][data-types]<!-- ignore -->
 del Capítulo 3. Los tipos cubiertos anteriormente se almacenan en la pila
 y salen de la pila cuando se termina su alcance, pero queremos ver los datos
-que está almacenado en el montón y explorar cómo Rust sabe cuándo limpiar esos
+que están almacenados en el montón y explorar cómo Rust sabe cuándo limpiar esos
 datos.
 
 Usaremos `String` como ejemplo aquí y nos concentraremos en las partes de `String`
@@ -149,8 +149,8 @@ Ya hemos visto cadenas de caracteres literales, donde un valor de cadena está c
 programa. Los literales de cadena son convenientes, pero no son adecuados para todas las
 situaciónes en la que es posible que deseemos utilizar texto. Una de las razones es que son
 inmutables. Otra es que no se pueden conocer todos los valores de cadena cuando escribimos
-nuestro código: por ejemplo, ¿qué pasa si queremos tomar la entrada del usuario y almacenarla? Para
-En estas situaciones, Rust tiene un segundo tipo de cadena, `String`. Este tipo es
+nuestro código. Por ejemplo, ¿qué pasa si queremos tomar la entrada del usuario y almacenarla? Para
+estas situaciones, Rust tiene un segundo tipo de cadena, `String`. Este tipo es
 asignado en el montón y, como tal, puede almacenar una cantidad de texto que es
 desconocido para nosotros en el momento de la compilación. Puede crear una `String` a partir de un literal de cadena
 usando la función `from`, así:
@@ -159,10 +159,10 @@ usando la función `from`, así:
 let s = String::from("hello");
 ```
 
-Los dos puntos dobles (`::`) es un operador que nos permite asignar un espacio de nombres a este
+Los dos puntos dobles (`::`) es un operador que nos permite asignar un espacio de nombres a esta
 función `from` en particular bajo el tipo` String` en lugar de usar algún tipo
-de nombre como `string_from`. Discutiremos esta sintaxis en la sección ["Sintaxis de Métodos
-”][method-syntax]<!-- ignore --> del Capítulo 5 y cuando hablemos
+de nombre como `string_from`. Discutiremos esta sintaxis en la sección 
+["Sintaxis de Métodos”][method-syntax]<!-- ignore --> del Capítulo 5 y cuando hablemos
 sobre el espacio de nombres con módulos en ["Rutas para hacer referencia a un elemento en el
 Árbol de módulos”][paths-module-tree]<!-- ignore --> en el Capítulo 7.
 
@@ -175,9 +175,9 @@ Este tipo de cadena *se puede* mutar:
 Entonces, ¿cuál es la diferencia? ¿Por qué se puede mutar `String` pero no literales?
 La diferencia es cómo tratan la memoria estos dos tipos.
 
-### Memoria y Asignación
+### Memoria y Asignacion
 
-En el caso de un literal de cadena, conocemos el contenido en tiempo de compilación, por lo que
+En el caso de un literal de cadena conocemos el contenido en tiempo de compilación, por lo que
 el texto está codificado directamente en el ejecutable final. Esta es la razón por la que las cadenas
 literales son rápidas y eficientes. Pero estas propiedades solo provienen de la inmutabilidad
 de la cadena literal. Desafortunadamente, no podemos preveer memoria en el
@@ -186,7 +186,7 @@ tamaño puede cambiar mientras se ejecuta el programa.
 
 Con el tipo `String`, para admitir un fragmento de texto mutable y ampliable,
 necesitamos asignar una cantidad de memoria en el montón, desconocida en el momento de la compilación,
-para el contenido. Esto significa:
+para su contenido. Esto significa:
 
 * La memoria debe solicitarse al asignador de memoria en tiempo de ejecución.
 * Necesitamos una forma de devolver esta memoria al asignador cuando hallamos
@@ -195,30 +195,30 @@ para el contenido. Esto significa:
 Esa primera parte la hacemos nosotros: cuando llamamos a `String::from`, su implementación
 solicita la memoria que necesita. Esto es bastante universal en lenguajes de programación.
 
-Sin embargo, la segunda parte es diferente. En lenguajes con *recolector de basura
-(GC)*, el GC realiza un seguimiento y limpia la memoria que ya no se utiliza,
+Sin embargo, la segunda parte es diferente. En lenguajes con *recolector de basura (GC)*, 
+el GC realiza un seguimiento y limpia la memoria que ya no se utiliza,
 y no necesitamos pensar en ello. Sin un GC, es nuestra responsabilidad
-identificar cuándo ya no se usa la memoria y llamar al código para devolverla explícitamente
+identificar cuándo no se usa ya la memoria y llamar al código para devolverla explícitamente
 como lo hicimos cuando la solicitamos. Hacer esto correctamente ha sido históricamente un
 problema de programación difícil. Si lo olvidamos, desperdiciaremos la memoria. Si lo hacemos
-demasiado pronto, tendremos una variable no válida. Si lo hacemos dos veces, eso también es un error.
+demasiado pronto, tendremos variables no válidas. Si lo hacemos dos veces, también es un error.
 Necesitamos emparejar exactamente una "asignación" con exactamente una "liberacion".
 
 Rust toma un camino diferente: la memoria se devuelve automáticamente una vez que
-la variable que la posee queda fuera de alcance. Aquí hay una versión de nuestro ejemplo de alcance.
+la variable que la posee queda fuera de alcance. Aquí hay una versión de nuestro ejemplo de alcance
 del Listado 4-1 usando una `String` en lugar de una cadena literal:
 
 ```rust
 {{#rustdoc_include ../listings/ch04-understanding-ownership/no-listing-02-string-scope/src/main.rs:here}}
 ```
 
-Hay un punto natural en el que podemos devolver la memoria que requirio nuestra `String`
-al asignador: cuando `s` sale del alcance. Cuando una variable sale del
-alcance, Rust llama a una función especial por nosotros. Esta función se llama [drop],
-y es donde el autor de "String" puede poner el código para devolver la memoria.
-Rust llama `drop` automáticamente en el corchete de cierre.
+Hay un punto natural en el que podemos devolver la memoria que requirió nuestra `String`
+al asignador; cuando `s` sale del alcance. Cuando una variable sale del
+alcance, Rust llama por nosotros a una función especial. Esta función se llama [drop],
+y es donde el autor de `String` puede poner el código para devolver la memoria.
+Rust llama a `drop` automáticamente en el corchete de cierre.
 
-> Nota: En C ++, este patrón de desasignación de recursos al final de la vida útil un elemento
+> Nota: En C++, este patrón de desasignación de recursos al final de la vida útil de un elemento
 > a veces se denomina *Resource Acquisition Is Initialization (RAII)*.
 > La función `drop` en Rust le resultará familiar si ha utilizado patrones RAII.
 
@@ -227,7 +227,7 @@ simple en este momento, pero el comportamiento del código puede ser inesperado 
 situaciones más complicadas, en las que queremos que varias variables utilicen los datos
 que hemos asignado en el montón. Exploremos algunas de esas situaciones ahora.
 
-#### Maneras en que las Variables y los Datos Interactúan: Move
+#### Maneras en que las Variables y los Datos Interactuan: Move
 
 Varias variables pueden interactuar con los mismos datos de diferentes formas en Rust.
 Veamos un ejemplo usando un número entero en el Listado 4-2.
@@ -239,7 +239,7 @@ Veamos un ejemplo usando un número entero en el Listado 4-2.
 <span class="caption">Listado 4-2: Asignación del valor entero de la variable `x`
 a `y`</span>
 
-Probablemente podamos adivinar lo que está haciendo esto: “unir el valor `5` a `x`; entonces hacer
+Probablemente podamos adivinar lo que está haciendo esto; “unir el valor `5` a `x`; entonces hacer
 una copia del valor en `x` y vincularlo a `y`." Ahora tenemos dos variables, `x`
 e `y`, y ambos son iguales a `5`. De hecho, esto es lo que está sucediendo, porque los números enteros
 son valores simples con un tamaño fijo conocido, y estos dos valores `5` se insertan
@@ -256,8 +256,8 @@ en que funciona sería la misma: es decir, la segunda línea haría una copia de
 valor en `s1` y la vincularia a `s2`. Pero esto no es exactamente lo que sucede.
 
 Eche un vistazo a la Figura 4-1 para ver lo que le está sucediendo a `String` bajo el
-capó. Una `String` se compone de tres partes, que se muestran a la izquierda: un puntero a
-la memoria que contiene el contenido de la cadena, una longitud y una capacidad.
+capó. Una `String` se compone de tres partes, que se muestran a la izquierda; un puntero a
+la memoria que contiene la cadena, una longitud y una capacidad.
 Este grupo de datos se almacena en la pila. A la derecha está la memoria en el
 montón, con el contenido.
 
@@ -267,9 +267,9 @@ montón, con el contenido.
 manteniendo el valor `"hello"` vinculado a `s1`</span>
 
 La longitud es la cantidad de memoria, en bytes, que tiene el contenido de la `String`
-actualmente usando. La capacidad es la cantidad total de memoria, en bytes, que la
+actualmente en uso. La capacidad es la cantidad total de memoria, en bytes, que la
 `String` ha recibido del asignador. La diferencia entre longitud
-y la capacidad importa, pero no en este contexto, por lo que, por ahora, ignoraremos
+y la capacidad importa, pero no en este contexto, por lo que por ahora ignoraremos
 la capacidad.
 
 Cuando asignamos `s1` a `s2`, los datos de `String` se copian, lo que significa que copiamos el
@@ -290,12 +290,12 @@ los datos del montón eran grandes.
 <img alt="s1 y s2 a dos lugares" src="img/trpl04-03.svg" class="center" style="width: 50%;" />
 
 <span class="caption">Figura 4-3: Otra posibilidad de lo que `s2 = s1` podría
-hacer si Rust también copió los datos del montón</span>
+hacer si Rust también copia los datos del montón</span>
 
 Anteriormente, dijimos que cuando una variable sale del alcance, Rust automáticamente
 llama a la función `drop` y limpia la memoria del montón para esa variable. Pero
 la Figura 4-2 muestra ambos punteros de datos apuntando a la misma ubicación. Esto es un
-problema: cuando `s2` y `s1` salen del alcance, ambos intentarán liberar la
+problema; cuando `s2` y `s1` salen del alcance, ambos intentarán liberar la
 misma memoria. Esto se conoce como un error *double free* y es uno de los
 errores de seguridad que mencionamos anteriormente. Liberar memoria dos veces puede conducir a
 corrupción de memoria, que potencialmente puede conducir a vulnerabilidades de seguridad.
@@ -303,7 +303,7 @@ corrupción de memoria, que potencialmente puede conducir a vulnerabilidades de 
 Para garantizar la seguridad de la memoria, hay un detalle más de lo que sucede en este
 situación en Rust. En lugar de intentar copiar la memoria asignada, Rust
 considera que `s1` ya no es válido y, por lo tanto, Rust no necesita liberar
-cualquier cosa cuando `s1` salga del alcance. Mira lo que sucede cuando intentas
+cualquier cosa cuando `s1` salga del alcance. Mire lo que sucede cuando se intenta
 usar `s1` después de crear` s2`; no funcionará:
 
 ```rust,ignore,does_not_compile
@@ -318,7 +318,7 @@ referencia invalidada:
 ```
 
 Si escuchó los términos *copia superficial* y *copia profunda* mientras trabajaba con
-otros idiomas, el concepto de copiar el puntero, la longitud y la capacidad
+otros lenguajes, el concepto de copiar el puntero, la longitud y la capacidad
 sin copiar los datos probablemente suene como hacer una copia superficial. Pero
 ya que Rust también invalida la primera variable, en lugar de llamarse
 copia superficial, se conoce como *move*. En este ejemplo, diríamos que
@@ -336,7 +336,7 @@ Además, hay una opción de diseño que está implícita en esto: Rust nunca
 crea automáticamente copias "profundas" de sus datos. Por lo tanto, cualquier copia *automática*
 se puede suponer económica en términos de rendimiento en tiempo de ejecución.
 
-#### Maneras en que las Variables y los Datos Interactúan: Clone
+#### Maneras en que las Variables y los Datos Interactuan: Clone
 
 Si *queremos* copiar profundamente los datos del montón de la `String`, no solo los
 datos de la pila, podemos usar un método común llamado `clone`. Discutiremos su
@@ -344,7 +344,6 @@ sintaxis en el Capítulo 5, pero debido a que los métodos son una característi
 lenguajes de programación, probablemente los hayas visto antes.
 
 A continuación, se muestra un ejemplo del método `clone` en acción:
-
 
 ```rust
 {{#rustdoc_include ../listings/ch04-understanding-ownership/no-listing-05-clone/src/main.rs:here}}
@@ -388,7 +387,7 @@ implementar el trait, consulte ["traits derivables"][derivable-traits]<!-- ignor
 en el Apéndice C.
 
 Entonces, ¿qué tipos implementan el trait `Copy`? Puede consultar la documentación para
-el tipo dado para estar seguro, pero como regla general, cualquier grupo de valores escalares simples
+un tipo dado para estar seguro, pero como regla general, cualquier grupo de valores escalares simples
 pueden implementar `Copy`, y nada que requiera asignación o sea alguna
 forma de recurso puede implementar `Copy`. Éstos son algunos de los tipos que
 implementan `Copy`:
@@ -396,7 +395,7 @@ implementan `Copy`:
 * Todos los tipos de enteros, como `u32`.
 * El tipo booleano, `bool`, con valores `verdadero` y `falso`.
 * Todos los tipos de coma flotante, como `f64`.
-* El tipo de carácter, `char`.
+* El tipo carácter, `char`.
 * Tuplas, si solo contienen tipos que también implementan `Copy`. Por ejemplo,
   `(i32, i32)` implementa `Copy`, pero `(i32, String)` no.
 
@@ -417,7 +416,7 @@ mostrando dónde entran y salen las variables del alcance.
 anotado</span>
 
 Si intentáramos usar `s` después de la llamada a `takes_ownership`, Rust arrojaría un
-error en tiempo de compilación. Estos controles estáticos nos protegen de errores. Intenta agregar
+error en tiempo de compilación. Estos controles estáticos nos protegen de errores. Intente agregar
 código a `main` que usa `s` y `x` para ver dónde puede usarlos y dónde
 las reglas de propiedad le impiden hacerlo.
 
@@ -438,9 +437,9 @@ valores de retorno</span>
 La propiedad de una variable sigue el mismo patrón cada vez: asignar un
 valor a otra variable lo mueve. Cuando una variable que incluye datos en el
 montón sale del alcance, el valor se limpiará con `drop` a menos que los datos
-se han movido para ser propiedad de otra variable.
+se hallan movido para ser propiedad de otra variable.
 
-Tomar propiedad y luego devolverla con cada función es un poco
+Tomar la propiedad y luego devolverla con cada función es un poco
 tedioso. ¿Qué pasa si queremos permitir que una función use un valor pero no se lo apropie?
 Es bastante molesto que cualquier cosa que pasemos también deba devolverse si
 desea utilizarla de nuevo, además de cualquier dato resultante del cuerpo de la
@@ -460,9 +459,9 @@ Pero esto es demasiada ceremonia y mucho trabajo para un concepto que debería s
 común. Afortunadamente para nosotros, Rust tiene una función para este concepto, llamada
 *referencias*.
 
-[data-types]: ch03-02-data-types.html#Tipos de Datos
+[data-types]: ch03-02-data-types.html#tipos-de-datos
 [derivable-traits]: appendix-03-derivable-traits.html
-[method-syntax]: ch05-03-method-syntax.html#method-syntax
+[method-syntax]: ch05-03-method-syntax.html#sintaxis-de-metodos
 [paths-module-tree]: ch07-03-paths-for-referring-to-an-item-in-the-module-tree.html
 [drop]: https://doc.rust-lang.org/std/ops/trait.Drop.html#tymethod.drop
 

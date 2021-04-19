@@ -808,7 +808,7 @@ Escribir "salir" en realidad cierra el juego, pero también lo hará cualquier o
 Sin embargo, esto no es óptimo, por decir poco. Queremos que el juego automáticamente se
 deténga cuando se adivine el número correcto.
 
-### Salir Después de una Suposición Correcta
+### Salir Despues de una Suposicion Correcta
 
 Programemos el juego para que se cierre cuando el usuario gane agregando una declaración "break":
 
