@@ -12,11 +12,11 @@ temprano de ellos le darán una base fuerte para comenzar.
 
 > #### Palabras Clave
 >
-> El lenguaje Rust tiene un conjunto de *palabras clave* que están reservadas para su uso
-> solo por el lenguaje, al igual que en otros lenguajes. Tenga en cuenta que no puede
+> Al igual que en otros lenguajes, el lenguaje Rust tiene un conjunto de *palabras clave* que 
+> están reservadas para su uso solo por el lenguaje. Tenga en cuenta que no puede
 > usar estas palabras como nombres de variables o funciones. La mayoría de las palabras clave tienen
 > significados especiales, y los usará para realizar varias tareas en sus programas
-> Rust; algunos no tienen una funcionalidad actual asociada con ellas, pero
+> Rust; algunas no tienen una funcionalidad actual asociada con ellas, pero
 > se ha reservado para funciones que podrían agregarse a Rust en el futuro.
 > Puede encontrar una lista de las palabras clave en el [Apéndice A][appendix_a].
 
