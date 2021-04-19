@@ -1,10 +1,10 @@
-## Referencias y Préstamos
+## Referencias y Prestamos
 
 El problema con el código de tupla en el Listado 4-5 es que tenemos que devolver el
 `String` a la función de llamada, por lo que todavía podemos usar el `String` después de
 llamar a `calculate_length`, porque el `String` se movió a `calculate_length`.
 
-Así es como definirías y usarías una función `calculate_length` que tiene una
+Así es como se definiría y usaría una función `calculate_length` que tiene una
 referencia a un objeto como parámetro en lugar de tomar posesión del valor:
 
 <span class="filename">​​Nombre de archivo: src/main.rs</span>
@@ -22,8 +22,7 @@ sin apropiarse de ellos. La figura 4-5 muestra un diagrama.
 
 <img alt="& String s apuntando a String s1" src="img/trpl04-05.svg" class="center" />
 
-<span class="caption">Figura 4-5: Un diagrama de `&String s` apuntando a `String
-s1`</span>
+<span class="caption">Figura 4-5: Un diagrama de `&String s` apuntando a `String s1`</span>
 
 > Nota: Lo opuesto a hacer referencia usando `&` es *desreferenciar*, que se
 > logra con el operador de desreferencia, `*`. Veremos algunos usos del
@@ -48,16 +47,16 @@ el parámetro `s` es una referencia. Agreguemos algunas anotaciones explicativas
 ```
 
 El alcance en el que la variable `s` es válida es el mismo que el alcance del parámetro 
-de cualquier función, pero no descartamos a qué apunta la referencia cuando queda
+de cualquier función, pero no descartamos a lo qué apunta la referencia cuando queda
 fuera de alcance porque no tenemos la propiedad. Cuando las funciones tienen referencias como
 parámetros en lugar de los valores reales, no necesitaremos devolver los valores
-para devolver la propiedad, porque nunca tuvimos propiedad.
+para devolver la propiedad, porque nunca tuvimos la propiedad.
 
-Llamamos *tomar prestado (borrowing)*, a tener referencias como parámetros de función. Como en la vida real
-si una persona posee algo, se lo puedes pedir prestado. Cuando hayas terminado,
-tienes que devolverlo.
+Llamamos *tomar prestado (borrowing)*, a tener referencias como parámetros de función. Como en la vida real, 
+si una persona posee algo, se lo puede pedir prestado. Cuando haya terminado,
+tiene que devolverlo.
 
-Entonces, ¿qué sucede si intentamos modificar algo que estamos pidiendo prestado? Prueba el código en
+Entonces, ¿qué sucede si intentamos modificar algo que estamos pidiendo prestado? Pruebe el código en
 Listado 4-6. Alerta: ¡no funciona!
 
 <span class="filename">​​Nombre de archivo: src/main.rs</span>
@@ -75,7 +74,7 @@ Aquí está el error:
 ```
 
 Así como las variables son inmutables por defecto, también lo son las referencias. No está
-permitido modificar algo de lo que tenemos una referencia.
+permitido modificar algo de lo que solo tenemos una referencia.
 
 ### Referencias Mutables
 
@@ -88,11 +87,11 @@ Podemos corregir el error en el código del Listado 4-6 con solo un pequeño aju
 ```
 
 Primero, tuvimos que cambiar `s` para que sea `mut`. Entonces tuvimos que crear una
-referencia mutable con `&mut s` y acepta una referencia mutable con `some_string: & mut String`.
+referencia mutable con `&mut s` y acepta una referencia mutable con `some_string: &mut String`.
 
-Pero las referencias mutables tienen una gran restricción: solo pueden tener
+Pero las referencias mutables tienen una gran restricción: solo se puede tener UNA
 referencia a un dato particular en un ámbito particular. Este código
-fallar:
+fallará:
 
 <span class="filename">​​Nombre de archivo: src/main.rs</span>
 
@@ -107,8 +106,8 @@ Aquí está el error:
 ```
 
 Esta restricción permite la mutación pero de una manera muy controlada. Es
-algo con lo que los nuevos rustáceos luchan, porque la mayoría de los idiomas te permiten
-mutar cuando quieras.
+algo con lo que los nuevos rustáceos luchan, porque la mayoría de los lenguajes le permiten
+mutar cuando quiera.
 
 El beneficio de tener esta restricción es que Rust puede evitar carreras de datos en
 tiempo de compilación. Una *carrera de datos* es similar a una condición de carrera y ocurre cuando
@@ -119,7 +118,7 @@ ocurren estos tres comportamientos:
 * No se está utilizando ningún mecanismo para sincronizar el acceso a los datos.
 
 Las carreras de datos provocan un comportamiento indefinido y pueden ser difíciles de diagnosticar y corregir
-cuando intentas localizarlos en tiempo de ejecución; Rust previene este problema
+cuando se intenta localizarlos en tiempo de ejecución; Rust previene este problema
 porque ni siquiera compila código con carreras de datos.
 
 Como siempre, podemos usar llaves para crear un nuevo alcance, lo que permite
@@ -163,15 +162,15 @@ Estos alcances no se superponen, por lo que este código está permitido.
 Aunque los errores de préstamo pueden resultar frustrantes en ocasiones, recuerde que es
 el compilador de Rust quien señala un error potencial temprano (en tiempo de compilación en lugar de
 que en tiempo de ejecución) y muestra exactamente dónde está el problema. Por tanto, no
-tienes que averiguar por qué tus datos no son lo que pensabas.
+tiene que averiguar por qué sus datos no son los que pensaba.
 
 ### Referencias Colgantes (Dangling)
 
 En los idiomas con punteros, es fácil crear erróneamente un *puntero colgante*, 
 un puntero que hace referencia a una ubicación en la memoria que puede haber sido
-dado a otra persona, liberando algo de memoria mientras se conserva un puntero
+dado a otro, liberando algo de memoria mientras se conserva un puntero
 a esa memoria. En Rust, por el contrario, el compilador garantiza que las referencias
-nunca serán referencias colgantes: si tiene una referencia a algunos datos, el
+nunca serán referencias colgantes; si tiene una referencia a algunos datos, el
 compilador se asegurará de que los datos no salgan del alcance antes de que
 la referencia a los datos lo haga.
 
@@ -199,7 +198,7 @@ this function's return type contains a borrowed value, but there is no value
 for it to be borrowed from.
 ```
 
-Echemos un vistazo más de cerca a lo que está sucediendo exactamente en cada etapa de nuestra
+Echemos un vistazo más de cerca a lo que está sucediendo exactamente en cada etapa de nuestro
 código `dangle`:
 
 <span class="filename">​​Nombre de archivo: src/main.rs</span>
@@ -209,7 +208,7 @@ código `dangle`:
 ```
 
 Debido a que `s` se crea dentro de `dangle`, cuando el código de `dangle` finaliza,
-`s` se desasignará. Pero intentamos devolverle una referencia. Eso significa
+`s` se desasignará. Pero intentamos devolver una referencia. Eso significa que
 esta referencia estaría apuntando a una `String` no válida. ¡Eso no es bueno! Rust
 no nos dejará hacerlo.
 

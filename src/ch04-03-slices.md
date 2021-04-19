@@ -15,13 +15,9 @@ Pensemos en la declaracion de esta función:
 fn first_word(s: &String) -> ?
 ```
 
-This function, `first_word`, has a `&String` as a parameter. We don’t want
-ownership, so this is fine. But what should we return? We don’t really have a
-way to talk about *part* of a string. However, we could return the index of the
-end of the word. Let’s try that, as shown in Listing 4-7.
 Esta función, `first_word`, tiene `&String` como parámetro. No queremos
 propiedad, así que esto está bien. Pero, ¿qué debemos devolver? Realmente no tenemos una
-manera de hablar sobre *parte* de una cadena. Sin embargo, podríamos devolver el índice del
+manera de hablar sobre una *parte* de una cadena. Sin embargo, podríamos devolver el índice del
 fin de la palabra. Intentémoslo, como se muestra en el Listado 4-7.
 
 <span class="filename">Nombre de archivo: src/main.rs</span>
@@ -55,8 +51,8 @@ segundo elemento es una referencia al elemento. Esto es un poco más conveniente
 que calcular el índice nosotros mismos.
 
 Debido a que el método `enumerate` devuelve una tupla, podemos usar patrones para
-desestructurar esa tupla, como en cualquier otro lugar de Rust. Entonces en el 
-bucle `for`, especificamos un patrón que tiene `i` para el índice en la tupla y `&item`
+desestructurar esa tupla, como en cualquier otro lugar de Rust. Entonces, en el 
+bucle `for` especificamos un patrón que tiene `i` para el índice en la tupla y `&item`
 para cada byte en la tupla. Puesto que obtenemos una referencia al elemento
 desde `.iter().enumerate()`, usamos `&` en el patrón.
 
@@ -67,13 +63,6 @@ De lo contrario, devolvemos la longitud de la cadena usando `s.len()`:
 ```rust,ignore
 {{#rustdoc_include ../listings/ch04-understanding-ownership/listing-04-07/src/main.rs:inside_for}}
 ```
-
-We now have a way to find out the index of the end of the first word in the
-string, but there’s a problem. We’re returning a  on its own, but it’s
-only a meaningful number in the context of the `&String`. In other words,
-because it’s a separate value from the , there’s no guarantee that it
-will still be valid in the future. Consider the program in Listing 4-8 that
-uses the `first_word` function from Listing 4-7.
 
 Ahora tenemos una forma de averiguar el índice del final de la primera palabra en la
 cadena, pero hay un problema. Devolvemos un `usize` que, por sí solo, es
@@ -99,20 +88,13 @@ porque el contenido de `s` ha cambiado desde que guardamos `5` en `word`.
 
 Tener que preocuparse de que el índice en `word` no esté sincronizado con los datos en
 `s` es tedioso y propenso a errores. La gestión de estos índices es aún más frágil si
-escribimos una función `second_word`. Su declaracion tendría que verse así:
+escribimos una función `second_word`. Su declaracion podría verse así:
 
 ```rust,ignore
 fn second_word(s: &String) -> (usize, usize) {
 ```
 
-Now we’re tracking a starting *and* an ending index, and we have even more
-values that were calculated from data in a particular state but aren’t tied to
-that state at all. We now have three unrelated variables floating around that
-need to be kept in sync.
-
-Luckily, Rust has a solution to this problem: .
-
-Ahora estamos rastreando un índice inicial *y* final, y tenemos aún más
+Ahora estamos rastreando un índice inicial *y* uno final, y tenemos aún más
 valores que se calcularon a partir de datos en un estado en particular, pero que no están vinculados a
 ese estado en absoluto. Ahora tenemos tres variables no relacionadas flotando alrededor que
 deben mantenerse sincronizadas.
@@ -127,7 +109,7 @@ Un *string slice* es una referencia a parte de una `String`, y se ve así:
 {{#rustdoc_include ../listings/ch04-understanding-ownership/no-listing-17-slice/src/main.rs:here}}
 ```
 
-Esto es similar a tomar una referencia a toda la "C`String` pero con los bits extra
+Esto es similar a tomar una referencia a toda la `String` pero con el extra
 `[0..5]`. En lugar de una referencia a toda la `String`, es una referencia
 a una parte de la `String`.
 
@@ -182,8 +164,7 @@ let slice = &s[..];
 > Nota: Los índices de rango de slice de cadena deben ocurrir en fronteras de carácter UTF-8 válido.
 > Si intenta crear un slice en medio de un carácter multibyte, su programa se cerrará con un error.
 > Con el fin de introducir slices de cadena, asumimos ASCII solo en esta sección; una
-> discusión más detallada sobre el manejo de UTF-8 se encuentra en la sección [“Almacenamiento de Texto con
-> codificación UTF-8 con cadenas”][strings]<!-- ignore --> del Capítulo 8.
+> discusión más detallada sobre el manejo de UTF-8 se encuentra en la sección ["Almacenando Texto Codificado UTF-8 con strings”][strings]<!-- ignore --> del Capítulo 8.
 
 Con toda esta información en mente, reescribamos `first_word` para devolver una
 slice. El tipo que significa "string slice" se escribe como `&str`:
@@ -194,7 +175,7 @@ slice. El tipo que significa "string slice" se escribe como `&str`:
 {{#rustdoc_include ../listings/ch04-understanding-ownership/no-listing-18-first-word-slice/src/main.rs:here}}
 ```
 
-Obtenemos el índice para el final de la palabra de la misma manera que lo hicimos en Listado
+Obtenemos el índice para el final de la palabra de la misma manera que lo hicimos en el Listado
 4-7, buscando la primera aparición de un espacio. Cuando encontramos un espacio,
 devolvemos un slice de cadena usando el inicio de la cadena y el índice del espacio
 como los índices inicial y final.
@@ -231,11 +212,6 @@ Este es el error del compilador:
 {{#include ../listings/ch04-understanding-ownership/no-listing-19-slice-error/output.txt}}
 ```
 
-Recall from the borrowing rules that if we have an immutable reference to
-something, we cannot also take a mutable reference. Because `clear` needs to
-truncate the `String`, it needs to get a mutable reference. Rust disallows
-this, and compilation fails. Not only has Rust made our API easier to use, but
-it has also eliminated an entire class of errors at compile time!
 Recuerde de las reglas de préstamos que si tenemos una referencia inmutable a
 algo, no podemos tomar también una referencia mutable. Ya que `clear` necesita
 truncar el `String`, necesita obtener una referencia mutable. Rust no permite
@@ -251,14 +227,12 @@ que conocemos sobre los slices, podemos entender correctamente los literales de 
 let s = "Hello, world!";
 ```
 
-El tipo de `s` aquí es `&str`: es un slice que apunta a ese punto específico del
-binario. Esta es también la razón por la que los literales de cadena son inmutables; `&str` es un
+El tipo de `s` aquí es `&str`; es un slice que apunta a ese punto específico del
+binario. Esta es también la razón por la que los literales de cadena son inmutables; `&str` es una
 referencia inmutable.
 
 #### String Slices como Parametros
 
-Knowing that you can take slices of literals and `String` values leads us to
-one more improvement on `first_word`, and that’s its signature:
 Saber que puede tomar slices de literales y valores de `String` nos lleva a
 una mejora más en `first_word`, y esta es su declaración:
 
@@ -277,8 +251,8 @@ y `&str`.
 <span class="caption">Listado 4-9: Mejorando la función `first_word` usando
 un slice de cadena para el tipo del parámetro `s`</span>
 
-Si tenemos un slicede cadena, podemos pasarlo directamente. Si tenemos una `String`,
-puede pasar una slice de toda la `String`. Definiendo una función para tomar una cadena
+Si tenemos un slice de cadena, podemos pasarlo directamente. Si tenemos una `String`,
+puede pasar una slice de toda la `String`. Definiendo una función para tomar un
 slice en lugar de una referencia a una `String` hace que nuestra API sea más general y útil
 sin perder ninguna funcionalidad:
 
@@ -315,23 +289,14 @@ detalle cuando hablamos de vectores en el Capítulo 8.
 
 ## Sumario
 
-The concepts of ownership, borrowing, and slices ensure memory safety in Rust
-programs at compile time. The Rust language gives you control over your memory
-usage in the same way as other systems programming languages, but having the
-owner of data automatically clean up that data when the owner goes out of scope
-means you don’t have to write and debug extra code to get this control.
-
-Ownership affects how lots of other parts of Rust work, so we’ll talk about
-these concepts further throughout the rest of the book. Let’s move on to
-Chapter 5 and look at grouping pieces of data together in a .
 Los conceptos de propiedad, préstamo y slices garantizan la seguridad de la memoria en programas Rust
 en tiempo de compilación. El lenguaje Rust le da control sobre su uso de memoria
 de la misma manera que otros lenguajes de programación de sistemas, pero teniendo
-la propiedad de los datos, se limpian automáticamente esos datos cuando el propietario sale del alcance,
+la propiedad de los datos se limpian automáticamente esos datos cuando el propietario sale del alcance,
 lo que significa que no tiene que escribir ni depurar código adicional para obtener este control.
 
 La propiedad afecta el funcionamiento de muchas otras partes de Rust, por lo que hablaremos de
-estos conceptos más adelante a lo largo del resto del libro. Movámonos al
+estos conceptos más adelante a lo largo del resto del libro. Vayamos al
 Capítulo 5 y observe cómo agrupar piezas de datos en una `struct`.
 
 
