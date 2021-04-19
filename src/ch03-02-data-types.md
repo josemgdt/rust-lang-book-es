@@ -8,7 +8,7 @@ Tenga en cuenta que Rust es un lenguaje *tipeado estáticamente*, lo que signifi
 debe conocer los tipos de todas las variables en tiempo de compilación. El compilador normalmente
 puede inferir qué tipo queremos usar según el valor y cómo lo usamos. En casos en los que
 son posibles muchos tipos, como cuando convertimos una `String` a un tipo numérico
-usando `parse` en la  sección ["Comparando la conjetura con el Número Secreto”][comparing-the-guess-to-the-secret-number]<!-- ignore --> en el
+usando `parse` en la  sección ["Comparando la Conjetura con el Número Secreto”][comparing-the-guess-to-the-secret-number]<!-- ignore --> en el
 Capítulo 2, debemos agregar una anotación de tipo, como esta:
 
 ```rust

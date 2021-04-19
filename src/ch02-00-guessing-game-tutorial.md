@@ -586,7 +586,7 @@ You guessed: 5
 Debe obtener diferentes números aleatorios, y todos deben ser números entre
 1 y 100. ¡Buen trabajo!
 
-## Comparando la Conjetura con el Número Secreto
+## Comparando la Conjetura con el Numero Secreto
 
 Ahora que tenemos la entrada del usuario y un número aleatorio, podemos compararlos. Ese paso
 se muestra en el Listado 2-4. No compile este código aún, hasta que lo
