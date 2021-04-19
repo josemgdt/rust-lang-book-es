@@ -1,7 +1,7 @@
 ## Control de Flujo 
 
-Decidir si ejecutar o no algún código dependiendo de si una condición es verdadera
-y decidir ejecutar algún código repetidamente mientras una condición es verdadera son
+Decidir si ejecutar o no algún código dependiendo de si una condición es verdadera o no
+y decidir si ejecutar algún código repetidamente mientras una condición es verdadera son
 bloques básicos de construcción en la mayoría de los lenguajes de programación. Los constructos más comunes que
 le permiten controlar el flujo de ejecución del código en Rust son las expresiones `if` y los
 bucles.
@@ -87,7 +87,7 @@ expresión `if` a lo siguiente:
 
 Ejecutar este código imprimirá `number was something other than zero`.
 
-#### Manejo de Condiciones Múltiples on `else if`
+#### Manejo de Condiciones Multiples en `else if`
 
 Puede tener varias condiciones combinando `if` y` else` en una
 expresión `else if`. Por ejemplo:
@@ -99,7 +99,7 @@ expresión `else if`. Por ejemplo:
 ```
 
 Este programa tiene cuatro caminos posibles que puede tomar. Después de ejecutarlo, debería
-vea el siguiente resultado:
+ver el siguiente resultado:
 
 ```console
 {{#include ../listings/ch03-common-programming-concepts/no-listing-30-else-if/output.txt}}
@@ -116,7 +116,7 @@ Usar demasiadas expresiones `else if` puede saturar su código, así que si tien
 de una, es posible que desee refactorizar su código. El capítulo 6 describe una poderosa
 construcción de ramificación de Rust llamada `match` para estos casos.
 
-#### Usando `if` en una Instrucción` let`
+#### Usando `if` en una Instruccion` let`
 
 Como `if` es una expresión, podemos usarla en el lado derecho de una
 declaración `let`, como en el Listado 3-2.
@@ -140,8 +140,8 @@ expresión `if`. Ejecute este código para ver qué sucede:
 Recuerde que los bloques de código se evalúan hasta la última expresión en ellos, y
 los números en sí mismos también son expresiones. En este caso, el valor de
 toda la expresión `if` depende del bloque de código que se ejecute. Esto significa que
-los valores que tienen el potencial de ser resultados de cada brazo del "if" deben ser
-el mismo tipo; en el Listado 3-2, los resultados del brazo `if` y del `else`
+los valores que tienen el potencial de ser resultados de cada brazo del `if` deben ser
+del mismo tipo; en el Listado 3-2, los resultados del brazo `if` y del `else`
 eran enteros "i32". Si los tipos no coinciden, como en el siguiente
 ejemplo, obtendremos un error:
 
@@ -168,7 +168,7 @@ válido en todos los lugares donde usamos `number`. Rust no podría hacer eso si
 y ofrecería menos garantías sobre el código si tuviera que realizar un seguimiento de
 múltiples tipos hipotéticos para cualquier variable.
 
-### Repetición con Bucles
+### Repeticion con Bucles
 
 Suele ser útil ejecutar un bloque de código más de una vez. Para esta tarea,
 Rust proporciona varios *bucles*. Un bucle recorre el código dentro
@@ -177,7 +177,7 @@ experimentar con bucles, hagamos un nuevo proyecto llamado *loops*.
 
 Rust tiene tres tipos de bucles: `loop`, `while` y `for`. Probemos cada uno.
 
-#### Código Repetido con `loop`
+#### Codigo Repetido con `loop`
 
 La palabra clave `loop` le dice a Rust que ejecute un bloque de código una y otra vez
 hasta que se le diga explícitamente que se detenga.
@@ -191,7 +191,7 @@ como esto:
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-32-loop/src/main.rs}}
 ```
 
-Cuando ejecutamos este programa, veremos `de nuevo!` impreso una y otra vez continuamente
+Cuando ejecutamos este programa, veremos `again!` impreso una y otra vez continuamente
 hasta que detengamos el programa manualmente. La mayoría de los terminales admiten un atajo de teclado,
 <span class="keystroke">ctrl-c</span>, para interrumpir un programa que está atascado en
 un bucle continuo. Probemoslo:
@@ -215,7 +215,7 @@ again!
 ```
 
 El símbolo `^C` representa el lugar donde presionó <span class="keystroke">ctrl-c
-</span>. Es posible que vea o no la palabra `de nuevo!` impresa después de `^C`,
+</span>. Es posible que vea o no la palabra `again!` impresa después de `^C`,
 dependiendo de dónde estaba el código en el bucle cuando recibió la señal de interrupción.
 
 Afortunadamente, Rust proporciona otra forma más confiable de salir de un bucle.
@@ -225,12 +225,12 @@ dejar de ejecutar el bucle. Recuerde que hicimos esto en el juego de adivinanzas
 --> del Capítulo 2 para salir del programa cuando el usuario ganó el juego al
 adivinar el número correcto.
 
-#### Devolución de Valores desde Bucles
+#### Devolucion de Valores desde Bucles
 
 Uno de los usos de un `loop` es reintentar una operación que sabe que puede fallar, como
-como comprobar si un hilo ha completado su trabajo. Sin embargo, es posible que deba
-pasa el resultado de esa operación al resto del código. Para hacer esto, puedes
-agregue el valor que desea que se devuelva después de la expresión `break` que usa para detener
+comprobar si un hilo ha completado su trabajo. Sin embargo, es posible que deba
+pasa el resultado de esa operación al resto del código. Para hacer esto, puede
+agregar el valor que desea que se devuelva después de la expresión `break` que usa para detener
 el lazo; ese valor se devolverá fuera del ciclo para que pueda usarlo, como
 se muestra aquí:
 
@@ -241,7 +241,7 @@ se muestra aquí:
 Antes del ciclo, declaramos una variable llamada `counter` y la inicializamos a
 `0`. Luego declaramos una variable llamada `result` para contener el valor devuelto del
 lazo. En cada iteración del ciclo, agregamos `1` a la variable `counter`,
-y luego verifica si el contador es igual a "10". Cuando lo es, usamos la
+y luego verificamos si el contador es igual a "10". Cuando lo es, usamos la
 palabra clave `break` con el valor `counter * 2`. Después del ciclo, usamos un
 punto y coma para finalizar la instrucción que asigna el valor a `result`. Finalmente,
 imprime el valor en `result`, que en este caso es 20.
@@ -251,11 +251,11 @@ imprime el valor en `result`, que en este caso es 20.
 A menudo, es útil que un programa evalúe una condición dentro de un bucle. Mientras
 la condición es verdadera, el ciclo se ejecuta. Cuando la condición deja de ser verdadera, el
 el programa llama a `break`, deteniendo el bucle. Este tipo de bucle podría implementarse
-usando una combinación de `loop`, `if`, `else` y `break`; podrías intentar eso
-ahora en un programa, si lo desea.
+usando una combinación de `loop`, `if`, `else` y `break`; podría, si lo desea, intentar ahora eso
+en un programa.
 
-Sin embargo, este patrón es tan común que Rust tiene una construcción de lenguaje incorporada
-para ello, que se llama un bucle `while`. El Listado 3-3 usa `while`: el programa se repite
+Sin embargo, este patrón es tan común que Rust tiene una construcción del lenguaje incorporada
+para ello, que se llama un bucle `while`. El Listado 3-3 usa `while`; el programa se repite
 tres veces, contando hacia atrás cada vez, y luego, después del bucle, imprime
 otro mensaje y sale.
 
@@ -272,7 +272,7 @@ Esta construcción elimina una gran cantidad de anidamiento que sería necesario
 `loop`, `if`, `else` y `break`, y es más claro. Mientras una condición se mantenga
 cierta, el código se ejecuta; de lo contrario, se sale del bucle.
 
-#### Recorrer una Colección con "for"
+#### Recorrer una Coleccion con `for`
 
 Puede usar la construcción `while` para recorrer los elementos de una colección,
 como una matriz. Por ejemplo, veamos el Listado 3-4.
@@ -319,16 +319,16 @@ usando un bucle `for`</span>
 
 Cuando ejecutamos este código, veremos el mismo resultado que en el Listado 3-4. Y
 lo que es más importante, ahora hemos aumentado la seguridad del código y hemos eliminado la
-posibilidad de errores que puedan resultar de ir más allá del final de la matriz o no
-yendo lo suficientemente lejos y faltando algunos elementos.
+posibilidad de errores que puedan resultar de ir más allá del final de la matriz, o no
+ir lo suficientemente lejos y falten algunos elementos.
 
 Por ejemplo, en el código del Listado 3-4, si cambió la definición de la
-matriz `a` para tener cuatro elementos pero se olvidó de actualizar la condición `while
-index < 4`, el código entraría en pánico. Usando el ciclo `for`, no necesitaría
+matriz `a` para tener cuatro elementos pero se olvidó de actualizar la condición `whileindex < 4`, 
+el código entraría en pánico. Usando el ciclo `for`, no necesitaría
 recordar cambiar cualquier otro código si cambió el número de valores en la matriz.
 
-La seguridad y la concisión de los bucles `for` los convierten en la construccion de bucle más utilizado
-en Rust. Incluso en situaciones en las que desea ejecutar algún código,
+La seguridad y la concisión de los bucles `for` los convierten en la construccion de bucle más utilizada
+en Rust. Incluso en situaciones en las que desea ejecutar algún código
 cierto número de veces, como en el ejemplo de la cuenta regresiva que usó un bucle `while`
 en el Listado 3-3, la mayoría de los rustáceos usarían un bucle `for`. La forma de hacer eso
 sería utilizar un `Range`, que es un tipo proporcionado por la biblioteca estándar
@@ -359,10 +359,8 @@ programas para hacer lo siguiente:
   aprovechando la repetición en la canción.
 
 Cuando esté listo para seguir adelante, hablaremos sobre un concepto en Rust que *no*
-existe comúnmente en otros lenguajes de programación: propiedad.
+existe comúnmente en otros lenguajes de programación: la propiedad.
 
-[comparing-the-guess-to-the-secret-number]:
-ch02-00-guessing-game-tutorial.html#Comparando la Conjetura con el Número Secreto
-[quitting-after-a-correct-guess]:
-ch02-00-guessing-game-tutorial.html#Salir Después de una Suposición Correcta
+[comparing-the-guess-to-the-secret-number]:ch02-00-guessing-game-tutorial.html#comparando-la-conjetura-con-el-numero-secreto
+[quitting-after-a-correct-guess]:ch02-00-guessing-game-tutorial.html#salir-después-de-una-suposición-correcta
 

@@ -29,7 +29,7 @@ Los comentarios también se pueden colocar al final de las líneas que contienen
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-24-comments-end-of-line/src/main.rs}}
 ```
 
-Pero lo que verá más a menudo, es este formato, con el comentario en una
+Pero lo que verá más a menudo es este formato, con el comentario en una
 línea separada sobre el código que está comentando:
 
 <span class="filename">​​Nombre de archivo: src/main.rs</span>
