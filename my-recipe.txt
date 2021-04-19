@@ -1,3 +1,7 @@
+
+
+
+
 Previous step: Forking the original work and create a specific branch to work on
 ********************************************************************************
 First of all. I (we?) need a repo in my github account: 
@@ -5,30 +9,50 @@ https://github.com/josemgdt/rust-lang-book-es
 
 More github steeps
 ******************
-a) https://github.com/rust-lang/book/ forked to https://github.com/josemgdt/rust-lang-book-es 
-b) Creation of spanish-branch "es-master" using the github branch selector from master branch.
+a) Fork original https://github.com/rust-lang/book/ to my repo https://github.com/josemgdt/rust-lang-book-es 
+b) Creation of spanish-branch, "es-master" using the github branch selector, from master branch.
 c) Making "es-master" the default branch using "Settings->Branches->Default branch"
-
-I'm not going to use a branch local copy. Instead, I'm going to edit directly on my github repo.
+d) Cloning original book master to local ~/<user>/rust-lang-en (why?): git clone --branch master git@github.com:rust-lang/book.git /home/operarcnc/rust-lang-en
 
 Installation: curl, rustup (rustc, Cargo & folks)
 *************************************************
-curl is a tool to transfer data from or to a server. This tool is not present on my Debian system, but there is an installation package in Synaptic. Here we go!
+curl is a tool to transfer data from or to a server. That tool is not installed on my Debian system, but I have the package in Synaptic.
+Install it and........Here we go!
 
-a) Installation via script. Command: $ curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
+a) Installation via script: $ curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
 b) Test: $ rustc --version
              -> rustc 1.51.0 (2fd73fabe 2021-03-23)  
                           OK. Rust is working.
-c) README.md states that mdBook is required for build the book:
-             $ cargo install mdbook
+c) The README.md file states that mdBook is required for build the book:
+         $ cargo install mdbook
              -> . . . (a lot of output lines later . . .)
-             $ echo $PATH                 # We will have to add Cargo's bin directory to our PATH
-                                                     # This was already done in the Rust installation
+         $ echo $PATH                 # We will have to add Cargo's bin directory to our PATH
+                                      # This was already done in the Rust installation
              -> /home/operarcnc/.cargo/bin:/usr/local/bin:  . . . OK
-             $ mdbook -V
+         $ mdbook -V
              -> mdbook v0.4.7
                           OK. mdBook is working.
                          
+Links to sections headers (href) do not work: workarround
+*********************************************************
+
+In the first translated files, a problem emerges with CI. The links to the sections of the chapters are unusable when the headers of those sections are changed.
+CI show a lot of errors.
+The issue is the HTML coding of those links. The mdbook crate find translated heads and non-translated references. The collision is inevitable.
+Make a clone from the original sources now take a sense 
+The grep utility is a great help. We can extract all href from the original .html files (after building them) and planning their translation.
+
+~/rust-lang-en$ mdbook build
+$ cd book
+$ rm print.html            # huge file. It is not necessary to process it
+$ grep -e '><a class="header" href=' *.html > hreflist.txt
+
+
+
+
+
+ 
+
 Progress in ./src. Translated files:
 ************************************
 This list is updated with each new translated file.
