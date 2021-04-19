@@ -193,30 +193,30 @@ Una ventaja adicional de usar Cargo es que los comandos son los mismos, no
 importa en qué sistema operativo estes trabajando. No se
 proporcionan instrucciones específicas para Linux y macOS frente a Windows.
 
-### Construyendo para Release
+### Construir para Publicación
 
-Cuando tu proyecto esté listo para su lanzamiento, puedes usar `cargo build
+Cuando su proyecto esté listo para su lanzamiento, puede usar `cargo build
 --release` para compilarlo con optimizaciones. Este comando creará un
 ejecutable en *target/release* en lugar de en *target/debug*. Las optimizaciones
 haran que el código Rust se ejecute más rápido, pero activarlas alarga el tiempo de
-compilación de tu programa. Por eso hay dos perfiles diferentes: uno
-para el desarrollo, cuando deseas reconstruir de forma rápida y frecuente, y otro para
-crear el programa final que se dará a un usuario que no se reconstruirá
-repetidamente y que se ejecutará lo más rápido posible. Si estás midiendo (benchmarking)
-tiempo de ejecución del código, asegúrate de ejecutar `cargo build --release` y medir con
-el ejecutable en *target/release *.
+compilación de su programa. Por eso hay dos perfiles diferentes: uno
+para el desarrollo, cuando desea reconstruir de forma rápida y frecuente, y otro para
+crear el programa final que se dará a un usuario, que no se reconstruirá
+repetidamente y que se ejecutará lo más rápido posible. Si está midiendo (benchmarking)
+tiempo de ejecución del código, asegúrese de ejecutar `cargo build --release` y medir en
+el ejecutable en *target/release*.
 
 ### Cargo como Convención
 
 Con proyectos simples, Cargo no aporta mucho valor por encima del simple
-`rustc`, pero demostrará su valor a medida que tus programas se vuelvan más complejos.
+`rustc`, pero demostrará su valor a medida que sus programas se vuelvan más complejos.
 Con proyectos complejos compuestos por varias cajas, es mucho más fácil dejar que
 Cargo coordine la construcción.
 
-Aunque el proyecto `hello_cargo` es simple, ahora usa gran parte de las
+Aunque el proyecto `hello_cargo` es simple, ha usado gran parte de las
 herramientas que utilizará en el resto de su carrera en Rust. De hecho, para trabajar en cualquier
-proyecto existente, puedes usar los siguientes comandos para verificar el código
-usando Git, cambia al directorio de ese proyecto y compila:
+proyecto existente, puede usar los siguientes comandos para verificar el código
+usando Git, cambia al directorio de ese proyecto y compilar:
 
 ```console
 $ git clone example.org/someproject
@@ -230,8 +230,8 @@ Para obtener más información sobre Cargo, consulte [su documentación].
 
 ## Resumen
 
-¡Has tenido un gran comienzo en tu viaje por Rust! En este capítulo,
-has aprendido a:
+¡Ha tenido un gran comienzo en su viaje por Rust! En este capítulo,
+ha aprendido a:
 
 * Instalar la última versión estable de Rust usando `rustup`
 * Actualizar a una versión más reciente de Rust
@@ -241,7 +241,7 @@ has aprendido a:
 
 Este es un buen momento para crear un programa más sustancial para acostumbrarse a la lectura
 y escritura de código Rust. En el Capítulo 2, crearemos un programa de juego de adivinanzas.
-Si prefieres comenzar por aprender cómo funcionan los conceptos de programación comunes en
-Rust, ve al Capítulo 3 y luego regresa al Capítulo 2.
+Si prefiere comenzar por aprender cómo funcionan los conceptos de programación comunes en
+Rust, vaya al Capítulo 3 y luego regresa al Capítulo 2.
 
 [installation]: ch01-01-installation.html
