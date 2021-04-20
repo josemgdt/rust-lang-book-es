@@ -1,9 +1,9 @@
-## Definición y creación de instancias de estructuras
+## Definicion y creacion de instancias de estructuras
 
 Las estructuras son similares a las tuplas, que se analizaron en el capítulo 3. Al igual que las tuplas,
 las piezas de una estructura pueden ser de diferentes tipos. A diferencia de las tuplas, se nombrará
 cada dato para que quede claro lo que significan los valores. Como resultado de estos
-nombres, las estructuras son más flexibles que las tuplas: no tienes que depender del
+nombres, las estructuras son más flexibles que las tuplas; no tiene que depender del
 orden de los datos para especificar o acceder a los valores de una instancia.
 
 Para definir una estructura, ingresamos la palabra clave `struct` y nombramos la estructura completa.
@@ -34,10 +34,10 @@ Por ejemplo, podemos declarar un usuario en particular como se muestra en el Lis
 
 <span class="caption">Listado 5-2: Creación de una instancia de la estructura `User`</span>
 
-Para obtener un valor específico desde una estructura, podemos usar la notación de puntos. Si quisiéramos
+Para obtener un valor específico desde una estructura, podemos usar la notación de punto. Si quisiéramos
 solo la dirección de correo electrónico de este usuario, podríamos usar `user1.email` donde queramos
 utilizar este valor. Si la instancia es mutable, podemos cambiar un valor usando
-la notación de puntos y la asignación a un campo en particular. El Listado 5-3 muestra cómo
+la notación de punto y la asignación a un campo en particular. El Listado 5-3 muestra cómo
 cambiar el valor en el campo `email` de una instancia mutable de `User`.
 
 ```rust
@@ -70,7 +70,7 @@ se volvería aún más molesto. Afortunadamente, hay una abreviatura conveniente
 
 ### Uso de la Abreviatura de Inicio de Campo Cuando las Variables y los Campos Tienen el Mismo Nombre
 
-Debido a que los nombres de los parámetros y los nombres de los campos de estructura son exactamente iguales en
+Cuando los nombres de los parámetros y los nombres de los campos de estructura son exactamente iguales en
 el listado 5-4, podemos usar la sintaxis *field init abreviada* para reescribir
 `build_user` y se comporte exactamente igual pero no tenga la
 repetición de `email` y `username`, como se muestra en el Listado 5-5.
@@ -83,22 +83,17 @@ repetición de `email` y `username`, como se muestra en el Listado 5-5.
 abreviatura field init porque los parámetros `email` and `username` tienen el mismo nombre que
 los campos de estructura</span>
 
-Here, we’re creating a new instance of the `User` struct, which has a field
-named `email`. We want to set the `email` field’s value to the value in the
-`email` parameter of the `build_user` function. Because the `email` field and
-the `email` parameter have the same name, we only need to write `email` rather
-than `email: email`.
 Aquí, estamos creando una nueva instancia de la estructura `User`, que tiene un campo
 llamado `email`. Queremos establecer el valor del campo `email` en el valor del
 parámetro `email` de la función `build_user`. Puesto que el campo `email` y
 el parámetro `email` tiene el mismo nombre, solo necesitamos escribir `email` en lugar
 de `email: email`.
 
-### Creación de Instancias a Partir de Otras Instancias con Sintaxis de Actualización de Estructuras
+### Creación de Instancias a Partir de Otras Instancias con Sintaxis de Actualizacion de Estructuras
 
 Suele ser útil crear una nueva instancia de una estructura que utilice la mayor parte de
 los valores de una instancia anterior, pero cambiando algunos. Esto se hará 
-usando *sintaxis de actualización de estructura*.
+usando la *sintaxis de actualización de estructura*.
 
 Primero, el Listado 5-6 muestra cómo creamos una nueva instancia de `User` en `user2` sin
 la sintaxis de actualización. Establecemos nuevos valores para `email` y `username` pero el resto
@@ -149,7 +144,7 @@ instancias de diferentes estructuras de tupla. Cada estructura que defina es de 
 aunque los campos dentro de la estructura tienen los mismos tipos. Por ejemplo, una
 función que toma un parámetro de tipo `Color` no puede tomar un `Punto` como
 argumento, aunque ambos tipos se componen de tres valores `i32`. Por otro lado,
-las instancias de estructura de tupla se comportan como tuplas: puede desestructurarlas en sus
+las instancias de estructura de tupla se comportan como tuplas; puede desestructurarlas en sus
 piezas individuales, puede utilizar un `.` seguido del índice para acceder a un
 valor individual, etc.
 
@@ -234,9 +229,6 @@ sí. Discutiremos los traits en el Capítulo 10.
 > To learn more, run the command again with --verbose.
 > ```
 >
-> In Chapter 10, we’ll discuss how to fix these errors so you can store
-> references in structs, but for now, we’ll fix errors like these using owned
-> types like `String` instead of references like `&str`.
 > En el Capítulo 10 analizaremos cómo corregir estos errores para que pueda almacenar
 > referencias en estructuras, pero por ahora, corregiremos errores como estos usando tipos con propiedad,
 > como `String` en lugar de referencias `&str`.
