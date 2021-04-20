@@ -1,6 +1,6 @@
 ## Sintaxis de Metodos
 
-*Los métodos* son similares a las funciones: se declaran con la palabra clave `fn`, 
+*Los métodos* son similares a las funciones; se declaran con la palabra clave `fn`, 
 su nombre pueden tener parámetros y un valor de retorno y contienen algun
 código que se ejecuta cuando se les llama desde otro lugar. Sin embargo, los métodos son
 diferente de las funciones en que se definen dentro del contexto de una estructura
@@ -10,11 +10,8 @@ instancia de la estructura en la que se está llamando al método.
 
 ### Definicion de Metodos
 
-Let’s change the `area` function that has a `Rectangle` instance as a parameter
-and instead make an `area` method defined on the `Rectangle` struct, as shown
-in Listing 5-13.
 Cambiemos la función `area` que tiene una instancia `Rectangle` como parámetro
-y en su lugar creamos un método `area` definido en la estructura `Rectangle`, como se muestra
+y en su lugar creemos un método `area` definido en la estructura `Rectangle`, como se muestra
 en el Listado 5-13.
 
 <span class="filename">Nombre de archivo: src/main.rs</span>
@@ -32,18 +29,18 @@ Para definir la función dentro del contexto de `Rectangle`, comenzamos un bloqu
 `self` en la declaracion y en todas partes dentro del cuerpo. En `main`, donde
 llamamos a la función `area` y pasamos `rect1` como argumento, podemos
 usas *sintaxis de método* para llamar al método `area` en nuestra instancia de `Rectangle`.
-La sintaxis del método va después de una instancia: agregamos un punto, seguido del nombre del método,
+La sintaxis de método va después de una instancia; agregamos un punto, seguido del nombre del método,
 paréntesis y cualquier argumento.
 
 En la definicion de `area`, usamos `&self` en lugar de `rectangle: &Rectangle`
 porque Rust sabe que el tipo de `self` es `Rectangle` debido a que este método está
 dentro del contexto `impl Rectangle`. Tenga en cuenta que todavía necesitamos usar `&`
 antes de `self`, tal como hicimos en `&Rectangle`. Los métodos pueden apropiarse de
-`self`, pedir prestado `self` inmutablemente como lo hemos hecho aquí, o tomar prestado `self` inmutable,
+`self`, pedir prestado `self` inmutablemente como lo hemos hecho aquí, o tomar prestado `self` mutable,
 al igual que cualquier otro parámetro.
 
 Hemos elegido `&self` aquí por la misma razón que usamos `&Rectangle` en la
-versión de función: no queremos apropiarnos, solo queremos leer los
+versión de función; no queremos apropiarnos, solo queremos leer los
 datos en la estructura, no escribirlos. Si quisiéramos cambiar la instancia desde la que
 hemos llamado al método como parte de lo que hace el propio método, usaremos `&mut self`
 como primer parámetro. Tener un método que se apropie de la
@@ -60,18 +57,18 @@ proveemos.
 
 > ### Donde esta el operador `->`?
 >
-> En C y C ++, se usan dos operadores diferentes para llamar a los métodos; usted usa
+> En C y C ++, se usan dos operadores diferentes para llamar a los métodos; usted usará
 > `.` si está llamando a un método directamente en el objeto y `->` si está
 > llamando al método con un puntero al objeto y es necesario eliminar primero la referencia al
 > puntero. En otras palabras, si `objeto` es un puntero,
 > `objeto->algo()` es similar a `(*objeto).algo()`.
 >
 > Rust no tiene un equivalente al operador `->`; en cambio, Rust tiene una
-> función llamada *referenciación y desreferenciación automáticas*. Los métodos de llamada son
+> función llamada *referenciación y desreferenciación automáticas*. Las llamadas a métodos son
 > uno de los pocos lugares en Rust que tiene este comportamiento.
 >
-> Así es como funciona: cuando llamas a un método con `object.something()`, Rust
-> agrega automáticamente `&`, `&mut`, o `*` para que` object` coincida con la declaracion del
+> Así es como funciona; cuando llama a un método con `object.something()`, Rust
+> agrega automáticamente `&`, `&mut`, o `*` para que `object` coincida con la declaracion del
 > método. En otras palabras, lo siguiente es lo mismo:
 >
 > <!-- CAN'T EXTRACT SEE BUG https://github.com/rust-lang/mdBook/issues/1127 -->
@@ -129,24 +126,9 @@ de `rect2` son más pequeñas que las dimensiones de `rect1` pero `rect3` es má
 Can rect1 hold rect2? true
 Can rect1 hold rect3? false
 ```
-
-We know we want to define a method, so it will be within the `impl Rectangle`
-block. The method name will be `can_hold`, and it will take an immutable borrow
-of another  as a parameter. We can tell what the type of the
-parameter will be by looking at the code that calls the method:
-`rect1.can_hold(&rect2)` passes in `&rect2`, which is an immutable borrow to
-`rect2`, an instance of `Rectangle`. This makes sense because we only need to
-read `rect2` (rather than write, which would mean we’d need a mutable borrow),
-and we want `main` to retain ownership of `rect2` so we can use it again after
-calling the `can_hold` method. The return value of `can_hold` will be a
-Boolean, and the implementation will check whether the width and height of
-`self` are both greater than the width and height of the other `Rectangle`,
-respectively. Let’s add the new `can_hold` method to the `impl` block from
-Listing 5-13, shown in Listing 5-15.
-
 Sabemos que queremos definir un método, por lo que estará dentro del bloque `impl Rectangle`.
 El nombre del método será `can_hold`, y tomará un préstamo inmutable
-de otro `Rectangle` como parámetro. Podemos decir de cuál tipo será
+de otro `Rectangle` como parámetro. Podemos decir de cuál tipo será el
 parámetro mirando el código que llama al método:
 `rect1.can_hold(&rect2)` pasado en `&rect2`, que es un préstamo inmutable para
 `rect2`, una instancia de `Rectangle`. Esto tiene sentido porque solo necesitamos
@@ -215,15 +197,6 @@ pero esta es una sintaxis válida. Veremos un caso en el que varios bloques `imp
 
 ## Resumen
 
-Structs let you create custom types that are meaningful for your domain. By
-using structs, you can keep associated pieces of data connected to each other
-and name each piece to make your code clear. Methods let you specify the
-behavior that instances of your structs have, and associated functions let you
-namespace functionality that is particular to your struct without having an
-instance available.
-
-But structs aren’t the only way you can create custom types: let’s turn to
-Rust’s enum feature to add another tool to your toolbox.
 Las estructuras le permiten crear tipos personalizados que son significativos para su dominio.
 Utilizando estructuras, puede mantener los datos asociados conectados entre sí
 y nombrar cada pieza para que su código sea claro. Los métodos le permiten especificar el
