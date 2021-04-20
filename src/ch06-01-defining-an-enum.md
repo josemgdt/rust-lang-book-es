@@ -1,105 +1,104 @@
-## Defining an Enum
+## Definiendo una Enumeracion
 
-Let’s look at a situation we might want to express in code and see why enums
-are useful and more appropriate than structs in this case. Say we need to work
-with IP addresses. Currently, two major standards are used for IP addresses:
-version four and version six. These are the only possibilities for an IP
-address that our program will come across: we can *enumerate* all possible
-variants, which is where enumeration gets its name.
+Veamos una situación que podríamos querer expresar en código y veamos por qué enumeraciones
+son útiles y más apropiados que las estructuras en este caso. Digamos que tenemos que trabajar
+con direcciones IP. Actualmente, se utilizan dos estándares principales para las direcciones IP;
+versión cuatro y versión seis. Estas son las únicas posibilidades para una dirección IP
+con la que se encontrará nuestro programa; podemos *enumerar* todos las posibles
+variantes, que es donde la enumeración recibe su nombre.
 
-Any IP address can be either a version four or a version six address, but not
-both at the same time. That property of IP addresses makes the enum data
-structure appropriate, because enum values can only be one of its variants.
-Both version four and version six addresses are still fundamentally IP
-addresses, so they should be treated as the same type when the code is handling
-situations that apply to any kind of IP address.
+Cualquier dirección IP puede ser una dirección de la versión cuatro o de la versión seis, pero no
+los dos al mismo tiempo. Esa propiedad de las direcciones IP hace que la enumeración
+sea la estructura apropiada, porque los valores de enumeración solo pueden ser una de sus variantes.
+Tanto las direcciones de la versión cuatro como de la seis siguen siendo fundamentalmente
+direcciones IP, por lo que deben tratarse como del mismo tipo cuando el código está manejando
+situaciones que se aplican a cualquier tipo de dirección IP.
 
-We can express this concept in code by defining an `IpAddrKind` enumeration and
-listing the possible kinds an IP address can be, `V4` and `V6`. These are the
-variants of the enum:
+Podemos expresar este concepto en código definiendo una enumeración `IpAddrKind` y
+enumerando los posibles tipos que puede tener una dirección IP, `V4` y `V6`. Estas son las
+variantes de la enumeración:
 
 ```rust
 {{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/no-listing-01-defining-enums/src/main.rs:def}}
 ```
 
-`IpAddrKind` is now a custom data type that we can use elsewhere in our code.
+`IpAddrKind` es ahora un tipo de datos personalizado que podemos usar en otras partes de nuestro código.
 
-### Enum Values
+### Valores de Enum
 
-We can create instances of each of the two variants of `IpAddrKind` like this:
+Podemos crear instancias de cada una de las dos variantes de `IpAddrKind` así:
 
 ```rust
 {{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/no-listing-01-defining-enums/src/main.rs:instance}}
 ```
 
-Note that the variants of the enum are namespaced under its identifier, and we
-use a double colon to separate the two. The reason this is useful is that now
-both values `IpAddrKind::V4` and `IpAddrKind::V6` are of the same type:
-`IpAddrKind`. We can then, for instance, define a function that takes any
-`IpAddrKind`:
+Tenga en cuenta que las variantes de la enumeración tienen un espacio de nombres bajo su identificador, y
+use dos puntos dobles para separar los dos. La razón por la que esto es útil es que ahora
+ambos valores `IpAddrKind::V4` e `IpAddrKind::V6` son del mismo tipo;
+`IpAddrKind`. Entonces podemos, por ejemplo, definir una función que tome cualquier `IpAddrKind`:
 
 ```rust
 {{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/no-listing-01-defining-enums/src/main.rs:fn}}
 ```
 
-And we can call this function with either variant:
+Y podemos llamar a esta función con cualquiera de las variantes:
 
 ```rust
 {{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/no-listing-01-defining-enums/src/main.rs:fn_call}}
 ```
 
-Using enums has even more advantages. Thinking more about our IP address type,
-at the moment we don’t have a way to store the actual IP address *data*; we
-only know what *kind* it is. Given that you just learned about structs in
-Chapter 5, you might tackle this problem as shown in Listing 6-1.
+Usar enumeraciones tiene aún más ventajas. Pensando más en nuestro tipo de dirección IP,
+por el momento no tenemos forma de almacenar *datos* de la dirección IP real; 
+solo sabemos qué *tipo* es. Dado que acaba de aprender sobre estructuras en
+el Capítulo 5, puede abordar este problema como se muestra en el Listado 6-1.
 
 ```rust
 {{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/listing-06-01/src/main.rs:here}}
 ```
 
-<span class="caption">Listing 6-1: Storing the data and `IpAddrKind` variant of
-an IP address using a `struct`</span>
+<span class="caption">Listado 6-1: Almacenamiento de los datos y la variante `IpAddrKind` de
+una dirección IP usando una `struct`</span>
 
-Here, we’ve defined a struct `IpAddr` that has two fields: a `kind` field that
-is of type `IpAddrKind` (the enum we defined previously) and an `address` field
-of type `String`. We have two instances of this struct. The first, `home`, has
-the value `IpAddrKind::V4` as its `kind` with associated address data of
-`127.0.0.1`. The second instance, `loopback`, has the other variant of
-`IpAddrKind` as its `kind` value, `V6`, and has address `::1` associated with
-it. We’ve used a struct to bundle the `kind` and `address` values together, so
-now the variant is associated with the value.
+Aquí, hemos definido una estructura `IpAddr` que tiene dos campos: un campo `kind` que
+es de tipo `IpAddrKind` (la enumeración que definimos anteriormente) y un campo `address`
+de tipo `String`. Tenemos dos instancias de esta estructura. El primero, `home`, tiene
+el valor `IpAddrKind::V4` como su `tipo` con los datos `127.0.0.1` de dirección asociados.
+La segunda instancia, `loopback`, tiene la otra variante de
+`IpAddrKind` con su valor de `kind`, `V6`, y tiene la dirección `::1` asociada con
+ella. Usamos una estructura para agrupar los valores `kind` y` address`, por lo que
+ahora la variante está asociada con el valor.
 
-We can represent the same concept in a more concise way using just an enum,
-rather than an enum inside a struct, by putting data directly into each enum
-variant. This new definition of the `IpAddr` enum says that both `V4` and `V6`
-variants will have associated `String` values:
+Podemos representar el mismo concepto de una manera más concisa usando solo una enumeración,
+en lugar de una enumeración dentro de una estructura, colocando datos directamente en cada
+variante enum. Esta nueva definición de la enumeración `IpAddr` dice que las variantes tanto` V4` como `V6`
+tendrán valores `String` asociados:
 
 ```rust
 {{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/no-listing-02-enum-with-data/src/main.rs:here}}
 ```
 
-We attach data to each variant of the enum directly, so there is no need for an
-extra struct.
+Adjuntamos datos a cada variante de la enumeración directamente, por lo que no es necesario una
+estructura extra.
 
-There’s another advantage to using an enum rather than a struct: each variant
-can have different types and amounts of associated data. Version four type IP
-addresses will always have four numeric components that will have values
-between 0 and 255. If we wanted to store `V4` addresses as four `u8` values but
-still express `V6` addresses as one `String` value, we wouldn’t be able to with
-a struct. Enums handle this case with ease:
+Hay otra ventaja de usar una enumeración en lugar de una estructura; cada variante
+puede tener diferentes tipos y cantidades de datos asociados. Las direcciones IP tipo versión cuatro
+siempre tendrán cuatro componentes numéricos que tendrán valores
+entre 0 y 255. Si quisiéramos almacenar direcciones `V4` como cuatro valores` u8` pero
+aún expresar las direcciones "V6" como un valor `String`, no podríamos hacerlo con
+una estructura. Enums maneja este caso con facilidad:
 
 ```rust
 {{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/no-listing-03-variants-with-different-data/src/main.rs:here}}
 ```
 
-We’ve shown several different ways to define data structures to store version
-four and version six IP addresses. However, as it turns out, wanting to store
-IP addresses and encode which kind they are is so common that [the standard
-library has a definition we can use!][IpAddr]<!-- ignore --> Let’s look at how
-the standard library defines `IpAddr`: it has the exact enum and variants that
-we’ve defined and used, but it embeds the address data inside the variants in
-the form of two different structs, which are defined differently for each
-variant:
+Hemos mostrado varias formas diferentes de definir estructuras de datos para almacenar la versión
+cuatro y seis de direcciones IP. Sin embargo, resulta que querer almacenar
+direcciones IP y codificar de qué tipo son es tan común que [la biblioteca estándar
+tiene una definición que podemos usar!][IpAddr]<!-- ignore -->. Veamos cómo
+la biblioteca estándar define `IpAddr`; tiene la enumeración exacta y las variantes
+que hemos definido y utilizado, pero incorpora los datos de la dirección dentro de las variantes en
+la forma de dos estructuras diferentes, que se definen de manera diferente para cada
+variante:
 
 [IpAddr]: ../std/net/enum.IpAddr.html
 
@@ -118,107 +117,107 @@ enum IpAddr {
 }
 ```
 
-This code illustrates that you can put any kind of data inside an enum variant:
-strings, numeric types, or structs, for example. You can even include another
-enum! Also, standard library types are often not much more complicated than
-what you might come up with.
+Este código ilustra que puede poner cualquier tipo de datos dentro de una variante de enumeración;
+cadenas, tipos numéricos o estructuras, por ejemplo. Incluso puedes incluir otro
+enum! Además, los tipos de bibliotecas estándar no suelen ser mucho más complicados que
+lo que se le ocurran.
 
-Note that even though the standard library contains a definition for `IpAddr`,
-we can still create and use our own definition without conflict because we
-haven’t brought the standard library’s definition into our scope. We’ll talk
-more about bringing types into scope in Chapter 7.
+Tenga en cuenta que aunque la biblioteca estándar contiene una definición para `IpAddr`,
+todavía podemos crear y usar nuestra propia definición sin conflicto porque
+no hemos traído la definición de la biblioteca estándar a nuestro alcance. Hablaremos
+más sobre cómo incluir tipos en el alcance en el Capítulo 7.
 
-Let’s look at another example of an enum in Listing 6-2: this one has a wide
-variety of types embedded in its variants.
+Veamos otro ejemplo de enumeración en el Listado 6-2; este tiene una amplia
+variedad de tipos incrustados en sus variantes.
 
 ```rust
 {{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/listing-06-02/src/main.rs:here}}
 ```
 
-<span class="caption">Listing 6-2: A `Message` enum whose variants each store
-different amounts and types of values</span>
+<span class="caption">Listado 6-2: Una enumeración `Message` cuyas variantes almacenan
+diferentes cantidades y tipos de valores</span>
 
-This enum has four variants with different types:
+Esta enumeración tiene cuatro variantes con diferentes tipos:
 
-* `Quit` has no data associated with it at all.
-* `Move` includes an anonymous struct inside it.
-* `Write` includes a single `String`.
-* `ChangeColor` includes three `i32` values.
+* `Quit` no tiene ningún dato asociado.
+* `Move` incluye una estructura anónima en su interior.
+* `Write` incluye una sola `String`.
+* `ChangeColor` incluye tres valores de `i32`.
 
-Defining an enum with variants such as the ones in Listing 6-2 is similar to
-defining different kinds of struct definitions, except the enum doesn’t use the
-`struct` keyword and all the variants are grouped together under the `Message`
-type. The following structs could hold the same data that the preceding enum
-variants hold:
+Definir una enumeración con variantes como las del Listado 6-2 es similar a
+definir diferentes tipos de definiciones de estructura, excepto que la enumeración no usa la
+palabra clave `struct` y todas las variantes se agrupan bajo el
+tipo `Message`. Las siguientes estructuras podrían contener los mismos datos quelos de las variantes
+de la enumeración anterior:
 
 ```rust
 {{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/no-listing-04-structs-similar-to-message-enum/src/main.rs:here}}
 ```
 
-But if we used the different structs, which each have their own type, we
-couldn’t as easily define a function to take any of these kinds of messages as
-we could with the `Message` enum defined in Listing 6-2, which is a single type.
+Pero si usamos las diferentes estructuras, cada una de las cuales tiene su propio tipo,
+no podría definir tan fácilmente una función para tomar cualquiera de estos tipos de mensajes como
+podríamos con la enumeración `Message` definida en el Listado 6-2, que es un solo tipo.
 
-There is one more similarity between enums and structs: just as we’re able to
-define methods on structs using `impl`, we’re also able to define methods on
-enums. Here’s a method named `call` that we could define on our `Message` enum:
+Hay una similitud más entre enumeraciones y estructuras; así como podemos
+definir métodos en estructuras usando `impl`, también podemos definir métodos en
+enums. Aquí hay un método llamado `call` que podríamos definir en nuestra enumeración `Message`:
 
 ```rust
 {{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/no-listing-05-methods-on-enums/src/main.rs:here}}
 ```
 
-The body of the method would use `self` to get the value that we called the
-method on. In this example, we’ve created a variable `m` that has the value
-`Message::Write(String::from("hello"))`, and that is what `self` will be in the
-body of the `call` method when `m.call()` runs.
+El cuerpo del método usaría `self` para obtener el valor con el que llamamos
+al método. En este ejemplo, creamos una variable `m` que tiene el valor
+`Message::Write(String::from("hello"))`, y eso es lo que `self` será en el
+cuerpo del método `call` cuando se ejecute `m.call()`.
 
-Let’s look at another enum in the standard library that is very common and
-useful: `Option`.
+Veamos otra enumeración en la biblioteca estándar que es muy común y
+útil; `Option`.
 
-### The `Option` Enum and Its Advantages Over Null Values
+### La enumeracion `Option` y sus ventajas sobre los valores nulos
 
-In the previous section, we looked at how the `IpAddr` enum let us use Rust’s
-type system to encode more information than just the data into our program.
-This section explores a case study of `Option`, which is another enum defined
-by the standard library. The `Option` type is used in many places because it
-encodes the very common scenario in which a value could be something or it
-could be nothing. Expressing this concept in terms of the type system means the
-compiler can check whether you’ve handled all the cases you should be handling;
-this functionality can prevent bugs that are extremely common in other
-programming languages.
+En la sección anterior vimos cómo la enumeración `IpAddr` nos permite usar el
+sistema de tipos de Rust para codificar más información que solo los datos en nuestro programa.
+Esta sección explora un estudio de `Option`, que es otra enumeración definida
+por la biblioteca estándar. El tipo `Option` se utiliza en muchos lugares porque
+codifica el escenario muy común en el que un valor podría ser algo o
+podría no ser nada. Expresar este concepto en términos del sistema de tipos significa que
+el compilador puede comprobar si ha manejado todos los casos que debería estar manejando;
+esta funcionalidad puede prevenir errores que son extremadamente comunes en otros
+lenguajes de programación.
 
-Programming language design is often thought of in terms of which features you
-include, but the features you exclude are important too. Rust doesn’t have the
-null feature that many other languages have. *Null* is a value that means there
-is no value there. In languages with null, variables can always be in one of
-two states: null or not-null.
+El diseño del lenguaje de programación a menudo se piensa en términos de las características que
+incluye, pero las funciones que excluye también son importantes. Rust no tiene el
+característica nula que tienen muchos otros idiomas. *Null* es un valor que significa que
+no hay ningún valor allí. En lenguajes con nulo, las variables siempre pueden estar en uno de
+dos estados: nulo o no nulo.
 
-In his 2009 presentation “Null References: The Billion Dollar Mistake,” Tony
-Hoare, the inventor of null, has this to say:
+En su presentación de 2009 "Referencias nulas: el error del billón de dólares", Tony
+Hoare, el inventor de null, dijo esto:
 
-> I call it my billion-dollar mistake. At that time, I was designing the first
-> comprehensive type system for references in an object-oriented language. My
-> goal was to ensure that all use of references should be absolutely safe, with
-> checking performed automatically by the compiler. But I couldn’t resist the
-> temptation to put in a null reference, simply because it was so easy to
-> implement. This has led to innumerable errors, vulnerabilities, and system
-> crashes, which have probably caused a billion dollars of pain and damage in
-> the last forty years.
+> Yo lo llamo mi error del billón de dólares. En ese momento, estaba diseñando el primer
+> sistema de tipos completo para referencias en un lenguaje orientado a objetos. Mi
+> objetivo era garantizar que todo uso de referencias fuera absolutamente seguro, con
+> comprobación realizada automáticamente por el compilador. Pero no pude resistir la
+> tentación de poner una referencia nula, simplemente porque era muy fácil
+> implementar. Esto ha llevado a innumerables errores, vulnerabilidades y caidas de sistemas,
+> que probablemente han causado millones de dólares de dolor y daños en
+> los últimos cuarenta años.
 
-The problem with null values is that if you try to use a null value as a
-not-null value, you’ll get an error of some kind. Because this null or not-null
-property is pervasive, it’s extremely easy to make this kind of error.
+El problema con los valores nulos es que si intenta utilizar un valor nulo como
+valor no nulo, obtendrá un error de algún tipo. Ya que este propiedad nulo o no nulo
+es omnipresente, es extremadamente fácil cometer este tipo de error.
 
-However, the concept that null is trying to express is still a useful one: a
-null is a value that is currently invalid or absent for some reason.
+Sin embargo, el concepto que null está tratando de expresar sigue siendo útil; un
+null es un valor que actualmente no es válido o está ausente por algún motivo.
 
-The problem isn’t really with the concept but with the particular
-implementation. As such, Rust does not have nulls, but it does have an enum
-that can encode the concept of a value being present or absent. This enum is
-`Option<T>`, and it is [defined by the standard library][option]<!-- ignore -->
-as follows:
+El problema no es realmente el concepto, sino la implementación particular.
+Como tal, Rust no tiene nulos, pero tiene una enumeración
+que puede codificar el concepto de un valor presente o ausente. Esta enumeración es
+`Option<T>`, y es [definida por la biblioteca estándar][option]<!-- ignore -->
+como sigue:
 
-[option]: ../std/option/enum.Option.html
+[opción]: ../std/option/enum.Option.html
 
 ```rust
 enum Option<T> {
@@ -227,82 +226,83 @@ enum Option<T> {
 }
 ```
 
-The `Option<T>` enum is so useful that it’s even included in the prelude; you
-don’t need to bring it into scope explicitly. In addition, so are its variants:
-you can use `Some` and `None` directly without the `Option::` prefix. The
-`Option<T>` enum is still just a regular enum, and `Some(T)` and `None` are
-still variants of type `Option<T>`.
+La enumeración `Option<T>` es tan útil que incluso se incluye en el preludio;
+no es necesario incluirlo en el alcance de forma explícita. Además, también están sus variantes;
+puede usar `Some` y` None` directamente sin el prefijo `Option::`. La
+enum `Option<T>` sigue siendo una enumeración regular, y `Some(T)` y `None` son
+todavía variantes del tipo `Option<T>`.
 
-The `<T>` syntax is a feature of Rust we haven’t talked about yet. It’s a
-generic type parameter, and we’ll cover generics in more detail in Chapter 10.
-For now, all you need to know is that `<T>` means the `Some` variant of the
-`Option` enum can hold one piece of data of any type. Here are some examples of
-using `Option` values to hold number types and string types:
+La sintaxis `<T>` es una característica de Rust de la que aún no hemos hablado. Es un
+parámetro de tipo genérico, y cubriremos los genéricos con más detalle en el Capítulo 10.
+Por ahora, todo lo que necesita saber es que `<T>` significa que la variante `Some` de
+la enumeración `Option` puede contener un dato de cualquier tipo. A continuación se muestran algunos ejemplos
+usando valores de `Option` para contener tipos de números y tipos de cadenas:
 
 ```rust
 {{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/no-listing-06-option-examples/src/main.rs:here}}
 ```
 
-If we use `None` rather than `Some`, we need to tell Rust what type of
-`Option<T>` we have, because the compiler can’t infer the type that the `Some`
-variant will hold by looking only at a `None` value.
+Si usamos `None` en lugar de `Some`, debemos decirle a Rust qué tipo de
+`Option<T>` tenemos, porque el compilador no puede inferir el tipo que la variante `Some`
+puede contener mirando solo un valor `None`.
 
-When we have a `Some` value, we know that a value is present and the value is
-held within the `Some`. When we have a `None` value, in some sense, it means
-the same thing as null: we don’t have a valid value. So why is having
-`Option<T>` any better than having null?
+Cuando tenemos un valor `Some`, sabemos que hay un valor presente y el valor se
+mantiene dentro de `Some`. Cuando tenemos un valor `None`, en cierto sentido significa
+lo mismo que nulo; no tenemos un valor válido. Entonces, ¿por qué tener
+`Option<T>` es mejor que tener nulo?
 
-In short, because `Option<T>` and `T` (where `T` can be any type) are different
-types, the compiler won’t let us use an `Option<T>` value as if it were
-definitely a valid value. For example, this code won’t compile because it’s
-trying to add an `i8` to an `Option<i8>`:
+En resumen, porque `Option<T>` y `T` (donde` T` puede ser de cualquier tipo) son diferentes
+tipos, el compilador no nos permitirá usar un valor de `Option<T>` como si fuera
+definitivamente un valor válido. Por ejemplo, este código no se compilará porque está
+tratando de agregar un `i8` a una ` Option<i8>`:
 
 ```rust,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/no-listing-07-cant-use-option-directly/src/main.rs:here}}
 ```
 
-If we run this code, we get an error message like this:
+Si ejecutamos este código, obtenemos un mensaje de error como este:
 
 ```console
 {{#include ../listings/ch06-enums-and-pattern-matching/no-listing-07-cant-use-option-directly/output.txt}}
 ```
 
-Intense! In effect, this error message means that Rust doesn’t understand how
-to add an `i8` and an `Option<i8>`, because they’re different types. When we
-have a value of a type like `i8` in Rust, the compiler will ensure that we
-always have a valid value. We can proceed confidently without having to check
-for null before using that value. Only when we have an `Option<i8>` (or
-whatever type of value we’re working with) do we have to worry about possibly
-not having a value, and the compiler will make sure we handle that case before
-using the value.
+¡Intenso! De hecho, este mensaje de error significa que Rust no comprende cómo
+para agregar un `i8` y una` Option<i8> `, porque son tipos diferentes. Cuando nosotros
+tenemos un valor de un tipo como `i8` en Rust, el compilador se asegurará de que
+siempre tiene un valor válido. Podemos proceder con confianza sin tener que comprobar
+para nulo antes de usar ese valor. Solo cuando tenemos una `Option<i8>` (o
+cualquier tipo de valor con el que estemos trabajando) tenemos que preocuparnos posiblemente
+de no tener un valor, y el compilador se asegurará de que manejemos ese caso antes
+de utilizar el valor.
 
-In other words, you have to convert an `Option<T>` to a `T` before you can
-perform `T` operations with it. Generally, this helps catch one of the most
-common issues with null: assuming that something isn’t null when it actually
-is.
+En otras palabras, debe convertir una `Option<T>` en una `T` antes de poder
+realizar operaciones `T` con él. Generalmente, esto ayuda a detectar uno de los
+problemas comunes con nulo; suponer que algo no es nulo cuando en realidad lo
+es.
 
-Not having to worry about incorrectly assuming a not-null value helps you to be
-more confident in your code. In order to have a value that can possibly be
-null, you must explicitly opt in by making the type of that value `Option<T>`.
-Then, when you use that value, you are required to explicitly handle the case
-when the value is null. Everywhere that a value has a type that isn’t an
-`Option<T>`, you *can* safely assume that the value isn’t null. This was a
-deliberate design decision for Rust to limit null’s pervasiveness and increase
-the safety of Rust code.
+No tener que preocuparse por asumir incorrectamente un valor no nulo le ayuda a ser
+más confiado con su código. Para tener un valor que posiblemente pueda ser
+null, debe participar explícitamente haciendo que el tipo de ese valor sea `Option<T>`.
+Luego, cuando usa ese valor, debe manejar explícitamente el caso
+cuando el valor es nulo. Dondequiera que un valor tenga un tipo que no sea un
+`Option<T>`, *puede* asumir con seguridad que el valor no es nulo. Esto fue una
+decisión de diseño deliberada de Rust para limitar la omnipresencia de null y aumentar
+la seguridad del código Rust.
 
-So, how do you get the `T` value out of a `Some` variant when you have a value
-of type `Option<T>` so you can use that value? The `Option<T>` enum has a large
-number of methods that are useful in a variety of situations; you can check
-them out in [its documentation][docs]<!-- ignore -->. Becoming familiar with
-the methods on `Option<T>` will be extremely useful in your journey with Rust.
+Entonces, ¿cómo se obtiene el valor `T` de una variante `Some` cuando se tiene un valor
+de tipo `Option<T>` para que pueda usar ese valor? La enumeración `Option<T>` tiene un gran
+número de métodos que son útiles en una variedad de situaciones; puede revisar
+en [su documentación][docs]<!-- ignore -->. Familiarizárse con
+los métodos en `Option<T>` serán extremadamente útil en su viaje con Rust.
 
-[docs]: ../std/option/enum.Option.html
+[documentos]: ../std/option/enum.Option.html
 
-In general, in order to use an `Option<T>` value, you want to have code that
-will handle each variant. You want some code that will run only when you have a
-`Some(T)` value, and this code is allowed to use the inner `T`. You want some
-other code to run if you have a `None` value, and that code doesn’t have a `T`
-value available. The `match` expression is a control flow construct that does
-just this when used with enums: it will run different code depending on which
-variant of the enum it has, and that code can use the data inside the matching
-value.
+En general, para utilizar un valor de `Option<T>`, deseará tener un código que
+manejará cada variante. Deseará algún código que se ejecute solo cuando tenga un
+valor `Some(T)`, y este código puede usar la `T` interna. Necesitará
+otro código a ejecutar si tiene un valor `None` y ese código no tiene un
+valor `T` disponible. La expresión `match` es una construcción de flujo de control que 
+hace justo esto cuando se usa con enumeraciones; ejecutará un código diferente dependiendo de qué
+variante de la enumeración que tiene, y ese código puede usar los datos dentro de la coincidencia
+de valor.
+
