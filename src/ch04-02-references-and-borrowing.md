@@ -1,7 +1,7 @@
 ## Referencias y Prestamos
 
 El problema con el código de tupla en el Listado 4-5 es que tenemos que devolver el
-`String` a la función de llamada, por lo que todavía podemos usar el `String` después de
+`String` a la función de llamada de forma que todavía podemos usar el `String` después de
 llamar a `calculate_length`, porque el `String` se movió a `calculate_length`.
 
 Así es como se definiría y usaría una función `calculate_length` que tiene una
@@ -14,10 +14,10 @@ referencia a un objeto como parámetro en lugar de tomar posesión del valor:
 ```
 
 Primero, observe que todo el código de tupla en la declaración de variable y
-el valor de retorno de la función se ha ido. En segundo lugar, tenga en cuenta que pasamos `&s1` a
+el valor de retorno de la función se ha eliminado. En segundo lugar, tenga en cuenta que pasamos `&s1` a
 `calculate_length` y, en su definición, tomamos` &String` en lugar de `String`.
 
-Estos símbolos & son *referencias* y le permiten hacer referencia a algún valor
+Estos símbolos `&` son *referencias* y le permiten hacer referencia a algún valor
 sin apropiarse de ellos. La figura 4-5 muestra un diagrama.
 
 <img alt="& String s apuntando a String s1" src="img/trpl04-05.svg" class="center" />
@@ -29,7 +29,7 @@ sin apropiarse de ellos. La figura 4-5 muestra un diagrama.
 > operador de desreferencia en el Capítulo 8 y discutiremos los detalles de desreferenciación en
 > Capítulo 15.
 
-Echemos un vistazo más de cerca a la llamada a la función aquí:
+Echemos un vistazo más de cerca a la llamada a la función:
 
 ```rust
 {{#rustdoc_include ../listings/ch04-understanding-ownership/no-listing-07-reference/src/main.rs:here}}
@@ -39,8 +39,8 @@ La sintaxis `&s1` nos permite crear una referencia que *se refiere* al valor de 
 pero no lo posee. Debido a que no lo posee, el valor al que apunta no será
 descartado cuando la referencia quede fuera del alcance.
 
-Asimismo, la función utiliza `&` para indicar que el tipo de
-el parámetro `s` es una referencia. Agreguemos algunas anotaciones explicativas:
+Asimismo, la función utiliza `&` para indicar que el tipo del
+parámetro `s` es una referencia. Agreguemos algunas anotaciones explicativas:
 
 ```rust
 {{#rustdoc_include ../listings/ch04-understanding-ownership/no-listing-08-reference-with-annotations/src/main.rs:here}}
@@ -57,7 +57,7 @@ si una persona posee algo, se lo puede pedir prestado. Cuando haya terminado,
 tiene que devolverlo.
 
 Entonces, ¿qué sucede si intentamos modificar algo que estamos pidiendo prestado? Pruebe el código en
-Listado 4-6. Alerta: ¡no funciona!
+Listado 4-6. Avisamos: ¡no funciona!
 
 <span class="filename">​​Nombre de archivo: src/main.rs</span>
 
@@ -86,12 +86,11 @@ Podemos corregir el error en el código del Listado 4-6 con solo un pequeño aju
 {{#rustdoc_include ../listings/ch04-understanding-ownership/no-listing-09-fixes-listing-04-06/src/main.rs}}
 ```
 
-Primero, tuvimos que cambiar `s` para que sea `mut`. Entonces tuvimos que crear una
-referencia mutable con `&mut s` y acepta una referencia mutable con `some_string: &mut String`.
+Primero, cambiamos `s` para que sea `mut`. Despues creamos una
+referencia mutable con `&mut s` y aceptamos una referencia mutable con `some_string: &mut String`.
 
-Pero las referencias mutables tienen una gran restricción: solo se puede tener UNA
-referencia a un dato particular en un ámbito particular. Este código
-fallará:
+Pero las referencias mutables tienen una gran restricción: para un dato particular,
+solo se puede tener UNA referencia en un ámbito particular. Este código fallará:
 
 <span class="filename">​​Nombre de archivo: src/main.rs</span>
 
@@ -111,7 +110,7 @@ mutar cuando quiera.
 
 El beneficio de tener esta restricción es que Rust puede evitar carreras de datos en
 tiempo de compilación. Una *carrera de datos* es similar a una condición de carrera y ocurre cuando
-ocurren estos tres comportamientos:
+se dan estos tres comportamientos:
 
 * Dos o más punteros acceden a los mismos datos al mismo tiempo.
 * Se está utilizando al menos uno de los punteros para escribir en los datos.
@@ -122,7 +121,7 @@ cuando se intenta localizarlos en tiempo de ejecución; Rust previene este probl
 porque ni siquiera compila código con carreras de datos.
 
 Como siempre, podemos usar llaves para crear un nuevo alcance, lo que permite
-múltiples referencias mutables, pero no *simultáneas*:
+múltiples referencias mutables, pero *no simultáneas*:
 
 ```rust
 {{#rustdoc_include ../listings/ch04-understanding-ownership/no-listing-11-muts-in-separate-scopes/src/main.rs:here}}
@@ -141,10 +140,10 @@ Aquí está el error:
 {{#include ../listings/ch04-understanding-ownership/no-listing-12-immutable-and-mutable-not-allowed/output.txt}}
 ```
 
-¡Uf! Nosotros *tampoco* podemos tener una referencia mutable mientras tengamos una inmutable.
+¡Uf! *tampoco* podemos tener una referencia mutable mientras tengamos una inmutable.
 Los usuarios de una referencia inmutable no esperan que los valores cambien repentinamente
-en algun sitio! Sin embargo, varias referencias inmutables están bien porque nadie
-que solo está leyendo los datos tiene la capacidad de afectar la lectura de cualquier otra persona.
+en ningun sitio! Sin embargo, varias referencias inmutables están bien porque nadie
+que solo está leyendo los datos tiene la capacidad de afectar la lectura de cualquier otro.
 
 Tenga en cuenta que el alcance de una referencia comienza desde donde se introduce y continúa
 hasta la última vez que se utilizó esa referencia. Por ejemplo, este código
@@ -161,14 +160,14 @@ Estos alcances no se superponen, por lo que este código está permitido.
 
 Aunque los errores de préstamo pueden resultar frustrantes en ocasiones, recuerde que es
 el compilador de Rust quien señala un error potencial temprano (en tiempo de compilación en lugar de
-que en tiempo de ejecución) y muestra exactamente dónde está el problema. Por tanto, no
+en tiempo de ejecución) y muestra exactamente dónde está el problema. Por tanto, no
 tiene que averiguar por qué sus datos no son los que pensaba.
 
 ### Referencias Colgantes (Dangling)
 
-En los idiomas con punteros, es fácil crear erróneamente un *puntero colgante*, 
+En los lenguajes con punteros es fácil crear erróneamente un *puntero colgante*, 
 un puntero que hace referencia a una ubicación en la memoria que puede haber sido
-dado a otro, liberando algo de memoria mientras se conserva un puntero
+dada a otro, liberando algo de memoria mientras se conserva un puntero
 a esa memoria. En Rust, por el contrario, el compilador garantiza que las referencias
 nunca serán referencias colgantes; si tiene una referencia a algunos datos, el
 compilador se asegurará de que los datos no salgan del alcance antes de que

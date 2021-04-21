@@ -1,14 +1,14 @@
 ## Control de Flujo 
 
-Decidir si ejecutar o no algún código dependiendo de si una condición es verdadera o no
-y decidir si ejecutar algún código repetidamente mientras una condición es verdadera son
-bloques básicos de construcción en la mayoría de los lenguajes de programación. Los constructos más comunes que
+En la mayoría de los lenguajes de programación, decidir si ejecutar o no algún código dependiendo 
+de si una condición es verdadera o no y ejecutar un código repetidamente mientras una condición 
+es verdadera son bloques básicos de construcción. Los constructos más comunes que
 le permiten controlar el flujo de ejecución del código en Rust son las expresiones `if` y los
 bucles.
 
 ### Expresiones `if`
 
-Una expresión `if` le permite ramificar su código dependiendo de condiciones; se
+Las expresiones `if` permiten ramificar el código dependiendo de condiciones; se
 proporciona una condición y luego se dice: "Si se cumple esta condición, ejecutar este bloque
 de código. Si no se cumple, no ejecutarlo".
 
@@ -24,14 +24,14 @@ la expresión `if`. En el archivo *src/main.rs*, ingrese lo siguiente:
 Todas las expresiones `if` comienzan con la palabra clave` if`, seguida de una
 condición. En este caso, la condición comprueba si la variable
 `number` tiene un valor menor que 5. El bloque de código que queremos ejecutar si
-la condición es verdadera se coloca inmediatamente después de la condición dentro de
-llaves. Los bloques de código asociados con las condiciones en las expresiones `if` son
-llamados a veces *brazos*, al igual que los brazos en las expresiones de "coincidencia" que
+la condición es verdadera se coloca inmediatamente después de la condición, dentro de
+llaves. Los bloques de código asociados con las condiciones en las expresiones `if` se
+llaman a veces *brazos*, al igual que los brazos en las expresiones `match` que
 discutimos en la sección ["Comparando la conjetura con el Número secreto”][comparing-the-guess-to-the-secret-number]<!-- ignore --> del Capitulo 2.
 
-Opcionalmente, también podemos incluir una expresión "else"
-para darle al programa un bloque de código alternativo a ejecutar cuando
-la condición se evalúa como falsa. Si no proporciona una expresión "else" y
+Opcionalmente, también podemos incluir una expresión `else`
+que da al programa un bloque de código alternativo a ejecutar cuando
+la condición se evalúa como falsa. Si no se proporciona una expresión `else` y
 la condición es falsa, el programa simplemente saltará el bloque `if` y continuará
 al siguiente código.
 
@@ -55,8 +55,8 @@ Ejecute el programa nuevamente y observe el resultado:
 {{#include ../listings/ch03-common-programming-concepts/no-listing-27-if-false/output.txt}}
 ```
 
-También vale la pena señalar que la condición en este código *debe* ser un `bool`. Si
-la condición no es un "bool", obtendremos un error. Por ejemplo, intente ejecutar el
+La condición en este código *debe* ser un `bool`. Si
+la condición no es un `bool`, obtendremos un error. Por ejemplo, intente ejecutar el
 siguiente código:
 
 <span class="filename">Nombre de archivo: src/main.rs</span>
@@ -72,11 +72,11 @@ error:
 {{#include ../listings/ch03-common-programming-concepts/no-listing-28-if-condition-must-be-bool/output.txt}}
 ```
 
-El error indica que Rust esperaba un "bool" pero obtuvo un número entero. A diferencia de
+El error indica que Rust esperaba un `bool` pero obtuvo un número entero. A diferencia de
 lenguajes como Ruby y JavaScript, Rust no intentará automáticamente
 convertir tipos no booleanos en booleanos. Debe ser explícito y proporcionar siempre
-`if` con un booleano como condición. Si queremos que se ejecute el bloque de código `if`
-solo cuando un número no es igual a "0", por ejemplo, podemos cambiar la
+`if` con un booleano como condición. Si, por ejemplo, queremos que se ejecute el bloque de código `if`
+solo cuando un número no es igual a `0`, podemos cambiar la
 expresión `if` a lo siguiente:
 
 <span class="filename">Nombre de archivo: src/main.rs</span>
@@ -105,15 +105,15 @@ ver el siguiente resultado:
 {{#include ../listings/ch03-common-programming-concepts/no-listing-30-else-if/output.txt}}
 ```
 
-Cuando este programa se ejecuta, comprueba cada expresión `if` cada vez y ejecuta
-el primer cuerpo de codigo para el que se cumple la condición. Tenga en cuenta que aunque 6 es
-divisible por 2, no vemos el resultado `número es divisible por 2`, ni
-el texto `número no es divisible por 4, 3 o 2` del bloque` else`.
+Cuando este programa se ejecuta, comprueba cada expresión `if`, una cada vez, y ejecuta
+el primer cuerpo de codigo para el que se cumple su condición. Tenga en cuenta que aunque 6 es
+divisible por 2, no vemos el resultado `número divisible por 2`, ni
+el texto `número no divisible por 4, 3 o 2` del ultimo bloque `else`.
 Eso es porque Rust solo ejecuta el bloque para la primera condición verdadera, y
 una vez que encuentra uno, ni siquiera comprueba el resto.
 
 Usar demasiadas expresiones `else if` puede saturar su código, así que si tiene más
-de una, es posible que desee refactorizar su código. El capítulo 6 describe una poderosa
+de una, es posible que desee rehacerlo. El capítulo 6 describe una poderosa
 construcción de ramificación de Rust llamada `match` para estos casos.
 
 #### Usando `if` en una Instruccion` let`
@@ -161,8 +161,8 @@ encuentra el problema en el programa:
 
 La expresión en el bloque `if` se evalúa como un número entero, y la expresión en
 el bloque `else` se evalúa como una cadena. Esto no funcionará porque las variables deben
-tener un solo tipo. Rust necesita saber en el momento de la compilación qué tipo de
-variable es `number`, definitivamente, por lo que puede verificar en tiempo de compilación que su tipo es
+tener un solo tipo. Rust, definitivamente, necesita saber en el momento de la compilación qué tipo de
+variable es `number`, por lo que puede verificar en tiempo de compilación que su tipo es
 válido en todos los lugares donde usamos `number`. Rust no podría hacer eso si el tipo de
 `number` solo se determinó en tiempo de ejecución; el compilador sería más complejo
 y ofrecería menos garantías sobre el código si tuviera que realizar un seguimiento de
@@ -227,11 +227,11 @@ adivinar el número correcto.
 
 #### Devolucion de Valores desde Bucles
 
-Uno de los usos de un `loop` es reintentar una operación que sabe que puede fallar, como
+Uno de los usos de un `loop` es reintentar una operación que se sabe puede fallar, como
 comprobar si un hilo ha completado su trabajo. Sin embargo, es posible que deba
 pasa el resultado de esa operación al resto del código. Para hacer esto, puede
 agregar el valor que desea que se devuelva después de la expresión `break` que usa para detener
-el lazo; ese valor se devolverá fuera del ciclo para que pueda usarlo, como
+el lazo; ese valor se devolverá fuera del bucle para que pueda usarlo, como
 se muestra aquí:
 
 ```rust
@@ -241,15 +241,15 @@ se muestra aquí:
 Antes del ciclo, declaramos una variable llamada `counter` y la inicializamos a
 `0`. Luego declaramos una variable llamada `result` para contener el valor devuelto del
 lazo. En cada iteración del ciclo, agregamos `1` a la variable `counter`,
-y luego verificamos si el contador es igual a "10". Cuando lo es, usamos la
+y luego verificamos si el contador es igual a `10`. Cuando lo es, usamos la
 palabra clave `break` con el valor `counter * 2`. Después del ciclo, usamos un
 punto y coma para finalizar la instrucción que asigna el valor a `result`. Finalmente,
 imprime el valor en `result`, que en este caso es 20.
 
 #### Bucles Condicionales con `while`
 
-A menudo, es útil que un programa evalúe una condición dentro de un bucle. Mientras
-la condición es verdadera, el ciclo se ejecuta. Cuando la condición deja de ser verdadera, el
+A menudo es útil que un programa evalúe una condición dentro de un bucle. Mientras
+la condición es verdadera, el bucle se ejecuta. Cuando la condición deja de ser verdadera, el
 el programa llama a `break`, deteniendo el bucle. Este tipo de bucle podría implementarse
 usando una combinación de `loop`, `if`, `else` y `break`; podría, si lo desea, intentar ahora eso
 en un programa.
@@ -297,7 +297,7 @@ en la matriz:
 ```
 
 Los cinco valores de la matriz aparecen en la terminal, como se esperaba. Aunque `index`
-alcanzará un valor de `5` en algún momento, el ciclo dejará de ejecutarse antes de intentar
+alcanzará un valor de `5` en algún momento, el bucle dejará de ejecutarse antes de intentar
 obtener un sexto valor de la matriz.
 
 Pero este enfoque es propenso a errores; podríamos hacer que el programa entre en pánico si
@@ -320,10 +320,10 @@ usando un bucle `for`</span>
 Cuando ejecutamos este código, veremos el mismo resultado que en el Listado 3-4. Y
 lo que es más importante, ahora hemos aumentado la seguridad del código y hemos eliminado la
 posibilidad de errores que puedan resultar de ir más allá del final de la matriz, o no
-ir lo suficientemente lejos y falten algunos elementos.
+ir lo suficientemente lejos y que falten algunos elementos.
 
 Por ejemplo, en el código del Listado 3-4, si cambió la definición de la
-matriz `a` para tener cuatro elementos pero se olvidó de actualizar la condición `whileindex < 4`, 
+matriz `a` para tener cuatro elementos pero se olvidó de actualizar la condición `while index < 4`, 
 el código entraría en pánico. Usando el ciclo `for`, no necesitaría
 recordar cambiar cualquier otro código si cambió el número de valores en la matriz.
 

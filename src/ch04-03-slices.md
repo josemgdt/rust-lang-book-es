@@ -1,13 +1,12 @@
 ## El Tipo Slice
 
 Otro tipo de datos que no tiene propiedad es el *slice*. Los Slices permiten
-hacer referencia a una secuencia contigua de elementos en una colección en lugar de 
+hacer referencia a una secuencia contigua de elementos en una colección, en lugar de 
 a la colección completa.
 
 Veamos un pequeño problema de programación: escribir una función que tome una cadena y
 devuelva la primera palabra que encuentra en esa cadena. Si la función no encuentra un
-espacio en la cadena, toda la cadena debe ser una palabra, por lo que toda la cadena
-debe ser devuelta.
+espacio en la cadena, toda la cadena debe ser una palabra, por lo que debe ser devuelta toda la cadena.
 
 Pensemos en la declaracion de esta función:
 

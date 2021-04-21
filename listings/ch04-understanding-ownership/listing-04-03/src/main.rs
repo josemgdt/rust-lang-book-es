@@ -1,23 +1,24 @@
 fn main() {
-    let s = String::from("hello");  // s comes into scope
+    let s = String::from("hello");  // s entra en el alcance
 
-    takes_ownership(s);             // s's value moves into the function...
-                                    // ... and so is no longer valid here
+    takes_ownership(s);             // el valor de s se mueve a la función ...
+                                    // ... y por eso ya no es válido aquí
 
-    let x = 5;                      // x comes into scope
+    let x = 5;                      // x entra en el alcance
 
-    makes_copy(x);                  // x would move into the function,
-                                    // but i32 is Copy, so it's okay to still
-                                    // use x afterward
+    makes_copy(x);                  // x se movería a la función,
+                                    // pero i32 es Copy, así que es OK todavía
+                                    // y usa x después
 
-} // Here, x goes out of scope, then s. But because s's value was moved, nothing
-  // special happens.
+} // x sale del alcance, y luego s. Pero debido a que el valor de s se movió, nada
+  // no ocurre nada especial.
 
-fn takes_ownership(some_string: String) { // some_string comes into scope
+fn takes_ownership(some_string: String) { // some_string entra en el alcance
     println!("{}", some_string);
-} // Here, some_string goes out of scope and `drop` is called. The backing
-  // memory is freed.
+} // some_string sale del alcance, se llama a `drop` y
+  // se libera la memoria.
 
-fn makes_copy(some_integer: i32) { // some_integer comes into scope
+fn makes_copy(some_integer: i32) { // some_integer entra en el alcance
     println!("{}", some_integer);
-} // Here, some_integer goes out of scope. Nothing special happens.
+} //some_integer sale del alcance. No pasa nada especial.
+
