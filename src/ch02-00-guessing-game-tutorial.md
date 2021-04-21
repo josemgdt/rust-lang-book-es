@@ -509,7 +509,7 @@ desde varios paquetes.
 [doccargo]: http://doc.crates.io
 [doccratesio]: http://doc.crates.io/crates-io.html
 
-### Generando un Número Aleatorio
+### Generando un Numero Aleatorio
 
 Ahora que ha agregado la caja `rand` a *Cargo.toml*, comencemos a usar
 `rand`. El siguiente paso es actualizar *src/main.rs*, como se muestra en el Listado 2-3.

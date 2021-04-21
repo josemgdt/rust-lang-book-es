@@ -1,20 +1,20 @@
-## Packages and Crates
+## Paquetes y Cajas
 
-The first parts of the module system we’ll cover are packages and crates. A
-crate is a binary or library. The *crate root* is a source file that the Rust
-compiler starts from and makes up the root module of your crate (we’ll explain
-modules in depth in the [“Defining Modules to Control Scope and
-Privacy”][modules]<!-- ignore --> section). A *package* is one or more crates
-that provide a set of functionality. A package contains a *Cargo.toml* file
-that describes how to build those crates.
+Las primeras partes del sistema de módulos que cubriremos son los paquetes y las cajas. Una
+caja es un binario o una biblioteca. *crate root* es un archivo fuente con el que el compilador Rust
+comienza y constituye el módulo raíz de su caja (explicaremos los
+módulos en profundidad en la sección [“Definición de módulos para controlar el alcance y
+privacidad ”][modules]<!-- ignore -->). Un *paquete* es una o más cajas
+que proporcionan un conjunto de funcionalidades. Un paquete contiene un archivo *Cargo.toml*
+que describe cómo construir esas cajas.
 
-Several rules determine what a package can contain. A package *must* contain
-zero or one library crates, and no more. It can contain as many binary crates
-as you’d like, but it must contain at least one crate (either library or
-binary).
+Varias reglas determinan lo que puede contener un paquete. Un paquete *debe* contener
+cero o una caja de biblioteca, y no más. Puede contener tantas cajas binarias
+como desee, pero debe contener al menos una caja (ya sea de biblioteca o
+binario).
 
-Let’s walk through what happens when we create a package. First, we enter the
-command `cargo new`:
+Repasemos lo que sucede cuando creamos un paquete. Primero, ingresamos el
+comando `cargo new`:
 
 ```console
 $ cargo new my-project
@@ -26,39 +26,39 @@ $ ls my-project/src
 main.rs
 ```
 
-When we entered the command, Cargo created a *Cargo.toml* file, giving us a
-package. Looking at the contents of *Cargo.toml*, there’s no mention of
-*src/main.rs* because Cargo follows a convention that *src/main.rs* is the
-crate root of a binary crate with the same name as the package. Likewise, Cargo
-knows that if the package directory contains *src/lib.rs*, the package contains
-a library crate with the same name as the package, and *src/lib.rs* is its
-crate root. Cargo passes the crate root files to `rustc` to build the library
-or binary.
+Cuando ingresamos el comando, Cargo crea un archivo *Cargo.toml*, dándonos un
+paquete. En cuanto al contenido de *Cargo.toml*, no se menciona
+*src/main.rs* porque Cargo sigue la convención de que *src/main.rs* es el
+*crate root* de una caja binaria con el mismo nombre que el paquete. Asimismo, Cargo
+sabe que si el directorio del paquete contiene *src/lib.rs *, el paquete contiene
+una caja de biblioteca con el mismo nombre que el paquete, y * src/lib.rs * es su
+*crate root*. Cargo pasa los archivos *crate root* a `rustc` para construir la biblioteca
+o el binario.
 
-Here, we have a package that only contains *src/main.rs*, meaning it only
-contains a binary crate named `my-project`. If a package contains *src/main.rs*
-and *src/lib.rs*, it has two crates: a library and a binary, both with the same
-name as the package. A package can have multiple binary crates by placing files
-in the *src/bin* directory: each file will be a separate binary crate.
+Aquí, tenemos un paquete que solo contiene *src/main.rs*, lo que significa que solo
+contiene una caja binaria llamada `my-project`. Si un paquete contiene *src/main.rs*
+y *src/lib.rs*, tiene dos cajas; una biblioteca y un binario, ambos con el mismo
+nombre que el paquete. Un paquete puede tener varias cajas binarias colocando archivos
+en el directorio *src/bin*; cada archivo será una caja binaria separada.
 
-A crate will group related functionality together in a scope so the
-functionality is easy to share between multiple projects. For example, the
-`rand` crate we used in [Chapter 2][rand]<!-- ignore --> provides functionality
-that generates random numbers. We can use that functionality in our own
-projects by bringing the `rand` crate into our project’s scope. All the
-functionality provided by the `rand` crate is accessible through the crate’s
-name, `rand`.
+Una caja agrupará la funcionalidad relacionada en un ámbito para que
+sea fácil de compartir entre varios proyectos. Por ejemplo,la
+caja `rand` que usamos en el [Capítulo 2][rand]<!-- ignore --> proporciona funcionalidad
+para generar números aleatorios. Podemos usar esa funcionalidad en nuestro propio
+proyectos al llevar la caja `rand` al alcance de nuestro proyecto.
+La funcionalidad proporcionada por la caja "rand" es accesible a través del nombre de caja `rand`.
 
-Keeping a crate’s functionality in its own scope clarifies whether particular
-functionality is defined in our crate or the `rand` crate and prevents
-potential conflicts. For example, the `rand` crate provides a trait named
-`Rng`. We can also define a `struct` named `Rng` in our own crate. Because a
-crate’s functionality is namespaced in its own scope, when we add `rand` as a
-dependency, the compiler isn’t confused about what the name `Rng` refers to. In
-our crate, it refers to the `struct Rng` that we defined. We would access the
-`Rng` trait from the `rand` crate as `rand::Rng`.
+Mantener la funcionalidad de una caja en su propio alcance aclara si una funcionalidad en particular
+se define en nuestra caja o en la caja `rand` y evita
+posibles conflictos. Por ejemplo, la caja `rand` proporciona un trait llamado
+`Rng`. También podemos definir una `struct` llamada `Rng` en nuestra propia caja. Ya que
+la funcionalidad de crate tiene un espacio de nombres en su propio alcance, cuando agregamos `rand` como una
+dependencia, el compilador no se confunde sobre a qué se refiere el nombre `Rng`. En
+nuestra caja, se refiere a la `struct Rng` que definimos. Accederíamos al
+trait `Rng` de la caja `rand` como `rand::Rng`.
 
-Let’s move on and talk about the module system!
+¡Sigamos adelante y hablemos del sistema de módulos!
 
-[modules]: ch07-02-defining-modules-to-control-scope-and-privacy.html
-[rand]: ch02-00-guessing-game-tutorial.html#Generando un Número Secreto
+[módulos]: ch07-02-definition-modules-to-control-scope-and-privacy.html
+[rand]: ch02-00-juego-de-adivinanzas-tutorial.html#generando-un-numero-aleatorio
+
