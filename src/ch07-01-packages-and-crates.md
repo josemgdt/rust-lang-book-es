@@ -60,5 +60,5 @@ trait `Rng` de la caja `rand` como `rand::Rng`.
 ¡Sigamos adelante y hablemos del sistema de módulos!
 
 [módulos]: ch07-02-definition-modules-to-control-scope-and-privacy.html
-[rand]: ch02-00-juego-de-adivinanzas-tutorial.html#generando-un-numero-aleatorio
+[rand]: ch02-00-guessing-game-tutorial.html#generando-un-numero-aleatorio
 

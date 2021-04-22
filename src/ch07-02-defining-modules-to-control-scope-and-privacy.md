@@ -1,61 +1,61 @@
-## Defining Modules to Control Scope and Privacy
+## Definicion de modulos para controlar alcance y privacidad
 
-In this section, we’ll talk about modules and other parts of the module system,
-namely *paths* that allow you to name items; the `use` keyword that brings a
-path into scope; and the `pub` keyword to make items public. We’ll also discuss
-the `as` keyword, external packages, and the glob operator. For now, let’s
-focus on modules!
+En esta sección hablaremos sobre los módulos y otras partes del sistema de módulos,
+a saber, *rutas* que le permiten nombrar elementos; la palabra clave `use` que trae un
+camino hacia el alcance y la palabra clave `pub` para hacer públicos los elementos. También discutiremos
+la palabra clave `as`, paquetes externos y el operador glob. Por ahora, vamos
+centrarnos en los módulos!
 
-*Modules* let us organize code within a crate into groups for readability and
-easy reuse. Modules also control the *privacy* of items, which is whether an
-item can be used by outside code (*public*) or is an internal implementation
-detail and not available for outside use (*private*).
+Los *módulos* nos permiten organizar el código dentro de una caja en grupos para facilitar la lectura y
+una reutilización fácil. Los módulos también controlan la *privacidad* de los elementos, es decir, si un
+elemento puede ser utilizado por código externo (*es público*) o es una implementación interna
+de detalles y no está disponible para uso exterior (*es privado*).
 
-As an example, let’s write a library crate that provides the functionality of a
-restaurant. We’ll define the signatures of functions but leave their bodies
-empty to concentrate on the organization of the code, rather than actually
-implement a restaurant in code.
+Como ejemplo, escribamos una caja de biblioteca que proporcione la funcionalidad de un
+restaurante. Definiremos las declaraciones de funciones pero dejaremos sus cuerpos
+vacíos para concentrarnos en la organización del código, en lugar de implementar realmente
+un restaurante en código.
 
-In the restaurant industry, some parts of a restaurant are referred to as
-*front of house* and others as *back of house*. Front of house is where
-customers are; this is where hosts seat customers, servers take orders and
-payment, and bartenders make drinks. Back of house is where the chefs and cooks
-work in the kitchen, dishwashers clean up, and managers do administrative work.
+En la industria de los restaurantes, algunas partes de un restaurante se denominan
+*frente de la casa* y otras son la *parte de atras*. En el Frente es donde se acomodan
+los clientes; aquí es donde los anfitriones asientan a los clientes, los camareros reciben pedidos y
+pagos, y preparan bebidas. En la parte trasera, los chefs y cocineros
+trabajan en la cocina, los lavaplatos limpian y los gerentes hacen el trabajo administrativo.
 
-To structure our crate in the same way that a real restaurant works, we can
-organize the functions into nested modules. Create a new library named
-`restaurant` by running `cargo new --lib restaurant`; then put the code in
-Listing 7-1 into *src/lib.rs* to define some modules and function signatures.
+Para estructurar nuestra caja de la misma manera que funciona un restaurante real, podemos
+organizar las funciones en módulos anidados. Cree una nueva biblioteca llamada
+`restaurant` ejecutando `cargo new --lib restaurant`; luego ponga el código del
+Listado 7-1 en *src/lib.rs* para definir algunos módulos y definiciones de funciones.
 
-<span class="filename">Filename: src/lib.rs</span>
+<span class="filename">​​Nombre de archivo: src/lib.rs</span>
 
 ```rust,noplayground
 {{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-01/src/lib.rs}}
 ```
 
-<span class="caption">Listing 7-1: A `front_of_house` module containing other
-modules that then contain functions</span>
+<span class="caption">Listado 7-1: Un módulo `front_of_house` que contiene otros
+módulos que luego contienen funciones</span>
 
-We define a module by starting with the `mod` keyword and then specify the
-name of the module (in this case, `front_of_house`) and place curly brackets
-around the body of the module. Inside modules, we can have other modules, as in
-this case with the modules `hosting` and `serving`. Modules can also hold
-definitions for other items, such as structs, enums, constants, traits, or—as
-in Listing 7-1—functions.
+Definimos un módulo comenzando con la palabra clave `mod` y luego especificamos el
+nombre del módulo (en este caso, `front_of_house`) y colocamos llaves
+alrededor del cuerpo del módulo. Dentro de los módulos podemos tener otros módulos, como en
+este caso con los módulos `hosting` y `serving`. Los módulos también pueden contener
+definiciones de otros elementos, como estructuras, enumeraciones, constantes, traits o - como
+en el Listado 7-1 - funciones.
 
-By using modules, we can group related definitions together and name why
-they’re related. Programmers using this code would have an easier time finding
-the definitions they wanted to use because they could navigate the code based
-on the groups rather than having to read through all the definitions.
-Programmers adding new functionality to this code would know where to place the
-code to keep the program organized.
+Al usar módulos, podemos agrupar definiciones relacionadas y nombrar por qué
+están relacionados. A los programadores que utilizan este código les resultará más fácil encontrar
+las definiciones que quieran usar porque podían navegar por el código basándose
+en los grupos en lugar de tener que leer todas las definiciones.
+Los programadores que agregan nuevas funciones a este código sabrían dónde colocarlas
+para mantener el programa organizado.
 
-Earlier, we mentioned that *src/main.rs* and *src/lib.rs* are called crate
-roots. The reason for their name is that the contents of either of these two
-files form a module named `crate` at the root of the crate’s module structure,
-known as the *module tree*.
+Anteriormente mencionamos que *src/main.rs* y *src/lib.rs* se llaman crates
+raíces. La razón de su nombre es que el contenido de cualquiera de estos dos
+archivos forman un módulo llamado `crate` en la raíz de la estructura del módulo de la caja,
+conocido como *árbol de módulos*.
 
-Listing 7-2 shows the module tree for the structure in Listing 7-1.
+El Listado 7-2 muestra el árbol de módulos para la estructura del Listado 7-1.
 
 ```text
 crate
@@ -69,19 +69,20 @@ crate
          └── take_payment
 ```
 
-<span class="caption">Listing 7-2: The module tree for the code in Listing
+<span class="caption">Listado 7-2: el árbol del módulo para el código en el Listado
 7-1</span>
 
-This tree shows how some of the modules nest inside one another (for example,
-`hosting` nests inside `front_of_house`). The tree also shows that some modules
-are *siblings* to each other, meaning they’re defined in the same module
-(`hosting` and `serving` are defined within `front_of_house`). To continue the
-family metaphor, if module A is contained inside module B, we say that module A
-is the *child* of module B and that module B is the *parent* of module A.
-Notice that the entire module tree is rooted under the implicit module named
+Este árbol muestra cómo algunos de los módulos se anidan unos dentro de otros (por ejemplo,
+`hosting` se anida dentro de `front_of_house`). El árbol también muestra que algunos módulos
+son *hermanos* entre sí, lo que significa que están definidos en el mismo módulo
+(`hosting` y `serving` se definen en `front_of_house`). Para continuar la
+metáfora familiar, si el módulo A está contenido dentro del módulo B, decimos que el módulo A
+es el *hijo* del módulo B, que es el *padre* del módulo A.
+Observe que todo el árbol del módulo tiene sus raíces en el módulo implícito denominado
 `crate`.
 
-The module tree might remind you of the filesystem’s directory tree on your
-computer; this is a very apt comparison! Just like directories in a filesystem,
-you use modules to organize your code. And just like files in a directory, we
-need a way to find our modules.
+El árbol de módulos puede recordarle el árbol de directorios del sistema de archivos en su
+ordenador; ¡Esta es una comparación muy acertada! Al igual que los directorios en un sistema de archivos,
+utiliza módulos para organizar su código. Y al igual que los archivos en un directorio,
+necesitamos una forma de encontrar nuestros módulos.
+
