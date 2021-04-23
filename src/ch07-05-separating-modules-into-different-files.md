@@ -1,77 +1,78 @@
-## Separating Modules into Different Files
+## Separacion de módulos en diferentes archivos
 
-So far, all the examples in this chapter defined multiple modules in one file.
-When modules get large, you might want to move their definitions to a separate
-file to make the code easier to navigate.
+Hasta ahora, todos los ejemplos de este capítulo definían varios módulos en un archivo.
+Cuando los módulos crecen, es posible que desee mover sus definiciones a archivos separados
+para facilitar la navegación por el código.
 
-For example, let’s start from the code in Listing 7-17 and move the
-`front_of_house` module to its own file *src/front_of_house.rs* by changing the
-crate root file so it contains the code shown in Listing 7-21. In this case,
-the crate root file is *src/lib.rs*, but this procedure also works with binary
-crates whose crate root file is *src/main.rs*.
+Por ejemplo, comencemos con el código del Listado 7-17 y mueva el módulo
+`front_of_house` a su propio archivo *src/front_of_house.rs* cambiando el
+archivo crate raíz para que contenga el código que se muestra en el Listado 7-21. En este caso,
+el archivo raíz de la caja es *src/lib.rs*, pero este procedimiento también funciona con cajas binarias
+cuyo archivo caja raíz es *src/main.rs*.
 
-<span class="filename">Filename: src/lib.rs</span>
+<span class="filename">​​Nombre de archivo: src/lib.rs</span>
 
 ```rust,ignore
 {{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-21-and-22/src/lib.rs}}
 ```
 
-<span class="caption">Listing 7-21: Declaring the `front_of_house` module whose
-body will be in *src/front_of_house.rs*</span>
+<span class="caption">Listado 7-21: Declarando el módulo `front_of_house` cuyo
+el cuerpo estará en *src/front_of_house.rs*</span>
 
-And *src/front_of_house.rs* gets the definitions from the body of the
-`front_of_house` module, as shown in Listing 7-22.
+Y *src/front_of_house.rs* obtiene las definiciones del cuerpo del
+módulo `front_of_house`, como se muestra en el Listado 7-22.
 
-<span class="filename">Filename: src/front_of_house.rs</span>
+
+<span class="filename">​​Nombre de archivo: src/front_of_house.rs</span>
 
 ```rust,ignore
 {{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-21-and-22/src/front_of_house.rs}}
 ```
 
-<span class="caption">Listing 7-22: Definitions inside the `front_of_house`
-module in *src/front_of_house.rs*</span>
+<span class="caption">Listado 7-22: Definiciones dentro del módulo `front_of_house`
+en *src/front_of_house.rs*</span>
 
-Using a semicolon after `mod front_of_house` rather than using a block tells
-Rust to load the contents of the module from another file with the same name as
-the module. To continue with our example and extract the `hosting` module to
-its own file as well, we change *src/front_of_house.rs* to contain only the
-declaration of the `hosting` module:
+Usar un punto y coma después de `mod front_of_house` en lugar de usar un bloque le indica
+a Rust que cargue el contenido del módulo desde otro archivo con el mismo nombre que
+el módulo. Para continuar con nuestro ejemplo y extraer el módulo `hosting` a
+su propio archivo también, cambiamos *src/front_of_house.rs* para contener solo la
+declaración del módulo `hosting`:
 
-<span class="filename">Filename: src/front_of_house.rs</span>
+<span class="filename">​​Nombre de archivo: src/front_of_house.rs</span>
 
 ```rust,ignore
 {{#rustdoc_include ../listings/ch07-managing-growing-projects/no-listing-02-extracting-hosting/src/front_of_house.rs}}
 ```
 
-Then we create a *src/front_of_house* directory and a file
-*src/front_of_house/hosting.rs* to contain the definitions made in the
-`hosting` module:
+Luego creamos un directorio *src/front_of_house* y un archivo
+*src/front_of_house/hosting.rs* para contener las definiciones hechas en el
+módulo `hosting`:
 
-<span class="filename">Filename: src/front_of_house/hosting.rs</span>
+<span class="filename">​​Nombre de archivo: src/front_of_house/hosting.rs</span>
 
 ```rust
 {{#rustdoc_include ../listings/ch07-managing-growing-projects/no-listing-02-extracting-hosting/src/front_of_house/hosting.rs}}
 ```
 
-The module tree remains the same, and the function calls in `eat_at_restaurant`
-will work without any modification, even though the definitions live in
-different files. This technique lets you move modules to new files as they grow
-in size.
+El árbol de módulos sigue siendo el mismo y las llamadas a función en `eat_at_restaurant`
+funcionarán sin ninguna modificación, a pesar de que las definiciones viven en
+diferentes archivos. Esta técnica le permite mover módulos a nuevos archivos a medida que crecen
+en tamaño.
 
-Note that the `pub use crate::front_of_house::hosting` statement in
-*src/lib.rs* also hasn’t changed, nor does `use` have any impact on what files
-are compiled as part of the crate. The `mod` keyword declares modules, and Rust
-looks in a file with the same name as the module for the code that goes into
-that module.
+Tenga en cuenta que la declaración `pub use crate::front_of_house::hosting` en
+*src/lib.rs* tampoco ha cambiado, ni `use` tiene ningún impacto en qué archivos
+se compilan como parte de la caja. La palabra clave `mod` declara módulos y Rust
+busca en un archivo con el mismo nombre que el módulo para el código que entra en
+ese módulo.
 
-## Summary
+## Resumen
 
-Rust lets you split a package into multiple crates and a crate into modules
-so you can refer to items defined in one module from another module. You can do
-this by specifying absolute or relative paths. These paths can be brought into
-scope with a `use` statement so you can use a shorter path for multiple uses of
-the item in that scope. Module code is private by default, but you can make
-definitions public by adding the `pub` keyword.
+Rust le permite dividir un paquete en varias cajas y una caja en módulos
+para que pueda consultar los elementos definidos en un módulo desde otro módulo. Puede hacer
+esto especificando rutas absolutas o relativas. Estos caminos se pueden llevar a
+alcance con una declaración `use` para que pueda usar una ruta más corta para múltiples usos del
+item en ese alcance. El código del módulo es privado de forma predeterminada, pero puede hacer
+definiciones públicas agregando la palabra clave `pub`.
 
-In the next chapter, we’ll look at some collection data structures in the
-standard library that you can use in your neatly organized code.
+En el próximo capítulo, veremos algunas estructuras de colección de datos en la
+biblioteca estándar que puede utilizar en su código perfectamente organizado.
