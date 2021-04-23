@@ -1,137 +1,135 @@
-## Bringing Paths into Scope with the `use` Keyword
+## Traer rutas al alcance con la palabra clave `use`
 
-It might seem like the paths we’ve written to call functions so far are
-inconveniently long and repetitive. For example, in Listing 7-7, whether we
-chose the absolute or relative path to the `add_to_waitlist` function, every
-time we wanted to call `add_to_waitlist` we had to specify `front_of_house` and
-`hosting` too. Fortunately, there’s a way to simplify this process. We can
-bring a path into a scope once and then call the items in that path as if
-they’re local items with the `use` keyword.
+Puede parecer que las rutas que hemos escrito hasta ahora para llamar a funciones son
+inconvenientemente largas y repetitivas. Por ejemplo, en el Listado 7-7, si
+eligió la ruta absoluta o relativa a la función `add_to_waitlist`, cada
+vez que queríamos llamar a `add_to_waitlist` teníamos que especificar `front_of_house` y
+también `hosting`. Afortunadamente, existe una forma de simplificar este proceso. Podemos
+traer una ruta a un alcance una vez y luego llamar a los elementos en esa ruta como
+items locales con la palabra clave `use`.
 
-In Listing 7-11, we bring the `crate::front_of_house::hosting` module into the
-scope of the `eat_at_restaurant` function so we only have to specify
-`hosting::add_to_waitlist` to call the `add_to_waitlist` function in
+En el Listado 7-11, traemos el módulo `crate::front_of_house::hosting` al
+alcance de la función `eat_at_restaurant` por lo que solo tenemos que especificar
+`hosting::add_to_waitlist` para llamar a la función `add_to_waitlist` en
 `eat_at_restaurant`.
 
-<span class="filename">Filename: src/lib.rs</span>
+<span class="filename">​​Nombre de archivo: src/lib.rs</span>
 
 ```rust,noplayground,test_harness
 {{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-11/src/lib.rs}}
 ```
 
-<span class="caption">Listing 7-11: Bringing a module into scope with
+<span class="caption"> Listado 7-11: Incorporación de un módulo al alcance con
 `use`</span>
 
-Adding `use` and a path in a scope is similar to creating a symbolic link in
-the filesystem. By adding `use crate::front_of_house::hosting` in the crate
-root, `hosting` is now a valid name in that scope, just as though the `hosting`
-module had been defined in the crate root. Paths brought into scope with `use`
-also check privacy, like any other paths.
+Agregar `use` y una ruta en un alcance es similar a crear un enlace simbólico en
+el sistema de archivos. Añadiendo `use crate::front_of_house::hosting` en la caja
+root, `hosting` es ahora un nombre válido en ese ámbito, como si el módulo `hosting`
+se hubiese definido en la caja raíz. Caminos traídos al alcance con `use`
+también verifican la privacidad, como cualquier otro camino.
 
-You can also bring an item into scope with `use` and a relative path. Listing
-7-12 shows how to specify a relative path to get the same behavior as in
-Listing 7-11.
+También puede traer un elemento al alcance con `use` y una ruta relativa. El listado
+7-12 muestra cómo especificar una ruta relativa para obtener el mismo comportamiento que en
+el listado 7-11.
 
-<span class="filename">Filename: src/lib.rs</span>
+<span class="filename">Nombre de archivo: src/lib.rs</span>
 
 ```rust,noplayground,test_harness
 {{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-12/src/lib.rs}}
 ```
 
-<span class="caption">Listing 7-12: Bringing a module into scope with `use` and
-a relative path</span>
+<span class="caption">Listado 7-12: Traer un módulo al alcance con `use` y
+una ruta relativa</span>
 
-### Creating Idiomatic `use` Paths
+### Creando caminos idiomaticos `use`
 
-In Listing 7-11, you might have wondered why we specified `use
-crate::front_of_house::hosting` and then called `hosting::add_to_waitlist` in
-`eat_at_restaurant` rather than specifying the `use` path all the way out to
-the `add_to_waitlist` function to achieve the same result, as in Listing 7-13.
+En el Listado 7-11, es posible que se haya preguntado por qué especificamos `usecrate::front_of_house::hosting`
+y luego llamamos a `hosting::add_to_waitlist` en
+`eat_at_restaurant` en lugar de especificar la ruta `use` hasta
+la función `add_to_waitlist` para lograr el mismo resultado, como en el Listado 7-13.
 
-<span class="filename">Filename: src/lib.rs</span>
+<span class="filename"> ​​Nombre de archivo: src/lib.rs</span>
 
 ```rust,noplayground,test_harness
 {{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-13/src/lib.rs}}
 ```
 
-<span class="caption">Listing 7-13: Bringing the `add_to_waitlist` function
-into scope with `use`, which is unidiomatic</span>
+<span class="caption">Listado 7-13: Incorporación de la función `add_to_waitlist`
+en el alcance con `use`, que es unidiomático</span>
 
-Although both Listing 7-11 and 7-13 accomplish the same task, Listing 7-11 is
-the idiomatic way to bring a function into scope with `use`. Bringing the
-function’s parent module into scope with `use` so we have to specify the parent
-module when calling the function makes it clear that the function isn’t locally
-defined while still minimizing repetition of the full path. The code in Listing
-7-13 is unclear as to where `add_to_waitlist` is defined.
+Aunque tanto el Listado 7-11 como el 7-13 realizan la misma tarea, el Listado 7-11 es
+la forma idiomática de llevar una función al alcance con `use`. Trayendo el
+el módulo principal de la función en el alcance con `use`, por lo que tenemos que especificar el módulo principal
+al llamar a la función deja en claro que la función no está localmente
+definida sin dejar de minimizar la repetición de la ruta completa. El código en el listado
+7-13 no es claro sobre dónde se define `add_to_waitlist`.
 
-On the other hand, when bringing in structs, enums, and other items with `use`,
-it’s idiomatic to specify the full path. Listing 7-14 shows the idiomatic way
-to bring the standard library’s `HashMap` struct into the scope of a binary
-crate.
+Por otro lado, al traer estructuras, enumeraciones y otros elementos con `use`,
+es idiomático especificar la ruta completa. El listado 7-14 muestra la forma idiomática
+para llevar la estructura `HashMap` de la biblioteca estándar al alcance de una caja binaria.
 
-<span class="filename">Filename: src/main.rs</span>
+<span class="filename">Nombre de archivo: src/main.rs</span>
 
 ```rust
 {{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-14/src/main.rs}}
 ```
+<span class = "caption"> Listado 7-14: Llevando `HashMap` al alcance en una
+forma idiomática </span>
 
-<span class="caption">Listing 7-14: Bringing `HashMap` into scope in an
-idiomatic way</span>
+No hay una razón sólida detrás de este modismo: es solo la convención la que
+surgió, y la gente se ha acostumbrado a leer y escribir código Rust de esta manera.
 
-There’s no strong reason behind this idiom: it’s just the convention that has
-emerged, and folks have gotten used to reading and writing Rust code this way.
+La excepción a este modismo es si traemos dos items con el mismo nombre
+dentro del alcance con declaraciones `use`, porque Rust no lo permite. El listado 7-15
+muestra cómo traer dos tipos `Result` al alcance que tienen el mismo nombre pero
+diferentes módulos principales y cómo hacer referencia a ellos.
 
-The exception to this idiom is if we’re bringing two items with the same name
-into scope with `use` statements, because Rust doesn’t allow that. Listing 7-15
-shows how to bring two `Result` types into scope that have the same name but
-different parent modules and how to refer to them.
-
-<span class="filename">Filename: src/lib.rs</span>
+<span class="filename">​​Nombre de archivo: src/lib.rs</span>
 
 ```rust,noplayground
 {{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-15/src/lib.rs:here}}
 ```
 
-<span class="caption">Listing 7-15: Bringing two types with the same name into
-the same scope requires using their parent modules.</span>
+<span class="caption"> Listado 7-15: Incorporación de dos tipos con el mismo nombre en
+el mismo alcance requiere el uso de sus módulos principales.</span>
 
-As you can see, using the parent modules distinguishes the two `Result` types.
-If instead we specified `use std::fmt::Result` and `use std::io::Result`, we’d
-have two `Result` types in the same scope and Rust wouldn’t know which one we
-meant when we used `Result`.
+Como puede ver, el uso de los módulos principales distingue los dos tipos de `Result`.
+Si en cambio especificamos `use std::fmt::Result` y `use std::io::Result`,
+tendriamos dos tipos de `Result` en el mismo ámbito y Rust no sabría a cuál de ellos
+se referia cuando usamos `Result`.
 
-### Providing New Names with the `as` Keyword
+### Proporcionar nuevos nombres con la palabra clave `as`
 
-There’s another solution to the problem of bringing two types of the same name
-into the same scope with `use`: after the path, we can specify `as` and a new
-local name, or alias, for the type. Listing 7-16 shows another way to write the
-code in Listing 7-15 by renaming one of the two `Result` types using `as`.
+Existe otra solución al problema de traer dos tipos con el mismo nombre
+en el mismo ámbito con `use`; después de la ruta, podemos especificar `as` y un nuevo
+nombre local, o alias, para el tipo. El listado 7-16 muestra otra forma de escribir el
+Listado 7-15 cambiando el nombre de uno de los dos tipos de `Result` usando `as`.
 
-<span class="filename">Filename: src/lib.rs</span>
+<span class="filename">​​Nombre de archivo: src/lib.rs</span>
 
 ```rust,noplayground
 {{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-16/src/lib.rs:here}}
 ```
 
-<span class="caption">Listing 7-16: Renaming a type when it’s brought into
-scope with the `as` keyword</span>
+<span class="caption">Listado 7-16: Cambiar el nombre de un tipo cuando se lleva a
+alcance con la palabra clave `as` </span>
 
-In the second `use` statement, we chose the new name `IoResult` for the
-`std::io::Result` type, which won’t conflict with the `Result` from `std::fmt`
-that we’ve also brought into scope. Listing 7-15 and Listing 7-16 are
-considered idiomatic, so the choice is up to you!
+En la segunda declaración `use`, elegimos el nuevo nombre `IoResult` para el tipo
+`std::io::Result`, que no entrará en conflicto con el `Result` de `std::fmt`
+que también hemos incluido en el ámbito de aplicación. Listado 7-15 y Listado 7-16 son
+considerados idiomáticos, ¡así que la elección depende de usted!
 
 ### Re-exporting Names with `pub use`
 
 When we bring a name into scope with the `use` keyword, the name available in
 the new scope is private. To enable the code that calls our code to refer to
 that name as if it had been defined in that code’s scope, we can combine `pub`
-and `use`. This technique is called *re-exporting* because we’re bringing
+and . This technique is called *re-exporting* because we’re bringing
 an item into scope but also making that item available for others to bring into
 their scope.
 
 Listing 7-17 shows the code in Listing 7-11 with `use` in the root module
-changed to `pub use`.
+changed to .
 
 <span class="filename">Filename: src/lib.rs</span>
 
@@ -142,41 +140,58 @@ changed to `pub use`.
 <span class="caption">Listing 7-17: Making a name available for any code to use
 from a new scope with `pub use`</span>
 
-By using `pub use`, external code can now call the `add_to_waitlist` function
-using `hosting::add_to_waitlist`. If we hadn’t specified `pub use`, the
-`eat_at_restaurant` function could call `hosting::add_to_waitlist` in its
-scope, but external code couldn’t take advantage of this new path.
+### Reexportación de nombres con `pub use`
 
-Re-exporting is useful when the internal structure of your code is different
-from how programmers calling your code would think about the domain. For
-example, in this restaurant metaphor, the people running the restaurant think
-about “front of house” and “back of house.” But customers visiting a restaurant
-probably won’t think about the parts of the restaurant in those terms. With
-`pub use`, we can write our code with one structure but expose a different
-structure. Doing so makes our library well organized for programmers working on
-the library and programmers calling the library.
+Cuando traemos un nombre al alcance con la palabra clave `use`, el nombre disponible en
+el nuevo ámbito es privado. Para habilitar el código que llama a nuestro código para hacer referencia a
+ese nombre como si se hubiera definido en el alcance de ese código, podemos combinar `pub`
+y `use`. Esta técnica se llama *reexportación* porque estamos trayendo
+un elemento en el alcance, pero también haciendo que ese elemento esté disponible para que otros lo traigan
+su alcance.
 
-### Using External Packages
+El Listado 7-17 muestra el código del Listado 7-11 con `use` en el módulo raíz
+cambiado a `pub use`.
 
-In Chapter 2, we programmed a guessing game project that used an external
-package called `rand` to get random numbers. To use `rand` in our project, we
-added this line to *Cargo.toml*:
+<span class="filename">Nombre de archivo: src/lib.rs</span>
 
-<!-- When updating the version of `rand` used, also update the version of
-`rand` used in these files so they all match:
+```rust,noplayground,test_harness
+{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-17/src/lib.rs}}
+```
+
+<span class="caption">Listado 7-17: Hacer que un nombre esté disponible para que lo use cualquier código
+desde un nuevo alcance con `pub use`</span>
+
+Al usar `pub use`, el código externo ahora puede llamar a la función `add_to_waitlist`
+usando `hosting::add_to_waitlist`. Si no hubiéramos especificado `pub use`,
+la función `eat_at_restaurant` podría llamar a `hosting::add_to_waitlist` en su
+alcance, pero el código externo no podría aprovechar esta nueva ruta.
+
+La reexportación es útil cuando la estructura interna de su código es diferente
+a lo que los programadores que llaman a su código pensarían sobre el dominio.
+Por ejemplo, en esta metáfora del restaurante, las personas que dirigen el restaurante piensan
+en el "frente de la casa" y la "parte trasera de la casa". Pero los clientes que visitan un restaurante
+probablemente no pensará en las partes del restaurante en esos términos. Con
+`pub use`, podemos escribir nuestro código con una estructura pero exponer una diferente. 
+Esto hace que nuestra biblioteca esté bien organizada para los programadores que trabajan en
+la biblioteca y los programadores que llaman a la biblioteca.
+
+### Uso de paquetes externos
+
+En el capítulo 2, programamos un proyecto de juego de adivinanzas que utilizaba un
+paquete llamado `rand` para obtener números aleatorios. Para usar `rand` en nuestro proyecto,
+agregó esta línea a *Cargo.toml*:
+
+<!-- Al actualizar la versión de `rand` utilizada, actualice también la versión de
+`rand` usado en estos archivos para que todos coincidan:
 * ch02-00-guessing-game-tutorial.md
 * ch14-03-cargo-workspaces.md
 -->
 
-<span class="filename">Filename: Cargo.toml</span>
+<span class = "filename">Nombre de archivo: Cargo.toml</span>
 
 ```toml
 {{#include ../listings/ch02-guessing-game-tutorial/listing-02-02/Cargo.toml:9:}}
 ```
-
-Adding `rand` as a dependency in *Cargo.toml* tells Cargo to download the
-`rand` package and any dependencies from [crates.io](https://crates.io/) and
-make `rand` available to our project.
 
 Then, to bring `rand` definitions into the scope of our package, we added a
 `use` line starting with the name of the crate, `rand`, and listed the items
@@ -187,105 +202,114 @@ into scope and called the `rand::thread_rng` function:
 ```rust,ignore
 {{#rustdoc_include ../listings/ch02-guessing-game-tutorial/listing-02-03/src/main.rs:ch07-04}}
 ```
+Agregar `rand` como una dependencia en * Cargo.toml * le dice a Cargo que descargue el
+paquete `rand` y cualquier dependencia de [crates.io](https://crates.io/) y
+ponga `rand` a disposición de nuestro proyecto.
 
-Members of the Rust community have made many packages available at
-[crates.io](https://crates.io/), and pulling any of them into your package
-involves these same steps: listing them in your package’s *Cargo.toml* file and
-using `use` to bring items from their crates into scope.
+Luego, para traer las definiciones de `rand` al alcance de nuestro paquete, agregamos una
+línea `use` que comienza con el nombre de la caja, `rand`, y enumera los elementos
+que queremos llevar al alcance. Recuerde que en la sección ["Generación de un Número aleatorio ”] [rand] <!-- ignore -->
+en el Capítulo 2, trajimos el trait `Rng` en el alcance y llamó a la función `rand::thread_rng`:
 
-Note that the standard library (`std`) is also a crate that’s external to our
-package. Because the standard library is shipped with the Rust language, we
-don’t need to change *Cargo.toml* to include `std`. But we do need to refer to
-it with `use` to bring items from there into our package’s scope. For example,
-with `HashMap` we would use this line:
+```rust,ignore
+{{#rustdoc_include ../listings/ch02-guessing-game-tutorial/listing-02-03/src/main.rs:ch07-04}}
+```
+
+Los miembros de la comunidad de Rust han puesto a disposición muchos paquetes en
+[crates.io](https://crates.io/), y colocar cualquiera de ellos en su paquete
+implica estos mismos pasos: incluirlos en el archivo *Cargo.toml* de su paquete y
+utilizar `use` para traer items de sus cajas al alcance.
+
+Tenga en cuenta que la biblioteca estándar (`std`) también es una caja externa a nuestro
+paquete. Debido a que la biblioteca estándar se incluye con el lenguaje Rust,
+no es necesario cambiar *Cargo.toml* para incluir `std`. Pero necesitamos referirnos a ella
+con "use" para traer elementos desde allí al alcance de nuestro paquete. Por ejemplo,
+con `HashMap` usaríamos esta línea:
 
 ```rust
 use std::collections::HashMap;
 ```
 
-This is an absolute path starting with `std`, the name of the standard library
-crate.
+Esta es una ruta absoluta que comienza con `std`, el nombre de la caja de biblioteca estándar
 
-### Using Nested Paths to Clean Up Large `use` Lists
+### Uso de rutas anidadas para limpiar grandes listas de `use`
 
-If we’re using multiple items defined in the same crate or same module,
-listing each item on its own line can take up a lot of vertical space in our
-files. For example, these two `use` statements we had in the Guessing Game in
-Listing 2-4 bring items from `std` into scope:
+Si usamos varios elementos definidos en la misma caja o en el mismo módulo,
+enumerar cada elemento en su propia línea puede ocupar mucho espacio en nuestros
+archivos. Por ejemplo, estas dos declaraciones de `use` que teníamos en el juego de adivinanzas en
+el listado 2-4 trae elementos de `std` al alcance:
 
-<span class="filename">Filename: src/main.rs</span>
+<span class="filename">Nombre de archivo: src/main.rs</span>
 
 ```rust,ignore
 {{#rustdoc_include ../listings/ch07-managing-growing-projects/no-listing-01-use-std-unnested/src/main.rs:here}}
 ```
 
-Instead, we can use nested paths to bring the same items into scope in one
-line. We do this by specifying the common part of the path, followed by two
-colons, and then curly brackets around a list of the parts of the paths that
-differ, as shown in Listing 7-18.
+En su lugar, podemos usar rutas anidadas para traer los mismos elementos al alcance en una
+línea. Hacemos esto especificando la parte común de la ruta, seguida de dos
+dos puntos y, a continuación, corchetes alrededor de una lista de las partes de las rutas que
+difieren, como se muestra en el Listado 7-18.
 
-<span class="filename">Filename: src/main.rs</span>
+<span class="filename">Nombre de archivo: src/main.rs</span>
 
 ```rust,ignore
 {{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-18/src/main.rs:here}}
 ```
 
-<span class="caption">Listing 7-18: Specifying a nested path to bring multiple
-items with the same prefix into scope</span>
+<span class="caption">Listado 7-18: Especificación de una ruta anidada para traer múltiples
+elementos con el mismo prefijo en el alcance</span>
 
-In bigger programs, bringing many items into scope from the same crate or
-module using nested paths can reduce the number of separate `use` statements
-needed by a lot!
+En programas más grandes, traer muchos elementos al alcance de la misma caja o
+módulo usando rutas anidadas puede reducir el número de declaraciones de `use` independientes
+mucho!
 
-We can use a nested path at any level in a path, which is useful when combining
-two `use` statements that share a subpath. For example, Listing 7-19 shows two
-`use` statements: one that brings `std::io` into scope and one that brings
-`std::io::Write` into scope.
+Podemos usar una ruta anidada en cualquier nivel de una ruta, lo cual es útil al combinar
+dos declaraciones de `use` que comparten una ruta secundaria. Por ejemplo, el Listado 7-19 muestra dos
+sentencias `use`: una que trae `std::io` al alcance y otra que trae
+`std::io::Write`.
 
-<span class="filename">Filename: src/lib.rs</span>
+<span class="filename">Nombre de archivo: src/lib.rs</span>
 
 ```rust,noplayground
 {{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-19/src/lib.rs}}
 ```
 
-<span class="caption">Listing 7-19: Two `use` statements where one is a subpath
-of the other</span>
+<span class="caption">Listado 7-19: Dos declaraciones `use` donde una es una subruta
+de la otra</span>
 
-The common part of these two paths is `std::io`, and that’s the complete first
-path. To merge these two paths into one `use` statement, we can use `self` in
-the nested path, as shown in Listing 7-20.
+La parte común de estas dos rutas es `std::io`, y es el primer camino completo.
+Para fusionar estas dos rutas en una declaración `use`, podemos usar `self` en
+la ruta anidada, como se muestra en el listado 7-20.
 
-<span class="filename">Filename: src/lib.rs</span>
+<span class="filename">Nombre de archivo: src/lib.rs</span>
 
 ```rust,noplayground
 {{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-20/src/lib.rs}}
 ```
 
-<span class="caption">Listing 7-20: Combining the paths in Listing 7-19 into
-one `use` statement</span>
+<span class="caption">Listing 7-20: Listado 7-20: Combinando las rutas del Listado 7-19 en
+una declaración `use`</span>
 
-This line brings `std::io` and `std::io::Write` into scope.
+Esta línea trae `std::io` y `std::io::Write` al alcance.
 
-### The Glob Operator
+### El operador Glob
 
-If we want to bring *all* public items defined in a path into scope, we can
-specify that path followed by `*`, the glob operator:
+Si queremos traer *todos* los elementos públicos definidos en una ruta al alcance, podemos
+especificar esa ruta seguida de `*`, el operador glob:
 
 ```rust
 use std::collections::*;
 ```
 
-This `use` statement brings all public items defined in `std::collections` into
-the current scope. Be careful when using the glob operator! Glob can make it
-harder to tell what names are in scope and where a name used in your program
-was defined.
+Esta sentencia `use` trae todos los elementos públicos definidos en `std::collections`
+al alcance actual. ¡Tenga cuidado al utilizar el operador glob! Glob puede hacer
+más difícil saber qué nombres están dentro del alcance y dónde fue definido un nombre que se usa en su programa.
 
-The glob operator is often used when testing to bring everything under test
-into the `tests` module; we’ll talk about that in the [“How to Write
-Tests”][writing-tests]<!-- ignore --> section in Chapter 11. The glob operator
-is also sometimes used as part of the prelude pattern: see [the standard
-library documentation](../std/prelude/index.html#other-preludes)<!-- ignore -->
-for more information on that pattern.
+El operador glob se utiliza a menudo al realizar test para poner todo a prueba
+en el módulo `tests`; hablaremos de eso en la sección ["Cómo escribir Pruebas ”][writing-tests]<!-- ignore -->
+en el Capítulo 11. El operador glob también se utiliza a veces como parte del patrón 
+de preludio: consulte [la documentación de la biblioteca estándar](../std/prelude/index.html#other-preludes)<!-- ignore -->
+para obtener más información sobre ese patrón.
 
-[rand]: ch02-00-guessing-game-tutorial.html#Generando un Número Aleatorio
+[rand]: ch02-00-guessing-game-tutorial.html#generando-un-numero-aleatorio
 [writing-tests]: ch11-01-writing-tests.html#how-to-write-tests
