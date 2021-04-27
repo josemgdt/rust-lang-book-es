@@ -79,7 +79,7 @@ shell:
 $ rustup self uninstall
 ```
 
-### Solución de Problemas
+### Solucion de Problemas
 
 Para verificar si tiene Rust instalado correctamente, abra un shell e ingrese esta
 línea:

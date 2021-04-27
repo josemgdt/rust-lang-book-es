@@ -194,5 +194,5 @@ crece, querrá administrar todas las opciones y facilitar el intercambio de
 código. A continuación, le presentaremos la herramienta Cargo, que lo ayudará a escribir
 programas de Rust en el mundo real.
 
-[troubleshooting]: ch01-01-installation.html#solución-de-problemas
+[troubleshooting]: ch01-01-installation.html#solucion-de-problemas
 
