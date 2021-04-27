@@ -380,7 +380,7 @@ Además, `novel` no sale del alcance hasta después de que
 `ImportantExcerpt` queda fuera de alcance, por lo que la referencia en la
 instancia de `ImportantExcerpt` es válida.
 
-### Elite de Tiempos de Vida
+### Eleccion de Tiempos de Vida
 
 Ha aprendido que cada referencia tiene una vida útil y que debe especificar
 parámetros de duración para funciones o estructuras que utilizan referencias. Sin embargo, en el
@@ -418,7 +418,7 @@ patrones deterministas y se agregen al compilador. En el futuro,
 es posible que se requieran incluso menos anotaciones de vida.
 
 Los patrones programados en el análisis de referencias de Rust se denominan
-*reglas de elite de tiempos de vida*. Estas no son reglas que los programadores deben seguir; son
+*reglas de eleccion de tiempos de vida*. Estas no son reglas que los programadores deben seguir; son
 un conjunto de casos particulares que el compilador considerará, y si su código
 se ajusta a estos casos, no es necesario que escriba las vidas de forma explícita.
 

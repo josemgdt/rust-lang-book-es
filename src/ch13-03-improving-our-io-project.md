@@ -176,4 +176,4 @@ But are the two implementations truly equivalent? The intuitive assumption
 might be that the more low-level loop will be faster. Let’s talk about
 performance.
 
-[lifetime-elision]: ch10-03-lifetime-syntax.html#lifetime-elision
+[lifetime-elision]: ch10-03-lifetime-syntax.html#eleccion-de-tiempos-de-vida
