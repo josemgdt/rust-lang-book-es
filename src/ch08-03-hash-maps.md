@@ -218,7 +218,7 @@ necesariamente tienes que implementar tu propio hasher desde cero;
 [crates.io](https://crates.io/) tiene bibliotecas compartidas por otros usuarios de Rust que
 proporcionan hash que implementan muchos algoritmos de hash comunes.
 
-[^ siphash]: [https://en.wikipedia.org/wiki/SipHash](https://en.wikipedia.org/wiki/SipHash)
+[^siphash]: [https://en.wikipedia.org/wiki/SipHash](https://en.wikipedia.org/wiki/SipHash)
 
 ## Resumen
 
