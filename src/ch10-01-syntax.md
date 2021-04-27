@@ -326,4 +326,4 @@ funciona como lo haría si hubiéramos duplicado cada definición a mano.
 El proceso de monomorfización hace que los genéricos de Rust sean extremadamente eficientes en
 tiempo de ejecución.
 
-[traits-as-parameters]: ch10-02-traits.html#traits-as-parameters
+[traits-as-parameters]: ch10-02-traits.html#traits-como-parametros

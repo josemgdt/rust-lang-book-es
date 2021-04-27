@@ -191,7 +191,7 @@ Este código imprime `1 new tweet: (Read more from @horse_ebooks...)`.
 Tenga en cuenta que no es posible llamar a la implementación predeterminada desde una
 implementación rehecha de ese mismo método.
 
-### Traits como Parámetros
+### Traits como Parametros
 
 Ahora que sabe cómo definir e implementar traits, podemos explorar cómo usarlos
 para definir funciones que aceptan muchos tipos diferentes.
