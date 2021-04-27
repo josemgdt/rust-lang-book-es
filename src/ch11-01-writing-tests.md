@@ -1,4 +1,4 @@
-## Cómo escribir pruebas
+## Como escribir pruebas
 
 Las pruebas son funciones de Rust que verifican que el código a probar funciona en
 la manera esperada. Los cuerpos de funciones de prueba típicamente realizan estos tres
