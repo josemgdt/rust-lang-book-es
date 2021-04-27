@@ -8,7 +8,7 @@ dominios que antes.
 Tomemos, por ejemplo, el trabajo "a nivel de sistemas" que trata con detalles de bajo nivel de
 gestión de memoria, representación de datos y concurrencia. Tradicionalmente, este
 campo de la programación se ve como algo arcano, accesible sólo para unos pocos que
-han dedicado años, los necesarios, a aprender a evitar sus infames trampas. Y
+han dedicado años, los necesarios, a aprender a evitar sus infames trampas. E
 incluso aquellos que lo practican lo hacen con precaución, no sea que su código esté abierto a
 exploits, fallos o corrupción.
 
@@ -20,23 +20,23 @@ los puntos finos de una voluble cadena de herramientas. Mejor aún, el lenguaje 
 guiarlo naturalmente hacia un código confiable que sea eficiente en términos de velocidad
 y uso de memoria.
 
-Los programadores que ya están trabajando con código de bajo nivel pueden usar Rust para aumentar
-sus ambiciones. Por ejemplo, introducir el paralelismo en Rust es una operación 
-de relativamente de bajo riesgo: el compilador detectará los errores clásicos por usted. Y
+Los programadores que ya están trabajando con código de bajo nivel pueden usar Rust para ampliar
+sus objetivos. Por ejemplo, introducir el paralelismo en Rust es una operación 
+de relativamente bajo riesgo; el compilador detectará los errores clásicos por usted. Y
 puede abordar optimizaciones más agresivas en su código con la confianza
 que no introducirá accidentalmente fallos o vulnerabilidades.
 
 Pero Rust no se limita a la programación de sistemas de bajo nivel. Es lo suficientemente
 expresivo y ergonómico como para crear aplicaciones CLI, servidores web y muchos otros tipos de código
-con una escritura bastante agradable: encontrará ejemplos sencillos de ambos más adelante en el
-libro. Trabajar con Rust le permite desarrollar habilidades que se transfieren de un
+con una escritura bastante agradable; encontrará ejemplos sencillos de ambos más adelante en el
+libro. Trabajar con Rust le permitirá desarrollar habilidades que podrá transferir de un
 dominio a otro; puede aprender Rust escribiendo una aplicación web y luego aplicar
-las mismas habilidades para su Raspberry Pi.
+las mismas habilidades para el código de su Raspberry Pi.
 
 Este libro abarca plenamente el potencial de Rust para empoderar a sus usuarios. Es un
 texto amigable y accesible destinado a ayudarlo a subir de nivel, no solo en su
-conocimiento de Rust, sino también su visión y confianza como programador en
-general. Así que sumérjase, prepárese para aprender y ¡bienvenido a la comunidad de Rust!
+conocimiento de Rust, sino también en su visión y confianza como programador en
+general. Así que sumérjase, prepárese para aprender y ¡bienvenido a la comunidad Rust!
 
 - Nicholas Matsakis y Aaron Turon
 

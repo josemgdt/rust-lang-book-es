@@ -1,8 +1,8 @@
 [package]
-name = "rust-book"
+name = "rust-book-es"
 version = "0.0.1"
-authors = ["Steve Klabnik <steve@steveklabnik.com>"]
-description = "The Rust Book"
+authors = ["Original de Steve Klabnik <steve@steveklabnik.com>"]
+description = "El libro de Rust"
 edition = "2018"
 
 [[bin]]

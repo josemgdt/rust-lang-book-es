@@ -1,6 +1,6 @@
 ## ¡Hola Mundo!
 
-Ahora que ha instalado Rust, escriba su primer programa. Al aprender un nuevo idioma es
+Ahora que ha instalado Rust, escriba su primer programa. Al aprender un nuevo lenguaje es
 tradicional escribir un pequeño programa que imprima
 el texto "¡Hola, mundo!" en la pantalla, ¡así que aquí haremos lo mismo!
 
@@ -42,7 +42,7 @@ Para CMD de Windows:
 
 ### Escribir y Ejecutar un Programa Rust
 
-A continuación, cree un nuevo archivo fuente y llámalo *main.rs*. Los archivos Rust siempre terminan con
+A continuación, cree un nuevo archivo fuente y llámelo *main.rs*. Los archivos Rust siempre terminan con
 la extensión *.rs*. Si usa más de una palabra en el nombre de archivo, use
 un subrayado para separarlas. Por ejemplo, use *hello_world.rs* en lugar de
 *helloworld.rs*.
@@ -133,7 +133,7 @@ Cuarto, terminamos la línea con un punto y coma (`;`), que indica que esta
 expresión ha terminado y la siguiente está lista para comenzar. La mayoría de las líneas de código Rust
 terminan con un punto y coma.
 
-### La Compilacion y la Ejecución son Pasos Separados
+### La Compilación y la Ejecución son Pasos Separados
 
 Acaba de ejecutar un programa recién creado, así que examinemos cada paso del
 proceso.
@@ -177,22 +177,22 @@ Desde aquí, ejecuta el archivo *main* o *main.exe*, así:
 $ ./main # o .\main.exe en Windows
 ```
 
-Si *main.rs* fuera tu programa "¡Hola, mundo!", esta línea imprimiría `Hola,
-mundo!' a tu terminal.
+Si *main.rs* fuera su programa "¡Hola, mundo!", esta línea imprimiría `Hola,
+mundo!' en su terminal.
 
-Si estás más familiarizado con un lenguaje dinámico, como Ruby, Python o
+Si está más familiarizado con un lenguaje dinámico, como Ruby, Python o
 JavaScript, es posible que no esté acostumbrado a compilar y ejecutar un programa como
-pasos separados. Rust es un lenguaje *compilado con anticipación*, lo que significa que puedes
+pasos separados. Rust es un lenguaje *compilado con anticipación*, lo que significa que puede
 compilar un programa y dale el ejecutable a otras personas, que pueden ejecutarlo
-incluso sin tener Rust instalado. Si le das a alguien un *.rb*, *.py* o
+incluso sin tener Rust instalado. Si le da a alguien un *.rb*, *.py* o
 *.js*, deben tener una implementación de Ruby, Python o JavaScript (respectivamente)
-instalada. Pero en esos lenguajes, solo necesitas un comando para
+instalada. Pero en esos lenguajes, solo necesita un comando para
 compilar y ejecutar el programa. Son concesiones mutuas en el diseño del lenguaje.
 
-Compilar solo con `rustc` está bien para programas simples, pero cuando tu proyecto
-crece, querrás administrar todas las opciones y facilitar el intercambio de
+Compilar solo con `rustc` está bien para programas simples, pero cuando su proyecto
+crece, querrá administrar todas las opciones y facilitar el intercambio de
 código. A continuación, le presentaremos la herramienta Cargo, que lo ayudará a escribir
 programas de Rust en el mundo real.
 
-[troubleshooting]: ch01-01-installation.html#solucion-de-problemas
+[troubleshooting]: ch01-01-installation.html#solución-de-problemas
 

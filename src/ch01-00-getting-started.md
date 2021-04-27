@@ -1,6 +1,6 @@
 # Empezando
 
-¡Comencemos tu viaje por Rust! Hay mucho que aprender, pero cada viaje comienza
+¡Comencemos el viaje por Rust! Hay mucho que aprender, pero cada viaje comienza
 en algún lugar. En este capítulo, analizaremos:
 
 * Instalación de Rust en Linux, macOS y Windows
