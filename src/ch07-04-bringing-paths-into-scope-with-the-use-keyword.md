@@ -312,4 +312,4 @@ de preludio: consulte [la documentación de la biblioteca estándar](../std/prel
 para obtener más información sobre ese patrón.
 
 [rand]: ch02-00-guessing-game-tutorial.html#generando-un-numero-aleatorio
-[writing-tests]: ch11-01-writing-tests.html#how-to-write-tests
+[writing-tests]: ch11-01-writing-tests.html#cómo-escribir-pruebas
