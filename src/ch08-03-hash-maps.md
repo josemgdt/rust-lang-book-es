@@ -87,7 +87,7 @@ se han movido al mapa hash con la llamada a `insert`.
 Si insertamos referencias a valores en el mapa hash, los valores no se moverán
 en el mapa hash. Los valores a los que apuntan las referencias deben ser válidos
 al menos mientras el mapa hash sea válido. Hablaremos más sobre estos problemas en
-la sección ["Validación de referencias con Lifetimes ”][validating-references-with-lifetimes]<!-- ignore --> en
+la sección ["Validación de referencias con Lifetimes”][validating-references-with-lifetimes]<!-- ignore --> en
 Capítulo 10.
 
 ### Acceso a valores en un mapa hash
@@ -246,5 +246,5 @@ Estamos entrando en programas más complejos en los que las operaciones pueden f
 un momento perfecto para discutir el manejo de errores. ¡Lo haremos a continuación!
 
 [iteradores]: ch13-02-iterators.html
-[validando-referencias-con-tiempos-de-vida]: ch10-03-life-syntax.html#validando-referencias-con-lifetimes
+[[validating-references-with-lifetimes]]: ch10-03-life-syntax.html#validando-referencias-con-lifetimes
 
