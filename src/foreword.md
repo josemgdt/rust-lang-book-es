@@ -31,7 +31,7 @@ expresivo y ergonómico como para crear aplicaciones CLI, servidores web y mucho
 con una escritura bastante agradable; encontrará ejemplos sencillos de ambos más adelante en el
 libro. Trabajar con Rust le permitirá desarrollar habilidades que podrá transferir de un
 dominio a otro; puede aprender Rust escribiendo una aplicación web y luego aplicar
-las mismas habilidades para el código de su Raspberry Pi.
+las mismas habilidades en el código destinado a su Raspberry Pi.
 
 Este libro abarca plenamente el potencial de Rust para empoderar a sus usuarios. Es un
 texto amigable y accesible destinado a ayudarlo a subir de nivel, no solo en su

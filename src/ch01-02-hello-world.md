@@ -4,7 +4,7 @@ Ahora que ha instalado Rust, escriba su primer programa. Al aprender un nuevo le
 tradicional escribir un pequeño programa que imprima
 el texto "¡Hola, mundo!" en la pantalla, ¡así que aquí haremos lo mismo!
 
-> Nota: Este libro presume familiaridad básica con la línea de comandos. Rust no tiene
+> Nota: Este libro presume una familiaridad básica con la línea de comandos. Rust no tiene
 > demandas específicas sobre edición, herramientas o dónde guardar el código, por lo que
 > si prefiere utilizar un entorno de desarrollo integrado (IDE) en lugar de
 > la línea de comandos, no dude en utilizar su IDE favorito. Muchos IDE tienen ahora algun
@@ -171,7 +171,7 @@ main.rs
 Esto muestra el archivo de código fuente con la extensión *.rs*, el archivo ejecutable
 (*main.exe* en Windows, y *main* en todas las demás plataformas) y, cuando se usa
 Windows, un archivo que contiene información de depuración con la extensión *.pdb*.
-Desde aquí, ejecuta el archivo *main* o *main.exe*, así:
+Desde aquí, ejecute el archivo *main* o *main.exe*, así:
 
 ```console
 $ ./main # o .\main.exe en Windows
@@ -183,9 +183,9 @@ mundo!' en su terminal.
 Si está más familiarizado con un lenguaje dinámico, como Ruby, Python o
 JavaScript, es posible que no esté acostumbrado a compilar y ejecutar un programa como
 pasos separados. Rust es un lenguaje *compilado con anticipación*, lo que significa que puede
-compilar un programa y dale el ejecutable a otras personas, que pueden ejecutarlo
+compilar un programa y darle el ejecutable a otras personas, que pueden ejecutarlo
 incluso sin tener Rust instalado. Si le da a alguien un *.rb*, *.py* o
-*.js*, deben tener una implementación de Ruby, Python o JavaScript (respectivamente)
+*.js*, deben tener una implementación de Ruby, Python o JavaScript, respectivamente,
 instalada. Pero en esos lenguajes, solo necesita un comando para
 compilar y ejecutar el programa. Son concesiones mutuas en el diseño del lenguaje.
 
@@ -194,5 +194,5 @@ crece, querrá administrar todas las opciones y facilitar el intercambio de
 código. A continuación, le presentaremos la herramienta Cargo, que lo ayudará a escribir
 programas de Rust en el mundo real.
 
-[troubleshooting]: ch01-01-installation.html#solucion-de-problemas
+[troubleshooting]: ch01-01-installation.html#solución-de-problemas
 

@@ -20,7 +20,7 @@ siguiente en tu terminal:
 $ cargo --version
 ```
 
-Si ve un número de versión, ¡lo tienes! Si ve un error, como `comando
+Si ve un número de versión, ¡lo tiene! Si ve un error, como `comando
 no encontrado`, consulte la documentación de su método de instalación para
 determinar cómo instalar Cargo por separado.
 
@@ -41,7 +41,7 @@ nuestro proyecto *hello_cargo*, y Cargo crea sus archivos en un directorio del
 mismo nombre.
 
 Vaya al directorio *hello_cargo* y liste los archivos. Verá que Cargo
-ha generado dos archivos y un directorio para nosotros: un archivo *Cargo.toml* y un
+ha generado dos archivos y un directorio: un archivo *Cargo.toml* y un
 directorio *src* con un archivo *main.rs* dentro.
 
 También ha inicializado un nuevo repositorio de Git junto con un archivo *.gitignore*.
@@ -49,10 +49,10 @@ Los archivos Git no se generarán si ejecuta `cargo new` dentro de un repositori
 existente; puedes anular este comportamiento usando `cargo new --vcs=git`.
 
 > Nota: Git es un sistema de control de versiones común. Puede cambiar `cargo new` y
-> utilizar un sistema de control de versiones diferente o ningún sistema de control de versiones utilizando
+> utilizar un sistema de control de versiones diferente, o ningún sistema de control de versiones, utilizando
 > la bandera `--vcs`. Ejecute `cargo new --help` para ver las opciones disponibles.
 
-Abra *Cargo.toml* en el editor de texto que prefiera. Deberí verse similar al
+Abra *Cargo.toml* en el editor de texto que prefiera. Debería verse similar al
 código en el Listado 1-2.
 
 <span class="filename">Nombre de archivo: Cargo.toml</span>
@@ -86,7 +86,7 @@ archivo. Hablaremos sobre la clave `edition` en el Apéndice E.
 La última línea, `[dependencies]`, es el comienzo de una sección que enumera cualquier
 dependencia de su proyecto. En Rust, los paquetes de código se denominan
 *cajas (crates)*. No necesitaremos otras cajas para este proyecto, pero en el
-primer proyecto en el Capítulo 2, usaremos esta sección de dependencias.
+primer proyecto del Capítulo 2 usaremos esta sección de dependencias.
 
 Ahora abra *src/main.rs* y eche un vistazo:
 
@@ -98,7 +98,7 @@ fn main() {
 }
 ```
 
-Cargo ha generado un programa "¡Hola, mundo!" por usted, como el que
+Cargo ha generado un programa "Hello, world!" por usted, como el que
 escribio en el Listado 1-1! Hasta ahora, las diferencias entre nuestro proyecto anterior y
 el proyecto Cargo es que Cargo colocó el código en el directorio *src*
 , y tenemos un archivo de configuración *Cargo.toml* en el directorio superior.
@@ -110,11 +110,11 @@ le ayuda a organizar sus proyectos. Hay un lugar para todo y todo debe estar en 
 
 Si inició un proyecto que no utiliza Cargo, como hicimos con el proyecto "Hola,
 ¡mundo!", puede convertirlo en un proyecto que utilice Cargo. Mueva el
-proyecto al directorio *src* y cree un archivo *Cargo.toml* apropiado.
+proyecto a un directorio *src* y cree un archivo *Cargo.toml* apropiado.
 
 ### Construcción y Ejecución de un Proyecto Cargo
 
-Ahora veamos qué es diferente cuando creamos y ejecutamos el programa "¡Hola, mundo!"
+Ahora veamos qué es diferente cuando creamos y ejecutamos el programa "Hello, world!"
 con Cargo! Desde su directorio *hello_cargo*, construya el proyecto
 ingresando el siguiente comando:
 
@@ -133,7 +133,7 @@ $ ./target/debug/hello_cargo # o .\target\debug\hello_cargo.exe en Windows
 Hello, world!
 ```
 
-Si todo va bien, debería imprimirse "¡Hola, mundo!" en la terminal. Ejecutando `cargo
+Si todo va bien, debería imprimirse "Hello, world!" en la terminal. Ejecutando `cargo
 build` por primera vez también hace que Cargo cree un nuevo archivo en el nivel superior
 : *Cargo.lock*. Este archivo realiza un seguimiento de las versiones exactas de
 dependencias en su proyecto. Este proyecto no tiene dependencias, por lo que
@@ -183,14 +183,14 @@ build` cuando estan listos para usar el ejecutable.
 Recapitulemos lo que hemos aprendido hasta ahora sobre Cargo:
 
 * Podemos construir un proyecto usando `cargo build`.
-* Podemos construir y ejecutar un proyecto en un solo paso usando "cargo run".
+* Podemos construir y ejecutar un proyecto en un solo paso usando `cargo run`.
 * Podemos construir un proyecto sin producir un binario para verificar errores usando
   `cargo build`.
 * En lugar de guardar el resultado de la compilación en el mismo directorio que nuestro código,
   Cargo lo almacena en el directorio *target/debug*.
 
 Una ventaja adicional de usar Cargo es que los comandos son los mismos, no
-importa en qué sistema operativo estes trabajando. No se
+importa en qué sistema operativo esté trabajando. No se
 proporcionan instrucciones específicas para Linux y macOS frente a Windows.
 
 ### Construir para Publicación
@@ -203,8 +203,8 @@ compilación de su programa. Por eso hay dos perfiles diferentes: uno
 para el desarrollo, cuando desea reconstruir de forma rápida y frecuente, y otro para
 crear el programa final que se dará a un usuario, que no se reconstruirá
 repetidamente y que se ejecutará lo más rápido posible. Si está midiendo (benchmarking)
-tiempo de ejecución del código, asegúrese de ejecutar `cargo build --release` y medir en
-el ejecutable en *target/release*.
+el tiempo de ejecución del código, asegúrese de ejecutar `cargo build --release` y medir en
+el ejecutable situado en *target/release*.
 
 ### Cargo como Convención
 
@@ -216,7 +216,7 @@ Cargo coordine la construcción.
 Aunque el proyecto `hello_cargo` es simple, ha usado gran parte de las
 herramientas que utilizará en el resto de su carrera en Rust. De hecho, para trabajar en cualquier
 proyecto existente, puede usar los siguientes comandos para verificar el código
-usando Git, cambia al directorio de ese proyecto y compilar:
+usando Git, cambiar al directorio de ese proyecto y compilar:
 
 ```console
 $ git clone example.org/someproject
@@ -242,6 +242,6 @@ ha aprendido a:
 Este es un buen momento para crear un programa más sustancial para acostumbrarse a la lectura
 y escritura de código Rust. En el Capítulo 2, crearemos un programa de juego de adivinanzas.
 Si prefiere comenzar por aprender cómo funcionan los conceptos de programación comunes en
-Rust, vaya al Capítulo 3 y luego regresa al Capítulo 2.
+Rust, vaya al Capítulo 3 y luego regrese al Capítulo 2.
 
 [installation]: ch01-01-installation.html

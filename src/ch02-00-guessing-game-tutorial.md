@@ -2,11 +2,11 @@
 
 ¡Entremos en Rust trabajando en un proyecto práctico! Este capítulo le presenta algunos 
 conceptos comunes de Rust mostrándole cómo utilizarlos en un programa real. Aprenderá 
-acerca de "let", "match", métodos, funciones asociadas, uso de cajas externas, ¡y más! 
+acerca de `let`, `match`, métodos, funciones asociadas, uso de cajas externas, ¡y más! 
 Los siguientes capítulos explorarán estas ideas con más detalle. En este capítulo, practicará los fundamentos.
 
 Implementaremos un problema clásico de programación para principiantes: un juego de adivinanzas. Así es
-cómo funciona; el programa generará un número entero aleatorio entre 1 y 100 y
+cómo funcionará; el programa generará un número entero aleatorio entre 1 y 100 y
 le pedirá al jugador que ingrese una suposición. Después de ingresarla, el
 programa indicará si la conjetura es demasiado baja o demasiado alta, pero si es
 correcta el juego imprimirá un mensaje de felicitación y saldrá.
@@ -32,7 +32,7 @@ Mire el archivo *Cargo.toml* generado:
 {{#include ../listings/ch02-guessing-game-tutorial/no-listing-01-cargo-new/Cargo.toml}}
 ```
 
-Si la información del autor que Cargo obtuvo del entorno no es correcta, corríjalo en el archivo y guárdelo nuevamente.
+Si la información del autor que obtuvo Cargo del entorno no es correcta, corríjalo en el archivo y guárdelo nuevamente.
 
 Como vio en el Capítulo 1, `cargo new` genera un programa tipo "¡Hola, mundo!".
 Consulte el archivo *src/main.rs*:
@@ -43,7 +43,7 @@ Consulte el archivo *src/main.rs*:
 {{#rustdoc_include ../listings/ch02-guessing-game-tutorial/no-listing-01-cargo-new/src/main.rs}}
 ```
 
-Ahora compilemos este programa "¡Hola, mundo!" y ejecutemoslo en el mismo paso
+Ahora compilemos este programa tipo "¡Hola, mundo!" y ejecutemoslo en el mismo paso
 usando el comando `cargo run`:
 
 ```console
@@ -58,7 +58,7 @@ Vuelva a abrir el archivo *src/main.rs*. Escriba todo el código en este archivo
 
 ## Procesando una Suposición
 
-La primera parte del programa del juego de adivinanzas solicitará la entrada del usuario, procesará
+La primera parte del programa del juego de adivinanzas solicitará una entrada del usuario, procesará
 esa entrada, y verificará que la entrada está en la forma esperada. Para empezar,
 permitiremos que el jugador ingrese una suposición. Ingrese el código en el Listado 2-1 en
 *src/main.rs*.
@@ -82,12 +82,12 @@ biblioteca estándar (que se conoce como `std`):
 ```
 
 Por defecto, Rust trae solo unos pocos tipos al alcance de cada programa en
-[el *preludio*][prelude]<!-- ignore -->. Si un tipo que desea utilizar no está en el
-preludio, tiene que traer ese tipo al alcance explícitamente con una declaración `use`.
+el [*preludio*][prelude]<!-- ignore -->. Si un tipo que desea utilizar no está en el
+preludio, tiene que traer explícitamente ese tipo al alcance con una declaración `use`.
 El uso de la biblioteca `std::io` le proporciona una serie de características útiles, 
 incluida la capacidad de aceptar entradas de usuario.
 
-[prelude]: ../std/prelude/index.html
+[prelude]: https://doc.rust-lang.org/std/prelude/index.html
 
 Como se vio en el Capítulo 1, la función `main` es el punto de entrada al programa:
 
@@ -95,8 +95,8 @@ Como se vio en el Capítulo 1, la función `main` es el punto de entrada al prog
 {{#rustdoc_include ../listings/ch02-guessing-game-tutorial/listing-02-01/src/main.rs:main}}
 ```
 
-La sintaxis `fn` declara una nueva función, los paréntesis,`()`, indican que
-no hay parámetros, y el corchete, `{`, inicia el cuerpo de la función.
+La sintaxis `fn` declara una nueva función, los paréntesis vacios `()` indican que
+no hay parámetros, y el corchete, `{`, inicia el comienzo del cuerpo de la función.
 
 Como también aprendimos en el Capítulo 1, `println!` es una macro que imprime una cadena
 en la pantalla:
@@ -128,7 +128,7 @@ Esta línea crea una nueva variable llamada "foo" y la vincula al valor de la
 variable `bar`. En Rust, las variables son inmutables por defecto.
 Discutiremos este concepto en detalle en la sección [“Variables y
 Mutabilidad ”][variables-and-mutability]<!-- ignore --> en el Capítulo 3.
-El siguiente ejemplo muestra cómo usar `mut` antes del nombre de la variable para hacer
+El siguiente ejemplo muestra cómo usar `mut` antes del nombre de la variable para hacerla
 una variable mutable:
 
 ```rust,ignore
@@ -137,28 +137,28 @@ let mut bar = 5; // mutable
 ```
 
 > Nota: La sintaxis `//` inicia un comentario que continúa hasta el final de la
-> línea. Rust ignora todos los comentarios, que se discuten con más detalle.
+> línea. Rust ignora todos los comentarios, que se discuten con más detalle
 > en el Capítulo 3.
 
 Volvamos al programa del juego de adivinanzas. Ahora sabemos que `let mut guess`
 introducirá una variable mutable llamada `guess`. Al otro lado de la igualdad
 (`=`) está el valor al que está vinculado `guess`, que es el resultado de
 llamar a `String::new`, una función que devuelve una nueva instancia de una 
-[`String`][string]<!-- ignore -->, es un tipo cadena proporcionado por la
+[`String`][string]<!-- ignore -->, que es un tipo cadena proporcionado por la
 biblioteca estándar; un fragmento de texto, codificado en UTF-8, que puede crecer.
 
-[string]: ../std/string/struct.String.html
+[string]: https://doc.rust-lang.org/std/string/struct.String.html
 
-La sintaxis `::` en la línea `::new` indica que `new` es una *función 
+La sintaxis `::` en `::new` indica que `new` es una *función 
 asociada* del tipo `String`. Una función asociada se implementa en un tipo,
 en este caso `String`, en lugar de en una instancia particular de una `String`. Algunos
 lenguajes llaman a esto un *método estático*.
 
-Esta función `new` crea una nueva cadena vacía. Encontrarás una función `new`
+Esta función `new` crea una nueva cadena vacía. Encontrará una función `new`
 en muchos tipos, porque es un nombre común para que una función genere un nuevo valor
 de algún tipo.
 
-Para resumir, la línea `let mut guess = String::new ();` ha creado una variable
+Para resumir, la línea `let mut guess = String::new();` ha creado una variable
 mutable que actualmente está vinculada a una instancia nueva y vacía de una `String`. ¡Uf!
 
 Recuerde que incluimos la funcionalidad de entrada/salida de la biblioteca 
@@ -172,16 +172,15 @@ la función `stdin` del módulo `io`:
 Si no hubiéramos puesto la línea `use std::io` al principio del programa,
 podríamos haber escrito esta llamada de función como `std::io::stdin`. La función `stdin`
 devuelve una instancia de [`std::io::Stdin`][iostdin]<!-- ignore -->, que es un
-tipo que representa un identificador de la entrada estándar de su terminal.
+tipo que representa un manejador de la entrada estándar de su terminal.
 
-[iostdin]: ../std/io/struct.Stdin.html
+[iostdin]: https://doc.rust-lang.org/std/io/struct.Stdin.html
 
 La siguiente parte del código, `.read_line(&mut guess)`, llama al método
 [`read_line`][read_line]<!-- ignore -->  en el manejador de entrada estándar para
-obtener información del usuario. También estamos pasando un argumento a `read_line`: `&mut
-guess`.
+obtener información del usuario. También estamos pasando un argumento a `read_line`; `&mut guess`.
 
-[read_line]: ../std/io/struct.Stdin.html#method.read_line
+[read_line]: https://doc.rust-lang.org/std/io/struct.Stdin.html#method.read_line
 
 El trabajo de `read_line` es tomar lo que el usuario escriba en la entrada estándar
 y agregarlo a una cadena (sin sobrescribir su contenido), por lo que se necesita
@@ -214,20 +213,20 @@ escrito este código como:
 
 
 ```rust,ignore
-io::stdin().read_line(&mut guess).expect("Failed to read line");
+io::stdin().read_line(&mut guess).expect("Fallo al leer linea");
 ```
 
 Sin embargo, una línea larga es difícil de leer, por lo que es mejor dividirla. Ahora
 hablemos de lo que hace esta línea.
 
-Como se mencionó anteriormente, `read_line` pone lo que el usuario escribe en la cadena
-que estamos pasando, pero también devuelve un valor, en este caso, un
+Como se mencionó anteriormente, `read_line` añade lo que el usuario escribe a la cadena
+que estamos pasando, pero también devuelve un valor, en este caso un
 [`io::Result`][ioresult]<!-- ignore -->. Rust tiene varios tipos llamados
-`Result` en su biblioteca estándar: un [`Result`][result]<!-- ignore --> generico
+`Result` en su biblioteca estándar; un [`Result`][result]<!-- ignore --> generico
 así como versiones específicas para submódulos, como `io::Result`.
 
-[ioresult]: ../std/io/type.Result.html
-[result]: ../std/result/enum.Result.html
+[ioresult]: https://doc.rust-lang.org/std/io/type.Result.html
+[result]: https://doc.rust-lang.org/std/result/enum.Result.html
 
 Los tipos `Result` son [*enumeraciones*][enums]<!-- ignore -->, a menudo referidas
 como *enums*. Una enumeración es un tipo que puede tener un conjunto fijo de valores,
@@ -253,7 +252,7 @@ el valor de retorno que tiene `Ok` y devuelve solo ese valor para que
 pueda usarlo. En este caso, ese valor es el número de bytes que el usuario
 ha ingresado en la entrada estándar.
 
-[expect]: ../std/result/enum.Result.html#method.expect
+[expect]: https://doc.rust-lang.org/std/result/enum.Result.html#method.expect
 
 Si no llama a `expect`, el programa se compilará, pero recibirá una advertencia:
 
@@ -262,7 +261,7 @@ Si no llama a `expect`, el programa se compilará, pero recibirá una advertenci
 ```
 
 Rust advierte que no ha utilizado el valor de `Result` devuelto por `read_line`,
-indicando que el programa no ha manejado un posible error.
+indicando que el programa no está manejando un posible error.
 
 La forma correcta de suprimir la advertencia es escribir realmente el manejo de errores, pero
 si solo desea bloquear este programa cuando ocurre un problema, puede usar
@@ -280,18 +279,18 @@ el código agregado hasta ahora, que es la siguiente:
 Esta línea imprime la cadena en la que guardamos la entrada del usuario. El conjunto de
 corchetes, `{}`, es un marcador de posición; piense en `{}` como pequeñas pinzas de cangrejo que
 mantienen un valor en su lugar. Puede imprimir más de un valor utilizando llaves;
-el primer conjunto de llaves contiene el primer valor enumerado después del formato
+el primer conjunto de llaves contiene el primer valor enumerado después del formato de la
 cadena, el segundo conjunto contiene el segundo valor, y así sucesivamente. Imprimir múltiples
-valores en una llamada a `println!` se verían así:
+valores en una llamada a `println!` se vería así:
 
 ```rust
 let x = 5;
 let y = 10;
 
-println!("x = {} and y = {}", x, y);
+println!("x = {} e y = {}", x, y);
 ```
 
-Este código imprimirá `x = 5 and y = 10`.
+Este código imprimirá `x = 5 e y = 10`.
 
 ### Testeando la Primera Parte
 
@@ -308,19 +307,19 @@ $ cargo run
    Compiling guessing_game v0.1.0 (file:///projects/guessing_game)
     Finished dev [unoptimized + debuginfo] target(s) in 6.44s
      Running `target/debug/guessing_game`
-Guess the number!
-Please input your guess.
+Adivine el numero!
+Por favor, ingrese su suposición.
 6
-You guessed: 6
+Su suposición: 6
 ```
-En este punto, la primera parte del juego está lista: está recibiendo información del
+En este punto, la primera parte del juego está lista; está recibiendo información del
 teclado y luego la imprime.
 
 ## Generando un Número Secreto
 
 A continuación, necesitamos generar el número secreto que el usuario intentará adivinar.
-El número secreto debe ser diferente cada vez para que sea divertido jugar mas
-de una vez. Usemos un número aleatorio entre 1 y 100 para que el juego no sea demasiado
+El número secreto debe ser diferente cada vez para que sea divertido jugar varias
+veces. Usemos un número aleatorio entre 1 y 100 para que el juego no sea demasiado
 difícil. Rust aún no incluye la funcionalidad de números aleatorios en su biblioteca estándar.
 Sin embargo, el equipo de Rust proporciona una [caja `rand`][randcrate].
 
@@ -356,7 +355,7 @@ En el archivo *Cargo.toml*, todo lo que sigue a un encabezado es parte de una se
 que continúa hasta que comienza otra sección. La sección `[dependencies]` es
 donde se le dice a Cargo de qué cajas externas depende su proyecto y que
 versiones de esas cajas necesita. En este caso, especificaremos la caja `rand`
-con el especificador de versión semántica `0.8.3`. Cargo entiende [Semantic
+con el especificador semántico de versión `0.8.3`. Cargo soporta [Semantic
 Versioning][semver]<!-- ignore --> (a veces llamado *SemVer*), que es un
 estándar para escribir números de versión. El número `0.8.3` es en realidad una abreviatura
 para `^0.8.3`, que significa cualquier versión que sea al menos `0.8.3` pero inferior
@@ -489,7 +488,7 @@ En este punto, también notaría un cambio en su archivo *Cargo.lock* señalando
 que la versión de la caja `rand` que está usando ahora es` 0.8.4`.
 
 Si desea utilizar la versión `rand 0.9.0` o cualquier versión de la serie `0.9.x`
-, tendrías que actualizar el archivo *Cargo.toml* para que tenga este aspecto:
+, tendría que actualizar el archivo *Cargo.toml* para que tenga este aspecto:
 
 ```toml
 [dependencies]
@@ -497,7 +496,7 @@ rand = "0.9.0"
 ```
 
 La próxima vez que ejecute `cargo build`, Cargo actualizará el registro de cajas
-disponible y reevaluara sus requisitos de "rand" de acuerdo con la nueva versión
+disponibles y reevaluara los requisitos de "rand" de acuerdo con la nueva versión
 especificada.
 
 Hay mucho más que decir sobre [Cargo][doccargo]<!-- ignore --> y 
@@ -528,15 +527,15 @@ métodos que implementan los generadores de números aleatorios, y este trait de
 el alcance para que usemos esos métodos. El capítulo 10 cubrirá los traits en detalle.
 
 A continuación, agregamos dos líneas en medio. La función `rand::thread_rng`
-nos dará el generador de números aleatorios particular que vamos a utilizar:
-uno que es local al hilo de ejecución actual y "sembrado" por el
+nos dará el generador de números aleatorios particular que vamos a utilizar;
+un generador que es local al hilo de ejecución actual y "sembrado" por el
 sistema operativo. Luego llamamos al método `gen_range` en el generador de números
 aleatorios. Este método está definido por el trait `Rng` que trajimos al alcance
 con la instrucción `use rand::Rng`. El método `gen_range` toma una expresión rango
 como argumento y genera un número aleatorio dentro del rango. El tipo
 de la expresión rango que usamos aquí tiene la forma `start..end`. Es
-inclusivo en el límite inferior pero exclusivo en el límite superior, por lo que necesitamos
-especificar `1..101` para solicitar un número entre 1 y 100. Alternativamente, podríamos
+inclusivo en el límite inferior pero exclusivo en el límite superior, por lo que para solicitar 
+un número entre 1 y 100 necesitamosespecificar `1..101` . Alternativamente, podríamos
 pasa el rango `1..=100`, que es equivalente.
 
 > Nota: no solo necesita saber qué traits usar y qué métodos y funciones
@@ -567,26 +566,26 @@ $ cargo run
    Compiling guessing_game v0.1.0 (file:///projects/guessing_game)
     Finished dev [unoptimized + debuginfo] target(s) in 2.53s
      Running `target/debug/guessing_game`
-Guess the number!
-The secret number is: 7
-Please input your guess.
+Adivine el numero!
+El número secreto es: 7
+Por favor, ingrese su suposición.
 4
-You guessed: 4
+Su suposición: 4
 
 $ cargo run
     Finished dev [unoptimized + debuginfo] target(s) in 0.02s
      Running `target/debug/guessing_game`
-Guess the number!
-The secret number is: 83
-Please input your guess.
+Adivine el numero!
+El número secreto es: 83
+Por favor, ingrese su suposición.
 5
-You guessed: 5
+Su suposición: 5
 ```
 
 Debe obtener diferentes números aleatorios, y todos deben ser números entre
 1 y 100. ¡Buen trabajo!
 
-## Comparando la Conjetura con el Numero Secreto
+## Comparando la Conjetura con el Número Secreto
 
 Ahora que tenemos la entrada del usuario y un número aleatorio, podemos compararlos. Ese paso
 se muestra en el Listado 2-4. No compile este código aún, hasta que lo
@@ -633,7 +632,7 @@ retorna `Ordering::Greater`, porque 50 es mayor que 38. La expresión `match`
 obtiene el valor `Ordering::Greater` y comienza a comprobar cada brazo
 del patrón. Mira el patrón del primer brazo, `Ordering::Less`, y ve que
 el valor `Ordering::Greater` no coincide con `Ordering::Less`, por lo que ignora
-el código en ese brazo y pasa al siguiente brazo. El patrón del siguiente brazo,
+el código en ese brazo y pasa al siguiente. El patrón del siguiente brazo,
 `Ordering::Greater`, coincide con `Ordering::Greater`! El código asociado en
 ese brazo se ejecutará e imprimirá "¡Demasiado grande!" en la pantalla. La expresión
 `match` termina porque no tiene necesidad de mirar el último brazo en este escenario.
@@ -644,11 +643,11 @@ Sin embargo, el código del Listado 2-4 aún no se compilará. Vamos a intentarl
 {{#include ../listings/ch02-guessing-game-tutorial/listing-02-04/output.txt}}
 ```
 
-El núcleo del error indica que hay *mismatched types*. Rust tiene un
-sistema de tipos fuerte y estático. Sin embargo, también tiene inferencia de tipos. Cuando escribimos
+El núcleo del error (error [E0308]) indica que hay *mismatched types*. Rust tiene un fuerte
+sistema de tipos estáticos. Sin embargo, también tiene inferencia de tipos. Cuando escribimos
 `let mut guess = String::new()`, Rust pudo inferir que `guess` debería ser
 una `String` y no nos obligó a escribir el tipo. Pero `secret_number`, por otro
-lado, es un tipo numérico. Algunos tipos numéricos pueden tener un valor entre 1 y 100:
+lado, es un tipo numérico. Varios tipos numéricos pueden tener un valor entre 1 y 100:
 `i32`, un número de 32 bits; `u32`, un número de 32 bits sin signo; `i64`, un número de 64 bits
 ; y otros. Rust tiene por defecto `i32`, que es el tipo de
 `secret_number` a menos que agregue información de tipo en otro lugar que causaría que Rust
@@ -668,28 +667,27 @@ hacer eso agregando otra línea al cuerpo de la función `main`:
 La linea es:
 
 ```rust,ignore
-let guess: u32 = guess.trim().parse().expect("Please type a number!");
+let guess: u32 = guess.trim().parse().expect("Por favor, deme un numero!");
 ```
 
 Creamos una variable llamada `guess`. Pero espere, ¿el programa ya tiene
 una variable llamada `guess`? Si, la tiene, pero Rust nos permite *sombrear* el anterior
-valor de `guess` con uno nuevo. Esta función se utiliza a menudo en situaciones en
+valor de `guess` con uno nuevo. Esta característica se utiliza a menudo en situaciones en
 que desea convertir un valor de un tipo a otro. El sombreado permite
 reutilizar el nombre de la variable `guess` en lugar de obligarnos a crear dos
 variables, como `guess_str` y `guess`, por ejemplo. (El Capítulo 3 cubre
 sombreado con más detalle.)
 
-Vinculamos `guess` a la expresión `guesss.trim().Parse()`. `guess` en la
-expresión se refiere a la "suposición" original que era una "Cadena" con la entrada en
-ella. El método `trim` en una instancia de `String` eliminará cualquier espacio en blanco
+Vinculamos `guess` a la expresión `guesss.trim().parse()`. En la expresión, `guess`
+se refiere a la "suposición" original que era una `String` conteniendo la entrada.
+El método `trim` en una instancia de `String` eliminará cualquier espacio en blanco
 al principio y al final. Aunque `u32` solo puede contener caracteres numéricos,
-el usuario debe presionar <span class="keystroke">enter</span> para satisfacer
-`read_line`. Cuando el usuario presiona <span class="keystroke">enter</span>, se agrega a la cadena un
-carácter de nueva línea. Por ejemplo, si el usuario escribe <span
-class="keystroke">5</span> y presiona <span class="keystroke">enter</span>,
+el usuario debe presionar `enter` para satisfacer
+`read_line`. Cuando el usuario presiona `enter`, se agrega a la cadena un
+carácter de nueva línea. Por ejemplo, si el usuario escribe
+`5` y presiona `enter`,
 `guess` se ve así: `5\n`. `\n` representa "nueva línea", el resultado de
-presionar <span class="keystroke">enter</span> (en Windows, presionando <span
-class="keystroke">enter</span> da como resultado un retorno de carro y una nueva línea,
+presionar `enter` (en Windows, presionando `enter` da como resultado un retorno de carro y una nueva línea,
 `\r\n`). El método `trim` elimina `\n` o `\r\n`, lo que da como resultado solo un `5`.
 
 El método [`parse`][parse]<!-- ignore --> en cadenas analiza una cadena en algunos
@@ -703,19 +701,19 @@ este programa de ejemplo y la comparación con `secret_number` significa que Rus
 inferirá que `secret_number` debería ser también un `u32`. Ahora 
 ¡la comparación será entre dos valores del mismo tipo!
 
-[parse]: ../std/primitive.str.html#method.parse
+[parse]: https://doc.rust-lang.org/std/primitive.str.html#method.parse
 
 La llamada a `parse` fácilmente podría causar un error. Si, por ejemplo, la cadena
 contenía `A👍%`, no habría forma de convertir eso en un número. Ya que
 puede fallar, el método `parse` devuelve un tipo `Result`, al igual que hace `read_line`
 (discutido anteriormente en ["Manejo de fallos potenciales con el
 tipo `Result`](#manejo-de-fallos-potenciales-con-el-tipo-result)<!-- ignore
--->). Trataremos este `Result` de la misma manera mediante el método `expect`
-de nuevo. Si `parse` devuelve una variante de `Err` de `Result` porque no se pudo crear
+-->). Trataremos este `Result` de la misma manera, de nuevo mediante el método `expect`.
+Si `parse` devuelve una variante `Err` de `Result` porque no se pudo crear
 un número desde la cadena, la llamada `expect` bloqueará el juego e imprimirá el
 mensaje que le damos. Si `parse` puede convertir correctamente la cadena en un número,
 devolverá la variante `Ok` de `Result`, y `expect` devolverá el
-número que queremos del valor `Ok`.
+número que queremos desde el valor `Ok`.
 
 ¡Ejecutemos el programa ahora!
 
@@ -730,12 +728,12 @@ $ cargo run
    Compiling guessing_game v0.1.0 (file:///projects/guessing_game)
     Finished dev [unoptimized + debuginfo] target(s) in 0.43s
      Running `target/debug/guessing_game`
-Guess the number!
-The secret number is: 58
-Please input your guess.
+Adivine el numero!
+El número secreto es: 58
+Por favor, ingrese su suposición.
   76
-You guessed: 76
-Too big!
+Su suposición: 76
+Demasiado grande!
 ```
 
 ¡Bien! Aunque se agregaron espacios antes del valor conjeturado, el programa considera
@@ -763,10 +761,10 @@ y vuelva a ejecutar el programa. Observe que hay un nuevo problema porque el
 programa está haciendo exactamente lo que le dijimos que hiciera: ¡pedir otra conjetura eternamente!
 ¡No parece que el usuario pueda salir!
 
-El usuario siempre puede interrumpir el programa usando el atajo de teclado <span
-class="keystroke">ctrl-c</span>. Pero hay otra forma de escapar de este
-monstruo insaciable, como se menciona en la discusión de "parse" en ["Comparando 
-la Conjetura con el Número Secreto”](#comparando-la-conjetura-con-el-numero-secreto)<!--
+El usuario siempre puede interrumpir el programa usando el atajo de teclado 
+`ctrl-c`. Pero hay otra forma de escapar de este
+monstruo insaciable, como se menciona en la discusión de `parse` en ["Comparando 
+la Conjetura con el Número Secreto”](#comparando-la-conjetura-con-el-número-secreto)<!--
 ignore -->: si el usuario ingresa una respuesta no numérica, el programa se bloqueará.
 El usuario puede aprovechar eso para salir, como se muestra aquí:
 
@@ -784,33 +782,33 @@ $ cargo run
    Compiling guessing_game v0.1.0 (file:///projects/guessing_game)
     Finished dev [unoptimized + debuginfo] target(s) in 1.50s
      Running `target/debug/guessing_game`
-Guess the number!
-The secret number is: 59
-Please input your guess.
+Adivine el numero!
+El número secreto es: 59
+Por favor, ingrese su suposición.
 45
-You guessed: 45
-Too small!
-Please input your guess.
+Su suposición: 45
+Demasiado pequeño!
+Por favor, ingrese su suposición.
 60
-You guessed: 60
-Too big!
-Please input your guess.
+Su suposición: 60
+Demasiado grande!
+Por favor, ingrese su suposición.
 59
-You guessed: 59
-You win!
-Please input your guess.
-salir
-thread 'main' panicked at 'Please type a number!: ParseIntError { kind: InvalidDigit }', src/main.rs:28:47
+Su suposición: 59
+Acertó!
+Por favor, ingrese su suposición.
+quit
+thread 'main' panicked at 'Por favor, deme un numero!: ParseIntError { kind: InvalidDigit }', src/main.rs:28:47
 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 ```
 
-Escribir "salir" en realidad cierra el juego, pero también lo hará cualquier otra entrada que no sea un número.
+Escribir "quit" en realidad cierra el juego, pero también lo hará cualquier otra entrada que no sea un número.
 Sin embargo, esto no es óptimo, por decir poco. Queremos que el juego automáticamente se
 deténga cuando se adivine el número correcto.
 
 ### Salir Despues de una Suposicion Correcta
 
-Programemos el juego para que se cierre cuando el usuario gane agregando una declaración "break":
+Programemos el juego para que se cierre cuando el usuario gane agregando una declaración `break`:
 
 <span class="filename">Nombre de archivo: src/main.rs</span>
 
@@ -818,7 +816,7 @@ Programemos el juego para que se cierre cuando el usuario gane agregando una dec
 {{#rustdoc_include ../listings/ch02-guessing-game-tutorial/no-listing-05-quitting/src/main.rs:here}}
 ```
 
-Agregar la línea `break` después de `You win!' hace que el programa salga del ciclo cuando
+Agregar la línea `break` después de `Acertó!' hace que el programa salga del ciclo cuando
 el usuario adivina correctamente el número secreto. Salir del bucle también significa
 salir del programa, porque el bucle es la última parte de `main`.
 
@@ -839,9 +837,9 @@ se convierte de un `String` a un `u32`, como se muestra en el Listado 2-5.
 otra suposición en lugar de bloquear el programa</span>
 
 Cambiar de una llamada `expect` a una expresión `match` es lo que generalmente
-distingue fallar por error a manejar el error. Recuerde que `parse`
+distingue a "fallar por error" de "manejar el error". Recuerde que `parse`
 devuelve un tipo `Result` y `Result` es una enumeración que tiene las variantes `Ok` o
-`Err`. Estamos usando una expresión `match` aquí, como hicimos con `Ordering`
+`Err`. Estamos usando una expresión `match` aquí, como hicimos con `Ordering`,
 resultado del método `cmp`.
 
 Si `parse` es capaz de convertir correctamente la cadena en un número,
@@ -855,9 +853,9 @@ valor `Err` que contiene más información sobre el error. El valor de `Err`
 no coincide con el patrón `Ok(num)` en el primer brazo `match`, pero sí
 coincide con el patrón `Err(_)` en el segundo brazo. El guión bajo, `_`, es un
 valor de captura; en este ejemplo, estamos diciendo que queremos hacer coincidir todos los 
-valores `Err`, sin importar la información que contengan. Entonces el programa
+valores `Err`, sin importar la información que contengan. Entonces, el programa
 ejecutará el código del segundo brazo, `continue`, que le dice al programa que vaya a la
-siguiente iteración de `loop` y pida otra conjetura. Entonces, efectivamente,
+siguiente iteración de `loop` y pida otra conjetura. Por tanto, efectivamente,
 ¡El programa ignora todos los errores que pueda encontrar "parse"!
 
 Ahora todo en el programa debería funcionar como se esperaba. Vamos a intentarlo:
@@ -876,25 +874,25 @@ $ cargo run
    Compiling guessing_game v0.1.0 (file:///projects/guessing_game)
     Finished dev [unoptimized + debuginfo] target(s) in 4.45s
      Running `target/debug/guessing_game`
-Guess the number!
-The secret number is: 61
-Please input your guess.
+Adivine el numero!
+El número secreto es: 61
+Por favor, ingrese su suposición.
 10
-You guessed: 10
+Su suposición: 10
 Too small!
-Please input your guess.
+Por favor, ingrese su suposición.
 99
-You guessed: 99
-Too big!
-Please input your guess.
+Su suposición: 99
+Demasiado grande!
+Por favor, ingrese su suposición.
 foo
-Please input your guess.
+Por favor, ingrese su suposición.
 61
-You guessed: 61
-You win!
+Su suposición: 61
+Acertó!
 ```
 
-¡Impresionante! Con un pequeño ajuste final, terminaremos el juego de adivinanzas. Recordar
+¡Impresionante! Con un pequeño ajuste final, terminaremos el juego de adivinanzas. Recuerde
 que el programa todavía está imprimiendo el número secreto. Eso funcionó bien para
 pruebas, pero arruina el juego. Eliminemos el `println!` que muestra el
 número secreto. El listado 2-6 muestra el código final.
@@ -916,9 +914,8 @@ Este proyecto fue una forma práctica de presentarle muchos conceptos nuevos de 
 más. En los próximos capítulos, aprenderá sobre estos conceptos con más
 detalle. El capítulo 3 cubre conceptos que tienen la mayoría de los lenguajes de programación, como
 variables, tipos de datos y funciones, y muestra cómo usarlos en Rust.
-El capítulo 4 explora la propiedad, una característica que hace que Rust sea diferente de otros
+El capítulo 4 explora la `propiedad`, una característica que hace que Rust sea diferente de otros
 lenguajes. El Capítulo 5 analiza las estructuras y la sintaxis de métodos, y el Capítulo 6
 explica cómo funcionan las enumeraciones.
 
-[variables-and-mutability]:
-ch03-01-variables-and-mutability.html#variables-y-mutabilidad
+[variables-and-mutability]:ch03-01-variables-and-mutability.html#variables-y-mutabilidad

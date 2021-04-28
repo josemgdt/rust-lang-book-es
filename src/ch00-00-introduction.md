@@ -1,7 +1,7 @@
 # Introducción
 
-> Nota: esta es la traducción del libro [The Rust Programming
-> Language][nsprust] . No está disponible en formato impreso.
+> Nota: Esta es la traducción del libro [The Rust Programming
+> Language][nsprust] . La version en Español no está disponible en formato impreso.
 
 [nsprust]: https://nostarch.com/rust
 
@@ -31,10 +31,10 @@ en lugar de perseguir errores.
 
 Rust también brinda herramientas de desarrollo coetáneas al mundo de la programación de sistemas:
 
-* Cargo, el administrador de dependencias y la herramienta de compilación, hace que agregar,
+* *Cargo*, el administrador de dependencias y la herramienta de compilación, hace que agregar,
   compilar y gestionar dependencias sea sencillo y coherente en todo el ecosistema Rust.
-* Rustfmt garantiza un estilo de codificación coherente entre los desarrolladores.
-* Rust Language Server impulsa la integración con entornos de desarrollo integrado (IDE) para 
+* *Rustfmt* garantiza un estilo de codificación coherente entre los desarrolladores.
+* *Rust Language Server* impulsa la integración con entornos de desarrollo integrado (IDE) para 
   completar el código y dar mensajes de error en línea.
 
 Al utilizar estas y otras herramientas en el ecosistema Rust, los desarrolladores pueden ser
@@ -50,7 +50,7 @@ especialmente para los nuevos en programación.
 
 ### Compañías
 
-Cientos de empresas, grandes y pequeñas, utilizan Rust en la producción de variedad de tareas. 
+Cientos de empresas, grandes y pequeñas, utilizan Rust en la producción de gran variedad de tareas. 
 Esas tareas incluyen herramientas de línea de comandos, servicios web, herramientas DevOps,
 dispositivos integrados, análisis y transcodificación de audio y vídeo, criptomonedas,
 bioinformática, motores de búsqueda, aplicaciones de Internet de las Cosas, "machine learning", 
@@ -69,7 +69,7 @@ le permite escribirlos. Las comprobaciones del compilador de Rust garantizan la 
 mediante la incorporación de características y la refactorización. Esto contrasta con el frágil
 código heredado en lenguajes sin estas comprobaciones, que los desarrolladores suelen no modificar 
 por temor. Al esforzarse por lograr abstracciones de coste cero, las características de nivel superior 
-se compilan en código de bajo nivel tan rápido como el escrito manualmente, Rust 
+se compilan en código de bajo nivel tan rápido como el escrito manualmente; Rust 
 se esfuerza por hacer que el código seguro sea también código rápido.
 
 El lenguaje Rust espera ser compatible también con muchos otros usuarios; los mencionados son solo 
@@ -97,17 +97,17 @@ programas, aplicando lo que ha aprendido antes. Los capítulos 2, 12 y 20 son ca
 son capítulos de conceptos.
 El capítulo 1 explica cómo instalar Rust, cómo escribir un  programa "¡Hola, mundo!",
 y cómo utilizar Cargo, el administrador de paquetes y la herramienta de compilación de Rust. 
-El capítulo 2 es una introducción práctica al lenguaje Rust. Aquí cubrimos conceptos a alto
-nivel, y los capítulos posteriores proporcionarán detalles adicionales. Si quiere que sus
-manos se ensucien de inmediato, el Capítulo 2 es el lugar para eso. Al principio, incluso
+El capítulo 2 es una introducción práctica al lenguaje Rust. Aquí cubrimos conceptos de alto
+nivel, y los capítulos posteriores proporcionarán detalles adicionales. Si quiere ensuciarse las
+manos de inmediato, el Capítulo 2 es el lugar para eso. Al principio, incluso
 podría querer omitir el Capítulo 3, que cubre características de Rust similares a las de otros 
 lenguajes de programación, y dirigirse directamente al Capítulo 4 para aprender sobre el sistema 
-de propiedad de Rust. Sin embargo, si usted es un aprendiz particularmente meticuloso que prefiere aprender 
+de propiedad de Rust. Sin embargo, si usted es un aprendiz particularmente meticuloso, que prefiere aprender 
 cada detalle antes de pasar al siguiente, es posible que desee omitir el Capítulo 2 e ir directamente 
 al Capítulo 3, volviendo al Capítulo 2 cuando quiera trabajar en un proyecto aplicando los detalles 
 que ha aprendido.
 
-El Capítulo 5 discute estructuras y métodos, y el Capítulo 6 cubre enumeraciones, expresiones `match` y 
+El Capítulo 5 discute estructuras y métodos y el Capítulo 6 cubre enumeraciones, expresiones `match` y 
 la construcción de control de flujo "if let". Usará estructuras y enumeraciones para hacer tipos 
 personalizados en Rust.
 
@@ -118,12 +118,12 @@ cadenas y mapas hash. El Capítulo 9 explora la filosofía y las técnicas de ma
 
 El capítulo 10 profundiza en genéricos, traits y tiempos de vida, que le dan el poder para definir el código 
 que se aplica a varios tipos. El capítulo 11 trata sobre las pruebas, que incluso con las garantías de 
-seguridad de Rust son necesarias para garantizar que la lógica del programa es correcta. En el Capítulo 12, 
+seguridad de Rust son necesarias para garantizar que la lógica del programa sea correcta. En el Capítulo 12, 
 crearemos nuestra propia implementación de un subconjunto de la funcionalidad de la herramienta de línea 
 de comandos `grep` que busca texto dentro de los archivos. Para esto, usaremos muchos de los conceptos 
 que discutimos en capítulos anteriores.
 
-El capítulo 13 explora cierres e iteradores, características de Rust que provienen de lenguajes de 
+El capítulo 13 explora cierres (closures) e iteradores, características de Rust que provienen de lenguajes de 
 programación funcionales. En el Capítulo 14, examinaremos Cargo en más profundidad y hablaremos 
 sobre las mejores prácticas para compartir bibliotecas con otros.
 El capítulo 15 analiza los punteros inteligentes que proporciona la biblioteca estándar y los traits 
@@ -149,18 +149,19 @@ y el Apéndice E explica las ediciones de Rust.
 <span id="ferris"></span>
 
 Una parte importante del proceso de aprendizaje de Rust es aprender a leer mensajes de error que muestra el 
-compilador: estos le guiarán en el trabajo sobre el código.
-Como tal, proporcionaremos muchos ejemplos que no se compilan junto con el mensaje de error que el compilador 
+compilador; estos le guiarán en el trabajo sobre el código.
+Por ello, proporcionaremos muchos ejemplos que no se compilan junto con el mensaje de error que el compilador 
 mostrará en cada situación. Debe saber que si entra y ejecuta un ejemplo aleatorio, ¡puede que no se 
 compile! Asegúrese de leer el texto circundante para ver si el ejemplo que está intentando ejecutar está 
-destinado a error. Ferris también lo ayudará a distinguir el código que no está destinado a funcionar:
+destinado a provocar intencionalmente un error. Ferris (nuestra mascota) también lo ayudará a distinguir el código que no 
+está destinado a funcionar:
 
 | Ferris                                                                 | Significado                                      |
 |------------------------------------------------------------------------|--------------------------------------------------|
-| <img src="img/ferris/does_not_compile.svg" class="ferris-explain"/>    | ¡Este código no se compila!                      |
-| <img src="img/ferris/panics.svg" class="ferris-explain"/>              | ¡Este código entra en pánico!                    |
-| <img src="img/ferris/unsafe.svg" class="ferris-explain"/>              | Este bloque de código contiene código inseguro.  |
-| <img src="img/ferris/not_desired_behavior.svg" class="ferris-explain"/>| Este código no produce el comportamiento deseado.|
+| <img src="img/ferris/does_not_compile.svg" class="ferris-explain"/>    |        ¡Este código no se compila!                      |
+| <img src="img/ferris/panics.svg" class="ferris-explain"/>              |        ¡Este código entra en pánico!                    |
+| <img src="img/ferris/unsafe.svg" class="ferris-explain"/>              |        Este bloque de código contiene código inseguro.  |
+| <img src="img/ferris/not_desired_behavior.svg" class="ferris-explain"/>|        Este código no produce el comportamiento deseado.|
 
 
 En la mayoría de las situaciones, le llevaremos a la versión correcta de cualquier código que

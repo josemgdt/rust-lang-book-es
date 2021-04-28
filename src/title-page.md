@@ -4,8 +4,8 @@
 
 *traducción al castellano por J.M. García*
 
-Esta versión del texto asume que está usando Rust 1.50 o posterior con
-`edition = "2018"` en el archivo *Cargo.toml* de todos los proyectos para usar el estilo
+Esta versión del texto asume que está usando Rust 1.50 o posterior con la declaración
+`edition = "2018"` en el encabezado [package] del archivo *Cargo.toml* de todos los proyectos para usar el estilo
 de la Edición Rust 2018. Consulte la sección [“Instalación”][instalar]<!-- ignore -->
 del Capitulo 1 para instalar o actualizar Rust, y vea el nuevo [Apéndice E][ediciones]<!-- ignore --> para información sobre ediciones.
 
@@ -28,13 +28,13 @@ contiene una serie de cambios que reflejan esas mejoras:
   permite que el código escrito en las ediciones 2015 y 2018 interoperen.
 - El Apéndice D ahora se titula "Herramientas de Desarrollo Útiles" y cubre
   herramientas publicadas recientemente que le ayudarán a escribir código Rust.
-- Corregimos una serie de pequeños errores y una redacción imprecisa a lo largo del libro.
-  ¡Gracias a los lectores que los informaron!
+- Corregimos una serie de pequeños errores y alguna redacción imprecisa a lo largo del libro.
+  ¡Gracias a los lectores que los advirtieron!
 
 Tenga en cuenta que cualquier código en ediciones anteriores de *The Rust Programming Language*
 que compilaban, continuarán haciendolo sin `edition = "2018"` en el archivo
 *Cargo.toml* del proyecto, incluso si actualiza la versión del compilador Rust
-utilizada. ¡Eso garantíza de compatibilidad con versiones anteriores de Rust!
+utilizada. ¡Eso garantíza la compatibilidad con versiones anteriores de Rust!
 
 El formato HTML (en inglés) está disponible en línea en
 [https://doc.rust-lang.org/stable/book/](https://doc.rust-lang.org/stable/book/)

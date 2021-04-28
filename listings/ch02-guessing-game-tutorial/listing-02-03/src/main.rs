@@ -5,23 +5,23 @@ use rand::Rng;
 
 fn main() {
     // ANCHOR_END: ch07-04
-    println!("Guess the number!");
+    println!("Adivine el numero!");
 
     // ANCHOR: ch07-04
     let secret_number = rand::thread_rng().gen_range(1..101);
     // ANCHOR_END: ch07-04
 
-    println!("The secret number is: {}", secret_number);
+    println!("El número secreto es: {}", secret_number);
 
-    println!("Please input your guess.");
+    println!("Por favor, ingrese su suposición.");
 
     let mut guess = String::new();
 
     io::stdin()
         .read_line(&mut guess)
-        .expect("Failed to read line");
+        .expect("Fallo al leer linea");
 
-    println!("You guessed: {}", guess);
+    println!("Su suposición: {}", guess);
     // ANCHOR: ch07-04
 }
 // ANCHOR_END: ch07-04

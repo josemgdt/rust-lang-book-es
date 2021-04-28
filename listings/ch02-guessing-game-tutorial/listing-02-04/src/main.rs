@@ -6,27 +6,27 @@ use std::io;
 fn main() {
     // --snip--
     // ANCHOR_END: here
-    println!("Guess the number!");
+    println!("Adivine el numero!");
 
     let secret_number = rand::thread_rng().gen_range(1..101);
 
-    println!("The secret number is: {}", secret_number);
+    println!("El número secreto es: {}", secret_number);
 
-    println!("Please input your guess.");
+    println!("Por favor, ingrese su suposición.");
 
     let mut guess = String::new();
 
     io::stdin()
         .read_line(&mut guess)
-        .expect("Failed to read line");
+        .expect("Fallo al leer linea");
     // ANCHOR: here
 
-    println!("You guessed: {}", guess);
+    println!("Su suposición: {}", guess);
 
     match guess.cmp(&secret_number) {
-        Ordering::Less => println!("Too small!"),
-        Ordering::Greater => println!("Too big!"),
-        Ordering::Equal => println!("You win!"),
+        Ordering::Less => println!("Demasiado pequeño!"),
+        Ordering::Greater => println!("Demasiado grande!"),
+        Ordering::Equal => println!("Acertó!"),
     }
 }
 // ANCHOR_END: here
