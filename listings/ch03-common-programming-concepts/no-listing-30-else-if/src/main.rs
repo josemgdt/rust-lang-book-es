@@ -2,12 +2,12 @@ fn main() {
     let number = 6;
 
     if number % 4 == 0 {
-        println!("number is divisible by 4");
+        println!("número divisible entre 4");
     } else if number % 3 == 0 {
-        println!("number is divisible by 3");
+        println!("número divisible entre 3");
     } else if number % 2 == 0 {
-        println!("number is divisible by 2");
+        println!("número divisible entre 2");
     } else {
-        println!("number is not divisible by 4, 3, or 2");
+        println!("número no divisible entre 4, 3, o 2");
     }
 }

@@ -806,7 +806,7 @@ Escribir "quit" en realidad cierra el juego, pero también lo hará cualquier ot
 Sin embargo, esto no es óptimo, por decir poco. Queremos que el juego automáticamente se
 deténga cuando se adivine el número correcto.
 
-### Salir Despues de una Suposicion Correcta
+### Salir Despues de una Suposición Correcta
 
 Programemos el juego para que se cierre cuando el usuario gane agregando una declaración `break`:
 

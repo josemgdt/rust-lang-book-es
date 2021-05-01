@@ -14,18 +14,18 @@ fn first_word(s: &str) -> &str {
 
 // ANCHOR: usage
 fn main() {
-    let my_string = String::from("hello world");
+    let my_string = String::from("hola mundo");
 
-    // first_word works on slices of `String`s
+    // first_word trabajando en slices de `String`s
     let word = first_word(&my_string[..]);
 
-    let my_string_literal = "hello world";
+    let my_string_literal = "hola mundo";
 
-    // first_word works on slices of string literals
+    // first_word trabajando en slice de string literal
     let word = first_word(&my_string_literal[..]);
 
-    // Because string literals *are* string slices already,
-    // this works too, without the slice syntax!
+    // Ya que los string literal *son* string slices tambien,
+    // esto trabaja sin la sintaxis de slices!
     let word = first_word(my_string_literal);
 }
 // ANCHOR_END: usage

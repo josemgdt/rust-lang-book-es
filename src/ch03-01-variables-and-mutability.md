@@ -28,17 +28,17 @@ de error, como se muestra en esta salida:
 
 Este ejemplo muestra cómo el compilador le ayuda a encontrar errores en sus programas.
 Aunque los errores del compilador pueden ser frustrantes, solo se refieren a que su programa
-todavía no está haciendo de forma segura lo que desea que haga; eso *no* significa que no se es
+todavía no está haciendo de forma segura lo que desea que haga; eso *no* significa que no sea
 un buen programador! Los rustáceos experimentados todavía sufren errores de compilación.
 
 El mensaje de error indica que la causa es que no se puede
-asignar dos veces una variable inmutable, porque intentó asignar un segundo
+asignar dos veces una variable inmutable, y que intentó asignar un segundo
 valor a la variable inmutable `x`.
 
 Es importante que obtengamos errores en tiempo de compilación cuando intentamos cambiar un
 valor que previamente designamos como inmutable porque esta misma situación
 puede provocar errores. Si una parte de nuestro código opera bajo el supuesto de que un
-el valor nunca cambiará y otra parte de nuestro código cambia ese valor, es muy
+valor nunca cambiará y otra parte de nuestro código cambia ese valor, es muy
 posible que la primera parte del código no haga lo que deberia hacer.
 La causa de este tipo de error puede ser difícil de rastrear después del hecho,
 especialmente cuando la segunda parte del código cambia el valor solo *a veces*.
@@ -52,7 +52,7 @@ Pero la mutabilidad puede resultar muy útil. Las variables son inmutables solo 
 se hizo en el Capítulo 2, puede hacerlas mutables agregando `mut` delante del
 nombre de la variable. Además de permitir que este valor cambie, `mut` transmite
 la intención a los futuros lectores del código indicando que otras partes del código
-cambiarán el valor de esta variable.
+cambiarán el valor de esa variable.
 
 Por ejemplo, cambiemos *src/main.rs* a lo siguiente:
 
@@ -93,7 +93,7 @@ Las constantes se declaran usando la palabra clave `const` en lugar de la palabr
 y el tipo de valor *debe* anotarse. Estamos a punto de cubrir los tipos y
 sus anotaciones en la siguiente sección, ["Tipos de datos"][data-types]<!-- ignore
 --> , así que no se preocupe por los detalles ahora mismo. Solo debe saber que siempre debe
-anotar el tipo.
+anotar el tipo de una constante.
 
 Las constantes se pueden declarar en cualquier ámbito, incluido el ámbito global, lo que las hace
 útiles para valores que se necesitan conocer en muchas partes del código.
@@ -164,8 +164,8 @@ ingresando caracteres de espacio, pero realmente queremos almacenar esa entrada 
 ```
 
 Esta construcción está permitida porque la primera variable `spaces` es un tipo cadena
-y la segunda variable `spaces`, que es una variable nueva,
-tienen el mismo nombre que la primera, pero es un tipo número. La sombra, por lo tanto, nos ahorra
+y la segunda variable `spaces`, que es una variable nueva que
+tienen el mismo nombre que la primera, es de tipo numérico. La sombra, por lo tanto, nos ahorra
 tener que inventar nombres diferentes, como `spaces_str` y
 `spaces_num`; en su lugar, podemos reutilizar el nombre de `spaces` más simple. Sin embargo, si
 intenta usar `mut` para esto, como se muestra aquí, obtendremos un error en tiempo de compilación:
@@ -183,5 +183,5 @@ El error dice que no podemos mutar el tipo de una variable:
 Ahora que hemos explorado cómo funcionan las variables, veamos más tipos de datos que
 podemos tener.
 
-[comparing-the-guess-to-the-secret-number]:ch02-00-guessing-game-tutorial.html#comparando-la-conjetura-con-el-numero-secreto
+[comparing-the-guess-to-the-secret-number]:ch02-00-guessing-game-tutorial.html#comparando-la-conjetura-con-el-número-secreto
 [data-types]: ch03-02-data-types.html#tipos-de-datos

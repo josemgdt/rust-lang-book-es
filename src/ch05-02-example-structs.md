@@ -1,4 +1,4 @@
-## Un programa de ejemplo que usa estructuras
+## Un Programa de Ejemplo que Usa Estructuras
 
 Para entender cuándo podríamos necesitar estructuras, escribamos un programa que
 calcula el área de un rectángulo. Empezaremos con variables individuales y luego
@@ -61,13 +61,13 @@ confuso porque tenemos que indexar las partes de la tupla.
 
 No importa el orden de ancho y alto para el cálculo del área, pero
 si queremos dibujar el rectángulo en la pantalla, ¡si importaría! Tendríamos
-para tener en cuenta que `width` es el índice de tupla `0` y `height` es el índice `1`.
+para tener en cuenta que el ancho `width` es el índice de tupla `0` y la altura `height` es el índice `1`.
 Si alguien más trabajara en este código, tendrían que saber esto
 y tenerlo en cuenta también. Sería fácil olvidarlo o mezclar estos
 valores y causar errores, porque no hemos transmitido el significado de nuestros datos en
 nuestro código.
 
-### Refactorización con estructuras: agregando más significado
+### Refactorización con Estructuras: Agregando más Significado
 
 Usamos estructuras para agregar significado al etiquetar los datos. Podemos transformar la tupla
 que estamos usando en un tipo de datos con un nombre unico, así como nombres para las
@@ -100,7 +100,7 @@ muestra que el ancho y la altura están relacionados entre sí, y da
 nombres descriptivos a los valores en lugar de utilizar los valores de índice de tupla "0"
 y "1". Esto es una victoria en pro de claridad.
 
-### Añadiendo Funcionalidad Util con Traits Derivados
+### Añadiendo Funcionalidad Útil con Traits Derivados
 
 Sería bueno poder imprimir una instancia de `Rectangle` mientras estamos
 depurando nuestro programa y ver los valores de todos sus campos. El Listado 5-11 lo intenta
@@ -155,12 +155,8 @@ Pero nuevamente, el compilador nos da una nota útil:
 {{#include ../listings/ch05-using-structs-to-structure-related-data/output-only-01-debug/output.txt:9:10}}
 ```
 
-Rust *does* include functionality to print out debugging information, but we
-have to explicitly opt in to make that functionality available for our struct.
-To do that, we add the annotation `#[derive(Debug)]` just before the struct
-definition, as shown in Listing 5-12.
 Rust *tiene* incluida funcionalidad para imprimir información de depuración, pero nosotros
-tenemos que escojer explícitamente para que esa funcionalidad esté disponible para nuestra estructura.
+tenemos que escojerla explícitamente para que esa funcionalidad esté disponible para nuestra estructura.
 Para hacer eso, agregamos la anotación `#[derive (Debug)]` justo antes de la definición de la 
 estructura, como se muestra en el Listado 5-12.
 
@@ -180,15 +176,8 @@ siguiente salida:
 {{#include ../listings/ch05-using-structs-to-structure-related-data/listing-05-12/output.txt}}
 ```
 
-Nice! It’s not the prettiest output, but it shows the values of all the fields
-for this instance, which would definitely help during debugging. When we have
-larger structs, it’s useful to have output that’s a bit easier to read; in
-those cases, we can use `{:#?}` instead of `{:?}` in the `println!` string.
-When we use the `{:#?}` style in the example, the output will look like this:
-
-
 ¡Fantastico! No es el resultado más bonito, pero muestra los valores de todos los campos
-para este caso, lo que definitivamente ayudará durante la depuración. Cuando tenemos
+para esta instancia, lo que definitivamente ayudará durante la depuración. Cuando tenemos
 estructuras más grandes, es útil tener resultados que sean un poco más fáciles de leer; en
 esos casos, podemos usar `{:#?}` en lugar de `{:?}` en la cadena `println!`.
 Cuando usamos el estilo `{:#?}` en el ejemplo, la salida se verá así:
@@ -196,12 +185,6 @@ Cuando usamos el estilo `{:#?}` en el ejemplo, la salida se verá así:
 ```console
 {{#include ../listings/ch05-using-structs-to-structure-related-data/output-only-02-pretty-debug/output.txt}}
 ```
-
-Our `area` function is very specific: it only computes the area of rectangles.
-It would be helpful to tie this behavior more closely to our 
-struct, because it won’t work with any other type. Let’s look at how we can
-continue to refactor this code by turning the `area` function into an `area`
-*method* defined on our `Rectangle` type.
 
 Rust nos ha proporcionado una serie de traits para que los usemos con la anotación `derive`
 que pueden agregar un comportamiento útil a nuestros tipos personalizados. Esos traits y sus

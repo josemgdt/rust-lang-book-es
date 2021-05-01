@@ -1,7 +1,7 @@
 ## Funciones
 
 Las funciones estan omnipresentes en el código de Rust. Ya ha visto una de las
-funciones más importantes en el lenguaje: la función `main`, que es el punto de entrada
+funciones más importantes en el lenguaje; la función `main`, que es el punto de entrada
 de muchos programas. También ha visto la palabra clave `fn`, que le permite
 declarar nuevas funciones.
 
@@ -35,7 +35,7 @@ Debería ver el siguiente resultado:
 ```
 
 Las líneas se ejecutan en el orden en que aparecen en la función `main`.
-Primero, se imprime el mensaje "¡Hola, mundo!", y luego se llama a `another_function`
+Primero, se imprime el mensaje "Hola, mundo!", y luego se llama a `another_function`
 y se imprime su mensaje.
 
 ### Parametros de Funcion
@@ -153,7 +153,7 @@ es una expresión que se evalúa con el valor `11`. Las expresiones pueden ser p
 declaraciones; en el Listado 3-1, el `6` en la declaración `let y = 6;` es una
 expresión que se evalúa con el valor `6`. Llamar a una función es una
 expresión. Llamar a una macro es una expresión. El bloque que usamos para crear
-new scopes, `{}`, es una expresión, por ejemplo:
+nuevos alcances, `{}`, es una expresión, por ejemplo:
 
 <span class="filename">Nombre de archivo: src/main.rs</span>
 
@@ -171,7 +171,7 @@ Esta expresión:
 ```
 
 es un bloque que, en este caso, se evalúa como `4`. Ese valor se vincula a `y`
-como parte de la declaración "let". Tenga en cuenta la línea `x + 1` sin punto y coma en
+como parte de la declaración `let`. Tenga en cuenta la línea `x + 1` sin punto y coma en
 el final, que es diferente a la mayoría de las líneas que has visto hasta ahora. Las expresiones
 no incluye punto y coma final. Si agrega un punto y coma al final de una
 expresión, la convierte en una declaración, que luego no devolverá un valor.
@@ -225,7 +225,7 @@ Veamos otro ejemplo:
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-22-function-parameter-and-return/src/main.rs}}
 ```
 
-Al ejecutar este código, se imprimirá `The value of x is: 6`. Pero si colocamos un
+Al ejecutar este código, se imprimirá `El valor de x es: 6`. Pero si colocamos un
 punto y coma al final de la línea que contiene `x + 1`, cambiándola de un
 expresión a una declaración, obtendremos un error.
 
@@ -246,5 +246,5 @@ código. La definición de la función `plus_one` dice que devolverá un
 `i32`, pero las declaraciones no evalúan un valor, que se expresa mediante `()`,
 una tupla vacía. Por lo tanto, no se devuelve nada, lo que contradice la definición de función
 y da como resultado un error. En esta salida, Rust proporciona un mensaje que
-posiblemente ayude a rectificar este problema: sugiere eliminar el punto y coma, que
+posiblemente ayude a rectificar este problema; sugiere eliminar el punto y coma, lo que
 arreglaría el error.

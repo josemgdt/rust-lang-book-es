@@ -12,13 +12,14 @@ fn first_word(s: &String) -> usize {
 
 // ANCHOR: here
 fn main() {
-    let mut s = String::from("hello world");
+    let mut s = String::from("hola mundo");
 
-    let word = first_word(&s); // word will get the value 5
+    let word = first_word(&s); // word debe tomar el valor 5
 
-    s.clear(); // this empties the String, making it equal to ""
+    s.clear(); // esto vacia la String, haciendola igual a ""
 
-    // word still has the value 5 here, but there's no more string that
-    // we could meaningfully use the value 5 with. word is now totally invalid!
+    // word todavía tiene aqui el valor 5, pero no hay más cadena 
+    // con la que podamos usar significativamente el valor 5. 
+    // ¡ahora word es totalmente inválida!
 }
 // ANCHOR_END: here

@@ -1,7 +1,7 @@
 ## Referencias y Prestamos
 
-El problema con el código de tupla en el Listado 4-5 es que tenemos que devolver el
-`String` a la función de llamada de forma que todavía podemos usar el `String` después de
+El problema con el código con la tupla (s2, len) en el Listado 4-5 es que tenemos que devolver el
+`String` a la función de llamada de forma que todavía podamos usarlo después de
 llamar a `calculate_length`, porque el `String` se movió a `calculate_length`.
 
 Así es como se definiría y usaría una función `calculate_length` que tiene una
@@ -15,7 +15,7 @@ referencia a un objeto como parámetro en lugar de tomar posesión del valor:
 
 Primero, observe que todo el código de tupla en la declaración de variable y
 el valor de retorno de la función se ha eliminado. En segundo lugar, tenga en cuenta que pasamos `&s1` a
-`calculate_length` y, en su definición, tomamos` &String` en lugar de `String`.
+`calculate_length` y, en su definición, tomamos `&String` en lugar de `String`.
 
 Estos símbolos `&` son *referencias* y le permiten hacer referencia a algún valor
 sin apropiarse de ellos. La figura 4-5 muestra un diagrama.
@@ -47,14 +47,13 @@ parámetro `s` es una referencia. Agreguemos algunas anotaciones explicativas:
 ```
 
 El alcance en el que la variable `s` es válida es el mismo que el alcance del parámetro 
-de cualquier función, pero no descartamos a lo qué apunta la referencia cuando queda
-fuera de alcance porque no tenemos la propiedad. Cuando las funciones tienen referencias como
-parámetros en lugar de los valores reales, no necesitaremos devolver los valores
+de cualquier función, pero cuando queda fuera de alcance, no se descarta a lo qué apunta la referencia 
+porque la funcion no tiene la propiedad. Cuando las funciones tienen referencias como
+parámetros, en lugar de los valores reales, no necesitaremos devolver los valores
 para devolver la propiedad, porque nunca tuvimos la propiedad.
 
 Llamamos *tomar prestado (borrowing)*, a tener referencias como parámetros de función. Como en la vida real, 
-si una persona posee algo, se lo puede pedir prestado. Cuando haya terminado,
-tiene que devolverlo.
+si una persona posee algo, se lo puede pedir prestado. Cuando haya terminado, tiene que devolverlo.
 
 Entonces, ¿qué sucede si intentamos modificar algo que estamos pidiendo prestado? Pruebe el código en
 Listado 4-6. Avisamos: ¡no funciona!
@@ -74,7 +73,7 @@ Aquí está el error:
 ```
 
 Así como las variables son inmutables por defecto, también lo son las referencias. No está
-permitido modificar algo de lo que solo tenemos una referencia.
+permitido modificar algo prestado, de lo que solo tenemos una referencia.
 
 ### Referencias Mutables
 
@@ -90,7 +89,7 @@ Primero, cambiamos `s` para que sea `mut`. Despues creamos una
 referencia mutable con `&mut s` y aceptamos una referencia mutable con `some_string: &mut String`.
 
 Pero las referencias mutables tienen una gran restricción: para un dato particular,
-solo se puede tener UNA referencia en un ámbito particular. Este código fallará:
+solo se puede tener UNA referencia en UN ámbito particular. Este código fallará:
 
 <span class="filename">​​Nombre de archivo: src/main.rs</span>
 
@@ -165,9 +164,9 @@ tiene que averiguar por qué sus datos no son los que pensaba.
 
 ### Referencias Colgantes (Dangling)
 
-En los lenguajes con punteros es fácil crear erróneamente un *puntero colgante*, 
+En los lenguajes con punteros es fácil crear erróneamente un *puntero colgante*; 
 un puntero que hace referencia a una ubicación en la memoria que puede haber sido
-dada a otro, liberando algo de memoria mientras se conserva un puntero
+dada a otro, liberando algo de memoria, mientras se conserva un puntero
 a esa memoria. En Rust, por el contrario, el compilador garantiza que las referencias
 nunca serán referencias colgantes; si tiene una referencia a algunos datos, el
 compilador se asegurará de que los datos no salgan del alcance antes de que

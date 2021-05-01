@@ -1,12 +1,12 @@
 ## El Tipo Slice
 
-Otro tipo de datos que no tiene propiedad es el *slice*. Los Slices permiten
+Otro tipo de datos que no tiene propiedad es el *slice* (porción). Los slices permiten
 hacer referencia a una secuencia contigua de elementos en una colección, en lugar de 
 a la colección completa.
 
 Veamos un pequeño problema de programación: escribir una función que tome una cadena y
 devuelva la primera palabra que encuentra en esa cadena. Si la función no encuentra un
-espacio en la cadena, toda la cadena debe ser una palabra, por lo que debe ser devuelta toda la cadena.
+espacio en la cadena, toda la cadena debe ser una palabra, por lo que devolverá toda la cadena.
 
 Pensemos en la declaracion de esta función:
 
@@ -26,7 +26,7 @@ fin de la palabra. Intentémoslo, como se muestra en el Listado 4-7.
 ```
 
 <span class="caption">Listing 4-7: La función `first_word` que devuelve un
-byte de índice en el parámetro `String`</span>
+byte de índice dentro del parámetro `String`</span>
 
 Puesto que tenemos que pasar por el `String` elemento por elemento y comprobar si
 un valor es un espacio, convertiremos nuestra `String` en una matriz de bytes usando el
@@ -50,8 +50,8 @@ segundo elemento es una referencia al elemento. Esto es un poco más conveniente
 que calcular el índice nosotros mismos.
 
 Debido a que el método `enumerate` devuelve una tupla, podemos usar patrones para
-desestructurar esa tupla, como en cualquier otro lugar de Rust. Entonces, en el 
-bucle `for` especificamos un patrón que tiene `i` para el índice en la tupla y `&item`
+desestructurar esa tupla, como en cualquier otro lugar de Rust. Por tanto, en el 
+bucle `for` especificamos un patrón que tiene `i` para el índice en la tupla e `&item`
 para cada byte en la tupla. Puesto que obtenemos una referencia al elemento
 desde `.iter().enumerate()`, usamos `&` en el patrón.
 
@@ -102,23 +102,23 @@ Afortunadamente, Rust tiene una solución a este problema: slices de strings.
 
 ### Slices de String
 
-Un *string slice* es una referencia a parte de una `String`, y se ve así:
+Un *string slice* es una *referencia* a parte de una `String`, y se ve así:
 
 ```rust
 {{#rustdoc_include ../listings/ch04-understanding-ownership/no-listing-17-slice/src/main.rs:here}}
 ```
 
-Esto es similar a tomar una referencia a toda la `String` pero con el extra
-`[0..5]`. En lugar de una referencia a toda la `String`, es una referencia
-a una parte de la `String`.
+Esto es similar a tomar una referencia a toda la `String` pero con un extra como
+`[0..5]`. En lugar de una referencia a *toda* la `String`, es una referencia
+a una *parte* de la `String`.
 
-Podemos crear slices usando un rango entre corchetes especificando
+Podemos crear slices usando un rango entre corchetes, especificando
 `[starting_index..ending_index]`, donde `starting_index` es la primera posición
 en el segmento y `ending_index` es uno más que la última posición en la slice.
 Internamente, la estructura de datos del slice almacena la posición inicial y
 la longitud de la slice, que se corresponde `ending_index` menos
-`starting_index`. Así que en el caso de `let world = &s[6..11];`, `world` sería
-un segmento que contiene un puntero al séptimo byte (contando desde 1) de `s` con un valor de longitud de 5.
+`starting_index`. Así que en el caso de `let world = &s[4..10];`, `world` sería
+un segmento que contiene un puntero al quinto byte (el espacio, contando desde 1) de `s` con un valor de longitud de 6.
 
 La Figura 4-6 muestra esto en un diagrama.
 
@@ -131,7 +131,7 @@ Con la sintaxis de rango `..` de Rust, si desea comenzar en el primer índice (c
 puede eliminar el valor antes de los dos puntos. En otras palabras, esto es equivalente:
 
 ```rust
-let s = String::from("hello");
+let s = String::from("hola");
 
 let slice = &s[0..2];
 let slice = &s[..2];
@@ -141,18 +141,18 @@ Del mismo modo, si su slice incluye el último byte de la `String`,
 puede eliminar el número final. Eso significa que esto es equivalente:
 
 ```rust
-let s = String::from("hello");
+let s = String::from("hola");
 
 let len = s.len();
 
-let slice = &s[3..len];
-let slice = &s[3..];
+let slice = &s[1..len];
+let slice = &s[1..];
 ```
 
 También puede eliminar ambos valores para tomar una slice de toda la cadena. Esto es equivalente:
 
 ```rust
-let s = String::from("hello");
+let s = String::from("hola");
 
 let len = s.len();
 
@@ -160,7 +160,7 @@ let slice = &s[0..len];
 let slice = &s[..];
 ```
 
-> Nota: Los índices de rango de slice de cadena deben ocurrir en fronteras de carácter UTF-8 válido.
+> Nota: Los índices de rango de slices de cadena deben ocurrir en fronteras de caracteres UTF-8 válidas.
 > Si intenta crear un slice en medio de un carácter multibyte, su programa se cerrará con un error.
 > Con el fin de introducir slices de cadena, asumimos ASCII solo en esta sección; una
 > discusión más detallada sobre el manejo de UTF-8 se encuentra en la sección ["Almacenando Texto Codificado UTF-8 con strings”][strings]<!-- ignore --> del Capítulo 8.
@@ -194,7 +194,7 @@ compilador se asegurará de que las referencias a la `String` sigan siendo váli
 el error en el programa del Listado 4-8, cuando llevamos el índice al final de la
 primera palabra pero luego borró la cadena, por lo que nuestro índice no era válido? Ese código fue
 lógicamente incorrecto, pero no mostró ningún error inmediato. Los problemas
-aparecer más tarde si seguimos intentando usar el índice de la primera palabra con una
+aparecen más tarde si seguimos intentando usar el índice de la primera palabra con una
 cadena. Las slices hacen que este error sea imposible y nos hacen saber que tenemos un problema con
 nuestro código mucho antes. El uso de la versión de slice de `first_word` arrojará un
 error en tiempo de compilación:
@@ -220,10 +220,10 @@ esto, y la compilación falla. Rust no solo ha hecho que nuestra API sea más f�
 #### Los Literales de Cadena son Slices
 
 Recuerde que hablamos de que los literales de cadena se almacenan dentro del binario. Ahora
-que conocemos sobre los slices, podemos entender correctamente los literales de cadena:
+que conocemos los slices, podemos entender correctamente los literales de cadena:
 
 ```rust
-let s = "Hello, world!";
+let s = "Hola, mundo!";
 ```
 
 El tipo de `s` aquí es `&str`; es un slice que apunta a ese punto específico del
@@ -233,15 +233,14 @@ referencia inmutable.
 #### String Slices como Parametros
 
 Saber que puede tomar slices de literales y valores de `String` nos lleva a
-una mejora más en `first_word`, y esta es su declaración:
+una mejora más en `first_word`; esta es su declaración:
 
 ```rust,ignore
 fn first_word(s: &String) -> &str {
 ```
 
-Un rustáceo más experimentado escribiría la declaración que se muestra en el Listado 4-9
-en su lugar porque nos permite usar la misma función en ambos valores, `&String`
-y `&str`.
+Un rustáceo más experimentado escribiría en su lugar la declaración que se muestra en el Listado 4-9
+porque nos permite usar la misma función en ambos valores, `&String` y `&str`.
 
 ```rust,ignore
 {{#rustdoc_include ../listings/ch04-understanding-ownership/listing-04-09/src/main.rs:here}}

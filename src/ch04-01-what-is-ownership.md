@@ -5,22 +5,22 @@ de explicar, tiene profundas implicaciones para el resto del lenguaje.
 
 Todos los programas deben administrar la forma en que usan la memoria de una computadora mientras se ejecutan.
 Algunos lenguajes tienen recolección de basura (GC), que busca constantemente memoria que ha dejado de usarse
-mientras se ejecuta el programa; en otros lenguajes, el programador debe explícitamente
-asignar y liberar la memoria. Rust usa un tercer enfoque: la memoria se administra
+mientras se ejecuta el programa. En otros lenguajes, el programador debe explícitamente
+asignar y liberar la memoria. Rust usa un tercer enfoque; la memoria se administra
 a través de un sistema de propiedad con un conjunto de reglas que el compilador comprueba en
 tiempo de compilación. Ninguna de las funciones de propiedad ralentiza su programa mientras está
 corriendo.
 
 Dado que la propiedad es un concepto nuevo para muchos programadores, lleva algún tiempo
 acostumbrarse a el. La buena noticia es que cuanto más experiencia tenga con Rust
-y las reglas del sistema de propiedad, más naturalmente podrá 
-desarrollar código que sea seguro y eficiente.
+y las reglas del sistema de propiedad, más podrá 
+desarrollar código que sea seguro y eficiente de forma natural.
 
 Cuando comprenda la propiedad, tendrá una base sólida para comprender
 las características que hacen que Rust sea único. En este capítulo, aprenderá sobre propiedad
 trabajando con algunos ejemplos que se centran en una estructura de datos muy común: cadenas.
 
-> ### La Pila y el Monton
+> ### La Pila y el Montón
 >
 > En muchos lenguajes de programación, no es necesario pensar en la pila y
 > el montón muy a menudo. Pero en un lenguaje de programación de sistemas como Rust, el que
@@ -50,7 +50,7 @@ trabajando con algunos ejemplos que se centran en una estructura de datos muy co
 > cuando desee los datos reales, debe seguir el puntero.
 >
 > Piense que está sentado en un restaurante. Cuando entró, indicó el número de
-> personas en su grupo, y el personal encuentró una mesa vacía que se adapta a todos
+> personas en su grupo, y el personal busca una mesa vacía que se adapta a todos
 > y le lleva a ella. Si alguien de su grupo llega tarde, puede preguntar dónde
 > se ha sentado usted para encontrarle.
 >
@@ -58,8 +58,8 @@ trabajando con algunos ejemplos que se centran en una estructura de datos muy co
 > el asignador nunca tiene que buscar un lugar para almacenar nuevos datos;
 > la ubicación siempre está en la parte superior de la pila. Comparativamente, asignar espacio
 > en el montón requiere más trabajo, porque el asignador primero debe encontrar
-> un espacio lo suficientemente grande para guardar los datos y luego contabilizar la memoria para preparar
-> una próxima asignación.
+> un espacio lo suficientemente grande para guardar los datos y luego contabilizar la memoria para prepararla
+> para una próxima asignación.
 >
 > Acceder a los datos del montón es más lento que acceder a los datos de la pila porque
 > se tiene que seguir un puntero para llegar allí. Los procesadores contemporáneos son más rápidos
@@ -77,8 +77,8 @@ trabajando con algunos ejemplos que se centran en una estructura de datos muy co
 > las variables locales de la función se insertan en la pila. Cuando la función termina, esos
 > valores salen de la pila.
 >
-> Hacer un seguimiento de qué partes del código están usando qué datos en el montón,
-> minimizar la cantidad de datos duplicados en el montón y limpiar los no utilizados
+> Hacer un seguimiento de qué partes del código están usando qué datos en el montón
+> minimizar la cantidad de datos duplicados en el montón, y limpiar los no utilizados
 > para no quedarse sin espacio son problemas sobre los que trata la propiedad.
 > Una vez comprenda la propiedad, no tendrá que pensar en la
 > pila y el montón muy a menudo, pero saber que la gestión de los datos del montón es la razón
@@ -107,7 +107,7 @@ alcance es el rango dentro de un programa para el que un elemento es válido. Di
 tenemos una variable que se parece a esto:
 
 ```rust
-let s = "hello";
+let s = "hola";
 ```
 
 La variable `s` se refiere a un literal de cadena, donde el valor de la cadena está
@@ -133,7 +133,7 @@ introduciendo el tipo `String`.
 
 ### El Tipo `String`
 
-Para ilustrar las reglas de propiedad, necesitamos un tipo de datos que sea más complejo.
+Para ilustrar las reglas de propiedad, necesitamos un tipo de datos que sea más complejo
 que los que cubrimos en la sección ["Tipos de datos"][data-types]<!-- ignore -->
 del Capítulo 3. Los tipos cubiertos anteriormente se almacenan en la pila
 y salen de la pila cuando se termina su alcance, pero queremos ver los datos
@@ -156,7 +156,7 @@ desconocido para nosotros en el momento de la compilación. Puede crear una `Str
 usando la función `from`, así:
 
 ```rust
-let s = String::from("hello");
+let s = String::from("hola");
 ```
 
 Los dos puntos dobles (`::`) es un operador que nos permite asignar un espacio de nombres a esta
@@ -192,7 +192,7 @@ para su contenido. Esto significa:
 * Necesitamos una forma de devolver esta memoria al asignador cuando hallamos
   hecho el trabajo con nuestro `String`.
 
-La primera parte la hacemos nosotros: cuando llamamos a `String::from`, su implementación
+La primera parte la hacemos nosotros; cuando llamamos a `String::from`, su implementación
 solicita la memoria que necesita. Esto es bastante universal en lenguajes de programación.
 
 Sin embargo, la segunda parte es diferente. En lenguajes con *recolector de basura (GC)*, 
@@ -201,8 +201,8 @@ y no necesitamos pensar en ello. Sin un GC, es nuestra responsabilidad
 identificar cuándo no se usa ya la memoria y llamar al código para devolverla explícitamente
 como lo hicimos cuando la solicitamos. Hacer esto correctamente ha sido históricamente un
 problema de programación difícil. Si lo olvidamos, desperdiciaremos la memoria. Si lo hacemos
-demasiado pronto, tendremos variables no válidas. Si lo hacemos dos veces, también es un error.
-Necesitamos emparejar exactamente una "asignación" con exactamente una "liberacion".
+demasiado pronto, tendremos variables no válidas. Si lo hacemos dos veces, también es un error;
+necesitamos emparejar exactamente una "asignación" con exactamente una "liberacion".
 
 Rust toma un camino diferente: la memoria se devuelve automáticamente una vez que
 la variable que la posee queda fuera de alcance. Aquí hay una versión de nuestro ejemplo de alcance
@@ -215,11 +215,11 @@ del Listado 4-1 usando una `String` en lugar de una cadena literal:
 Hay un punto natural en el que podemos devolver la memoria que requirió nuestra `String`
 al asignador; cuando `s` sale del alcance. Cuando una variable sale del
 alcance, Rust llama por nosotros a una función especial. Esta función se llama [drop],
-y es donde el autor de `String` puede poner el código para devolver la memoria.
+y es donde el autor de la `String` puede poner el código para devolver la memoria.
 Rust llama a `drop` automáticamente en el corchete de cierre.
 
 > Nota: En C++, este patrón de desasignación de recursos al final de la vida útil de un elemento
-> a veces se denomina *Resource Acquisition Is Initialization (RAII)*.
+> se denomina a veces *Resource Acquisition Is Initialization (RAII)*.
 > La función `drop` en Rust le resultará familiar si ha utilizado patrones RAII.
 
 Este patrón tiene un impacto profundo en la forma en que se escribe el código de Rust. Puede parecer
@@ -240,8 +240,8 @@ Veamos un ejemplo usando un número entero en el Listado 4-2.
 a `y`</span>
 
 Probablemente podamos adivinar lo que está haciendo esto; unir el valor `5` a `x`; entonces hacer
-una copia del valor en `x` y vincularlo a `y`." Ahora tenemos dos variables, `x`
-e `y`, y ambos son iguales a `5`. De hecho, esto es lo que está sucediendo, porque los números enteros
+una copia del valor en `x` y vincularlo a `y`. Ahora tenemos dos variables, `x`
+e `y`, y ambas son iguales a `5`. De hecho, esto es lo que está sucediendo, porque los números enteros
 son valores simples con un tamaño fijo conocido, y estos dos valores `5` se insertan
 en la pila.
 
@@ -252,7 +252,7 @@ Ahora veamos la versión `String`:
 ```
 
 Esto se ve muy similar al código anterior, por lo que podríamos suponer que la forma
-en que funciona sería la misma: es decir, la segunda línea haría una copia del
+en que funciona sería la misma, es decir, la segunda línea haría una copia del
 valor en `s1` y la vincularia a `s2`. Pero esto no es exactamente lo que sucede.
 
 Eche un vistazo a la Figura 4-1 para ver lo que le está sucediendo a `String` bajo el
@@ -264,7 +264,7 @@ montón, con el contenido.
 <img alt="Cadena en memoria" src="img/trpl04-01.svg" class="center" style="width: 50%;" />
 
 <span class="caption">Figura 4-1: Representación en la memoria de una `String`
-manteniendo el valor `"hello"` vinculado a `s1`</span>
+manteniendo el valor `"hola "` vinculado a `s1`</span>
 
 La longitud es la cantidad de memoria, en bytes, que tiene el contenido de la `String`
 actualmente en uso. La capacidad es la cantidad total de memoria, en bytes, que la
@@ -303,7 +303,7 @@ corrupción de memoria, que potencialmente puede conducir a vulnerabilidades de 
 Para garantizar la seguridad de la memoria, hay un detalle más de lo que sucede en esta
 situación en Rust. En lugar de intentar copiar la memoria asignada, Rust
 considera que `s1` ya no es válido y, por lo tanto, Rust no necesita liberar
-cualquier cosa cuando `s1` salga del alcance. Mire lo que sucede cuando se intenta
+nada cuando `s1` salga del alcance. Mire lo que sucede cuando se intenta
 usar `s1` después de crear` s2`; no funcionará:
 
 ```rust,ignore,does_not_compile
@@ -358,8 +358,8 @@ diferente está sucediendo.
 
 #### Datos solo en Pila: Copy
 
-Hay otro asunto del que aún no hemos hablado. Este código usando números enteros
--parte del cual se mostró en el Listado 4-2- funciona y es válido:
+Hay otro asunto del que aún no hemos hablado. Este código usando números 
+enteros - parte del cual se mostró en el Listado 4-2 - funciona y es válido:
 
 ```rust
 {{#rustdoc_include ../listings/ch04-understanding-ownership/no-listing-06-copy/src/main.rs:here}}
@@ -415,10 +415,10 @@ mostrando dónde entran y salen las variables del alcance.
 <span class="caption">Listado 4-3: Funciones con propiedad y alcance
 anotado</span>
 
-Si intentáramos usar `s` después de la llamada a `takes_ownership`, Rust arrojaría un
+Si intentáramos usar `s` después de la llamada a `obtener_propiedad`, Rust arrojaría un
 error en tiempo de compilación. Estos controles estáticos nos protegen de errores. Intente agregar
-código a `main` que use `s` y `x` para ver dónde puede usarlos y dónde
-las reglas de propiedad le impiden hacerlo.
+código a `main` que use `s` y `x` para ver dónde puede usarlos y dónde le impiden hacerlo
+las reglas de propiedad.
 
 ### Valores Devueltos y Alcance
 
@@ -434,7 +434,7 @@ anotaciones similares a las del Listado 4-3.
 <span class="caption">Listado 4-4: Transferencia de la propiedad de 
 valores de retorno</span>
 
-La propiedad de una variable sigue el mismo patrón siempre: asignar un
+La propiedad de una variable sigue el mismo patrón siempre; asignar un
 valor a otra variable la mueve. Cuando una variable que incluye datos en el
 montón sale del alcance, el valor se limpiará con `drop` a menos que los datos
 se hallan movido para ser propiedad de otra variable.

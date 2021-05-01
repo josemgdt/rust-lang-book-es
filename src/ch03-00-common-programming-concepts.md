@@ -1,4 +1,4 @@
-# Conceptos de Programación Comunes
+# Conceptos Comunes de Programación
 
 Este capítulo cubre conceptos que aparecen en casi todos los lenguajes de programación y 
 cómo funcionan en Rust. Muchos lenguajes de programación tienen mucho en común en
@@ -16,7 +16,7 @@ temprano de ellos le darán una base fuerte para comenzar.
 > están reservadas para su uso solo por el lenguaje. Tenga en cuenta que no puede
 > usar estas palabras como nombres de variables o funciones. La mayoría de las palabras clave tienen
 > significados especiales, y los usará para realizar varias tareas en sus programas
-> Rust; algunas no tienen una funcionalidad actual asociada con ellas, pero
+> Rust; algunas no tienen actualmente una funcionalidad asociada con ellas, pero
 > se ha reservado para funciones que podrían agregarse a Rust en el futuro.
 > Puede encontrar una lista de las palabras clave en el [Apéndice A][appendix_a].
 

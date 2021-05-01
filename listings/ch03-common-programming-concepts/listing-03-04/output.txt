@@ -2,8 +2,8 @@ $ cargo run
    Compiling loops v0.1.0 (file:///projects/loops)
     Finished dev [unoptimized + debuginfo] target(s) in 0.32s
      Running `target/debug/loops`
-the value is: 10
-the value is: 20
-the value is: 30
-the value is: 40
-the value is: 50
+El valor es: 10
+El valor es: 20
+El valor es: 30
+El valor es: 40
+El valor es: 50

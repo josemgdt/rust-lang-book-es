@@ -8,7 +8,7 @@ que lee el código fuente pueden resultarle útiles.
 Esto es un comentario simple:
 
 ```rust
-// hello, world
+// hola, mundo
 ```
 
 En Rust, el estilo de comentario idiomático es comenzar un comentario con dos barras, y el

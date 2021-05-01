@@ -1,4 +1,4 @@
-## Sintaxis de Metodos
+## Sintaxis de Métodos
 
 *Los métodos* son similares a las funciones; se declaran con la palabra clave `fn`, 
 su nombre pueden tener parámetros y un valor de retorno y contienen algun
@@ -8,7 +8,7 @@ diferente de las funciones en que se definen dentro del contexto de una estructu
 respectivamente), y su primer parámetro es siempre `self`, que representa la
 instancia de la estructura en la que se está llamando al método.
 
-### Definicion de Metodos
+### Definicion de Métodos
 
 Cambiemos la función `area` que tiene una instancia `Rectangle` como parámetro
 y en su lugar creemos un método `area` definido en la estructura `Rectangle`, como se muestra
@@ -28,7 +28,7 @@ Para definir la función dentro del contexto de `Rectangle`, comenzamos un bloqu
  y cambiamos el primer (y en este caso, el único) parámetro para que sea
 `self` en la declaracion y en todas partes dentro del cuerpo. En `main`, donde
 llamamos a la función `area` y pasamos `rect1` como argumento, podemos
-usas *sintaxis de método* para llamar al método `area` en nuestra instancia de `Rectangle`.
+usar *sintaxis de método* para llamar al método `area` en nuestra instancia de `Rectangle`.
 La sintaxis de método va después de una instancia; agregamos un punto, seguido del nombre del método,
 paréntesis y cualquier argumento.
 
@@ -67,8 +67,8 @@ proveemos.
 > función llamada *referenciación y desreferenciación automáticas*. Las llamadas a métodos son
 > uno de los pocos lugares en Rust que tiene este comportamiento.
 >
-> Así es como funciona; cuando llama a un método con `object.something()`, Rust
-> agrega automáticamente `&`, `&mut`, o `*` para que `object` coincida con la declaracion del
+> Así es como funciona; cuando llama a un método con `objeto.algo()`, Rust
+> agrega automáticamente `&`, `&mut`, o `*` para que `objeto` coincida con la declaracion del
 > método. En otras palabras, lo siguiente es lo mismo:
 >
 > <!-- CAN'T EXTRACT SEE BUG https://github.com/rust-lang/mdBook/issues/1127 -->
@@ -96,11 +96,11 @@ proveemos.
 > El primero se ve mucho más limpio. Este comportamiento de referencia automático funciona
 > porque los métodos tienen un receptor claro: el tipo `self`. Dado el receptor
 > y el nombre de un método, Rust puede determinar definitivamente si el método es
-> leer (`&self`), mutar (` &mut self`) o consumir (`self`). El hecho de
-> que Rust hace implícito el préstamo para los receptores de métodos es una gran parte de
-> hacer que la propiedad sea ergonómica en la práctica.
+> leer (`&self`), mutar (`&mut self`) o consumir (`self`). El hecho de
+> que Rust hace implícito el préstamo para los receptores de métodos es una gran parte del
+> hecho de que la propiedad sea ergonómica en la práctica.
 
-### Metodos con mas Parametros
+### Métodos con mas Parámetros
 
 Practiquemos el uso de métodos implementando un segundo método en la
 estructura `Rectangle`. Esta vez, queremos que una instancia de `Rectangle` tome otra instancia
@@ -123,8 +123,8 @@ de `rect2` son más pequeñas que las dimensiones de `rect1` pero `rect3` es má
 `rect1`:
 
 ```text
-Can rect1 hold rect2? true
-Can rect1 hold rect3? false
+Puede rect1 contener a rect2? true
+Puede rect1 contener a rect3? false
 ```
 Sabemos que queremos definir un método, por lo que estará dentro del bloque `impl Rectangle`.
 El nombre del método será `can_hold`, y tomará un préstamo inmutable
@@ -136,7 +136,7 @@ leer `rect2` (en lugar de escribir, lo que significaría que necesitaríamos un 
 y queremos que `main` conserve la propiedad de `rect2` para que podamos usarlo de nuevo después
 de la llamada al método `can_hold`. El valor de retorno de `can_hold` será un
 booleano, y la implementación comprobará si el ancho y el alto de
-`self` son mayores que el ancho y la altura del otro `Rectangle`,
+`self` son mayores que la anchura y la altura del otro `Rectangle`,
 respectivamente. Agreguemos el nuevo método `can_hold` al bloque `impl` de
 Listado 5-13, que se muestra en el Listado 5-15.
 
@@ -166,7 +166,7 @@ Las funciones asociadas se utilizan a menudo para constructores que devolverán 
 instancia de la estructura. Por ejemplo, podríamos proporcionar una función asociada
 que tendría un parámetro de dimensión y lo usaría como ancho y alto,
 lo que facilita la creación de un `Rectangle` cuadrado en lugar de tener que
-especifique el mismo valor dos veces:
+especificar el mismo valor dos veces:
 
 <span class="filename">Nombre de archivo: src/main.rs</span>
 

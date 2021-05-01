@@ -12,12 +12,12 @@ fn first_word(s: &String) -> &str {
 
 // ANCHOR: here
 fn main() {
-    let mut s = String::from("hello world");
+    let mut s = String::from("hola mundo");
 
     let word = first_word(&s);
 
     s.clear(); // error!
 
-    println!("the first word is: {}", word);
+    println!("la primera palabra es: {}", word);
 }
 // ANCHOR_END: here

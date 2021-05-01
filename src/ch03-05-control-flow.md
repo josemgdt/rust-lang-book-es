@@ -73,7 +73,7 @@ error:
 ```
 
 El error indica que Rust esperaba un `bool` pero obtuvo un número entero. A diferencia de
-lenguajes como Ruby y JavaScript, Rust no intentará automáticamente
+lenguajes como Ruby o JavaScript, Rust no intentará automáticamente
 convertir tipos no booleanos en booleanos. Debe ser explícito y proporcionar siempre
 `if` con un booleano como condición. Si, por ejemplo, queremos que se ejecute el bloque de código `if`
 solo cuando un número no es igual a `0`, podemos cambiar la
@@ -85,7 +85,7 @@ expresión `if` a lo siguiente:
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-29-if-not-equal-0/src/main.rs}}
 ```
 
-Ejecutar este código imprimirá `number was something other than zero`.
+Ejecutar este código imprimirá `el número fué algo distinto a cero`.
 
 #### Manejo de Condiciones Multiples en `else if`
 
@@ -207,15 +207,15 @@ $ cargo run
    Compiling loops v0.1.0 (file:///projects/loops)
     Finished dev [unoptimized + debuginfo] target(s) in 0.29s
      Running `target/debug/loops`
-again!
-again!
-again!
-again!
-^Cagain!
+otra vez!
+otra vez!
+otra vez!
+otra vez!
+^Cotra vez!
 ```
 
 El símbolo `^C` representa el lugar donde presionó <span class="keystroke">ctrl-c
-</span>. Es posible que vea o no la palabra `again!` impresa después de `^C`,
+</span>. Es posible que vea o no las palabras `otra vez!` impresas después de `^C`,
 dependiendo de dónde estaba el código en el bucle cuando recibió la señal de interrupción.
 
 Afortunadamente, Rust proporciona otra forma más confiable de salir de un bucle.
@@ -231,7 +231,7 @@ Uno de los usos de un `loop` es reintentar una operación que se sabe puede fall
 comprobar si un hilo ha completado su trabajo. Sin embargo, es posible que deba
 pasa el resultado de esa operación al resto del código. Para hacer esto, puede
 agregar el valor que desea que se devuelva después de la expresión `break` que usa para detener
-el lazo; ese valor se devolverá fuera del bucle para que pueda usarlo, como
+el bucle; ese valor se devolverá fuera del bucle para que pueda usarlo, como
 se muestra aquí:
 
 ```rust
@@ -306,7 +306,7 @@ para realizar la verificación condicional en cada elemento en cada iteración
 a través del bucle.
 
 Como alternativa más concisa, puede usar un bucle `for` y ejecutar algún código
-para cada elemento de una colección. Un bucle "for" se parece al código del Listado 3-5.
+para cada elemento de una colección. Un bucle `for` se parece al código del Listado 3-5.
 
 <span class="filename">Nombre de archivo: src/main.rs</span>
 
@@ -361,6 +361,6 @@ programas para hacer lo siguiente:
 Cuando esté listo para seguir adelante, hablaremos sobre un concepto en Rust que *no*
 existe comúnmente en otros lenguajes de programación: la propiedad.
 
-[comparing-the-guess-to-the-secret-number]:ch02-00-guessing-game-tutorial.html#comparando-la-conjetura-con-el-numero-secreto
-[quitting-after-a-correct-guess]:ch02-00-guessing-game-tutorial.html#salir-despues-de-una-suposicion-correcta
+[comparing-the-guess-to-the-secret-number]:ch02-00-guessing-game-tutorial.html#comparando-la-conjetura-con-el-número-secreto
+[quitting-after-a-correct-guess]:ch02-00-guessing-game-tutorial.html#salir-despues-de-una-suposición-correcta
 

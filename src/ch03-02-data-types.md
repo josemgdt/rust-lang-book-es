@@ -12,7 +12,7 @@ usando `parse` en la  sección ["Comparando la Conjetura con el Número Secreto�
 Capítulo 2, debemos agregar una anotación de tipo, como esta:
 
 ```rust
-let guess: u32 = "42".parse().expect("Not a number!");
+let guess: u32 = "42".parse().expect("No es un número!");
 ```
 
 Si no agregamos el tipo de anotación aquí, Rust mostrará el siguiente
@@ -55,8 +55,8 @@ Cada variante puede tener signo o no y tiene un tamaño explícito.
 *Con signo* y *Sin signo* se refieren a si es posible que el número sea
 negativo, en otras palabras, si el número debe tener un signo
 con él (con signo) o si solo será positivo y, por lo tanto, puede ser
-representado sin signo. Es como escribir números en papel: cuando
-el signo importa, un número se muestra con un signo más o un signo menos; sin emabargo,
+representado sin signo. Es como escribir números en papel; cuando
+el signo importa, un número se muestra con un signo más o un signo menos; sin embargo,
 cuando es seguro asumir que el número es positivo, se muestra sin signo.
 Los números con signos se almacenan mediante la representación de [complemento a dos](https://en.wikipedia.org/wiki/Two%27s_complement).
 
@@ -101,7 +101,7 @@ la que usaría `isize` o `usize` es cuando indexe algún tipo de colección.
 > `panic!`”][unrecoverable-errors-with-panic]<!-- ignore --> en el Capítulo 9.
 >
 > Cuando compila en modo de lanzamiento con el indicador `--release`, Rust 
-> *no* incluyen comprobaciones de desbordamiento de enteros que provocan pánico. En cambio, si
+> *no* incluye comprobaciones de desbordamiento de enteros que provocan pánico. En cambio, si
 > se produce un desbordamiento, Rust realiza *envoltura en complemento a dos*. En resumen, valores
 > mayores que el valor máximo que el tipo puede contener "vuelven" al mínimo
 > de los valores que puede contener el tipo. En el caso de un `u8`, 256 se convierte en 0, 257
@@ -156,7 +156,7 @@ lista de todos los operadores que proporciona Rust.
 #### El Tipo Booleano
 
 Como en la mayoría de los otros lenguajes de programación, un tipo booleano en Rust tiene dos posibles
-valores: `verdadero` y `falso`. Los booleanos tienen un tamaño de un byte. El tipo booleano en
+valores: `true (verdadero)` y `false (falso)`. Los booleanos tienen un tamaño de un byte. El tipo booleano en
 Rust se especifica mediante "bool". Por ejemplo:
 
 <span class="filename">Nombre de archivo: src/main.rs</span>
@@ -181,12 +181,12 @@ comillas simples, a diferencia de los literales de cadena, que usan comillas dob
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-09-char/src/main.rs}}
 ```
 
-El tipo "char" de Rust tiene un tamaño de cuatro bytes y representa un valor escalar Unicode,
+El tipo `char` de Rust tiene un tamaño de cuatro bytes y representa un valor escalar Unicode,
 lo que significa que puede representar mucho más que ASCII. Letras acentuadas,
 caracteres chinos, japoneses y coreanos, emojis y espacios de ancho cero son todos
 valores `char` válidos en Rust. Los valores escalares Unicode van de `U+0000` a
 `U+D7FF` y de `U+E000` a `U+10FFFF` inclusive. Sin embargo, un "carácter" no es
-realmente un concepto en Unicode, por lo que su intuición humana de lo que es un "carácter"
+realmente un concepto en Unicode, por lo que la intuición humana de lo que es un "carácter"
 puede no coincidir con lo que es un `char` en Rust. Discutiremos este tema en
 detalle en ["Almacenando texto codificado UTF-8 con strings"][strings]<!-- ignore -->
 en el Capítulo 8.
@@ -274,11 +274,11 @@ poco probable que un programa de este tipo necesite agregar o eliminar meses, po
 una matriz porque sabe que siempre contendrá 12 elementos:
 
 ```rust
-let months = ["January", "February", "March", "April", "May", "June", "July",
-              "August", "September", "October", "November", "December"];
+let months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio",
+               "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 ```
 
-Escribirá el tipo matriz utilizando corchetes y dentro de
+Para escribir el tipo matriz utilize corchetes y dentro de
 los corchetes incluya el tipo de cada elemento, un punto y coma, y ​​luego el número de
 elementos en la matriz, así:
 
@@ -313,8 +313,8 @@ elementos de una matriz usando indexación, asi:
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-14-array-indexing/src/main.rs}}
 ```
 
-En este ejemplo, la variable denominada `first` obtendrá el valor `1`, porque
-ese es el valor en el índice `[0]` en la matriz. La variable denominada `second`
+En este ejemplo, la variable denominada `primero` obtendrá el valor `1`, porque
+ese es el valor en el índice `[0]` en la matriz. La variable denominada `segundo`
 obtendrá el valor `2` del índice `[1]` en la matriz.
 
 ##### Acceso no Válido a Elemento de Matriz
@@ -361,7 +361,7 @@ lenguajes de bajo nivel, este tipo de comprobación no se realiza y, cuando prop
 tipo de error al salir inmediatamente en lugar de permitir el acceso a la memoria y
 continuar. El capítulo 9 trata más sobre el manejo de errores de Rust.
 
-[comparing-the-guess-to-the-secret-number]:ch02-00-guessing-game-tutorial.html#comparando-la-conjetura-con-el-numero-secreto
+[comparing-the-guess-to-the-secret-number]:ch02-00-guessing-game-tutorial.html#comparando-la-conjetura-con-el-número-secreto
 [control-flow]: ch03-05-control-flow.html#control-de-flujo
 [strings]: ch08-02-strings.html#almacenando-texto-codificado-utf-8-con-strings
 [unrecoverable-errors-with-panic]: ch09-01-unrecoverable-errors-with-panic.html

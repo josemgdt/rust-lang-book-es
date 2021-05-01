@@ -5,5 +5,5 @@ fn main() {
 
     let x = x * 2;
 
-    println!("The value of x is: {}", x);
+    println!("El valor de x es: {}", x);
 }

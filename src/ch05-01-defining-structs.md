@@ -1,6 +1,6 @@
-## Definicion y creacion de instancias de estructuras
+## Definición y Creación de Instancias de Estructuras
 
-Las estructuras son similares a las tuplas, que se analizaron en el capítulo 3. Al igual que las tuplas,
+Las estructuras son similares a las tuplas que se analizaron en el capítulo 3. Al igual que las tuplas,
 las piezas de una estructura pueden ser de diferentes tipos. A diferencia de las tuplas, se nombrará
 cada dato para que quede claro lo que significan los valores. Como resultado de estos
 nombres, las estructuras son más flexibles que las tuplas; no tiene que depender del
@@ -16,7 +16,7 @@ estructura que almacena información sobre una cuenta de usuario.
 {{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/listing-05-01/src/main.rs:here}}
 ```
 
-<span class="caption">Listado 5-1: Una definición de estructura `User`</span>
+<span class="caption">Listado 5-1: Una definición de la estructura `User`</span>
 
 Para usar una estructura después de haberla definido, creamos una *instancia* de esa estructura
 especificando valores concretos para cada uno de los campos. Creamos una instancia
@@ -36,7 +36,7 @@ Por ejemplo, podemos declarar un usuario en particular como se muestra en el Lis
 
 Para obtener un valor específico desde una estructura, podemos usar la notación de punto. Si quisiéramos
 solo la dirección de correo electrónico de este usuario, podríamos usar `user1.email` donde queramos
-utilizar este valor. Si la instancia es mutable, podemos cambiar un valor usando
+utilizar ese valor. Si la instancia es mutable, podemos cambiar un valor usando
 la notación de punto y la asignación a un campo en particular. El Listado 5-3 muestra cómo
 cambiar el valor en el campo `email` de una instancia mutable de `User`.
 
@@ -70,7 +70,7 @@ se volvería aún más molesto. Afortunadamente, hay una abreviatura conveniente
 
 ### Uso de la Abreviatura de Inicio de Campo Cuando las Variables y los Campos Tienen el Mismo Nombre
 
-Cuando los nombres de los parámetros y los nombres de los campos de estructura son exactamente iguales en
+Cuando los nombres de los parámetros y los nombres de los campos de estructura son exactamente iguales, como en
 el listado 5-4, podemos usar la sintaxis *field init abreviada* para reescribir
 `build_user` y se comporte exactamente igual pero no tenga la
 repetición de `email` y `username`, como se muestra en el Listado 5-5.
@@ -80,7 +80,7 @@ repetición de `email` y `username`, como se muestra en el Listado 5-5.
 ```
 
 <span class="caption">Listado 5-5: Una función `build_user` que usa
-abreviatura field init porque los parámetros `email` and `username` tienen el mismo nombre que
+abreviatura *field init* porque los parámetros `email` and `username` tienen el mismo nombre que
 los campos de estructura</span>
 
 Aquí, estamos creando una nueva instancia de la estructura `User`, que tiene un campo
@@ -89,7 +89,7 @@ parámetro `email` de la función `build_user`. Puesto que el campo `email` y
 el parámetro `email` tiene el mismo nombre, solo necesitamos escribir `email` en lugar
 de `email: email`.
 
-### Creación de Instancias a Partir de Otras Instancias con Sintaxis de Actualizacion de Estructuras
+### Creación de Instancias a Partir de Otras Instancias con Sintaxis de Actualización de Estructuras
 
 Suele ser útil crear una nueva instancia de una estructura que utilice la mayor parte de
 los valores de una instancia anterior, pero cambiando algunos. Esto se hará 
@@ -141,7 +141,7 @@ usos de dos estructuras de tupla llamadas `Color` y `Point`:
 
 Tenga en cuenta que los valores `black` y `origin` son tipos diferentes, porque son
 instancias de diferentes estructuras de tupla. Cada estructura que defina es de su propio tipo,
-aunque los campos dentro de la estructura tienen los mismos tipos. Por ejemplo, una
+aunque los campos dentro de la estructura tengan los mismos tipos. Por ejemplo, una
 función que toma un parámetro de tipo `Color` no puede tomar un `Punto` como
 argumento, aunque ambos tipos se componen de tres valores `i32`. Por otro lado,
 las instancias de estructura de tupla se comportan como tuplas; puede desestructurarlas en sus
@@ -164,7 +164,7 @@ sí. Discutiremos los traits en el Capítulo 10.
 > que los datos sean válidos mientras toda la estructura sea válida.
 >
 > Es posible que las estructuras almacenen referencias a datos que pertenecen a otra entidad,
-> pero para hacerlo requiere el uso de *duraciones o lifetimes*, una característica de Rust que
+> pero para hacerlo se requiere el uso de *duraciones o lifetimes*, una característica de Rust que
 > discutiremos en el Capítulo 10. Las lifetimes aseguran que los datos referenciados por una estructura
 > son válidos mientras lo sea la estructura. Supongamos que intenta almacenar una referencia
 > en una estructura sin especificar lifetimes, como aqui, que no funcionará:
