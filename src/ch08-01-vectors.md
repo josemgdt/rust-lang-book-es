@@ -18,12 +18,12 @@ Listado 8-1.
 <span class="caption">Listado 8-1: Creación de un nuevo vector vacío para contener valores
 de tipo `i32`</span>
 
-Tenga en cuenta que agregamos una anotación de tipo aquí. Ya que no estamos insertando ningun
-valores en este vector, Rust no sabe qué tipo de elementos pretendemos
+Tenga en cuenta que aquí agregamos una anotación de tipo. Ya que no estamos insertando ningun
+valor en este vector, Rust no sabe qué tipo de elementos pretendemos
 almacenar. Éste es un punto importante. Los vectores se implementan usando genéricos;
 cubriremos cómo usar genéricos con sus propios tipos en el Capítulo 10. Por ahora,
 saber que el tipo `Vec<T>` proporcionado por la biblioteca estándar puede contener cualquier tipo,
-y cuando un vector específico contiene un tipo específico, el tipo se especifica dentro
+y cuando un vector específico contiene un tipo específico, el tipo se anota dentro
 paréntesis angulares. En el Listado 8-1, le hemos dicho a Rust que el `Vec<T>` en `v`
 contienen elementos del tipo `i32`.
 
@@ -43,11 +43,11 @@ ignore --> del Capítulo 3.
 <span class="caption">Listado 8-2: Creando un nuevo vector que contiene
 valores</span>
 
-Como hemos proporcionado valores iniciales de `i32`, Rust puede inferir que el tipo de `v`
+Como hemos proporcionado valores iniciales de tipo `i32`, Rust puede inferir que el tipo de `v`
 es `Vec<i32>`, y la anotación de tipo no es necesaria. A continuación, veremos cómo
-para modificar un vector.
+modificar un vector.
 
-### Actualizacion de un vector
+### Actualización de un Vector
 
 Para crear un vector y luego agregarle elementos, podemos usar el método `push`,
 como se muestra en el Listado 8-3..
@@ -60,21 +60,20 @@ como se muestra en el Listado 8-3..
 vector</span>
 
 Como con cualquier variable, si queremos poder cambiar su valor, necesitamos
-hacerlo mutable usando la palabra clave `mut`, como se discutió en el Capítulo 3. Los números
+hacerla mutable usando la palabra clave `mut`, como se discutió en el Capítulo 3. Los números
 que colocamos dentro son todos del tipo `i32`, y Rust lo infiere de los datos, por lo que
 no necesitamos la anotación `Vec<i32>`.
 
-### Eliminar un vector elimina sus elementos
+### Eliminar un Vector Elimina sus Elementos
 
-Como cualquier otra `struct`, un vector libera memoria cuando sale del alcance, como
+Como cualquier otra estructura, un vector libera memoria cuando sale del alcance, como
 en el Listado 8-4.
 
 ```rust
 {{#rustdoc_include ../listings/ch08-common-collections/listing-08-04/src/main.rs:here}}
 ```
 
-<span class="caption">Listado 8-4: Dónde el vector y sus elementos
-son eliminados</span>
+<span class="caption">Listado 8-4: Dónde son eliminados el vector y sus elementos</span>
 
 Cuando se elimina el vector, todos sus contenidos también se eliminan, lo que significa
 que esos enteros que contiene se limpiarán. Esto puede parecer un
@@ -83,7 +82,7 @@ introducir referencias a los elementos del vector. ¡Abordemos eso a continuaci�
 
 ### Lectura de elementos de vectores
 
-Ahora que sabe cómo crear, actualizar y destruir vectores, saber cómo
+Ahora que sabe cómo crear, actualizar y eliminar vectores, saber cómo
 leer su contenido es el siguiente paso. Hay dos formas de hacer referencia a un
 valor almacenado en un vector. En los ejemplos, hemos anotado los tipos de
 valores que se devuelven desde estas funciones para mayor claridad.
@@ -127,7 +126,7 @@ Cuando al método `get` se le pasa un índice que está fuera del vector, devuel
 más allá del rango del vector ocurre ocasionalmente en circunstancias normales.
 Su código entonces tendrá la lógica para manejar esto, ya sea `Some(&element)` o
 `None`, como se discutió en el Capítulo 6. Por ejemplo, el índice podría provenir de
-una persona que ingresa un número. Si ingresan accidentalmente un número, también
+una persona que ingresa un número. Si ingresan accidentalmente un número, también demasiado
 grande y el programa obtiene un valor `None`, podría decirle al usuario cuántos
 elementos están en el vector actual y dar otra oportunidad de ingresar un valor válido.
 ¡Eso sería mejor que bloquear el programa debido a un error tipográfico!
@@ -137,8 +136,8 @@ reglas de propiedad y préstamos (cubiertas en el Capítulo 4) para asegurar que
 y cualquier otra referencia al contenido del vector sigue siendo válida. Recuerde la
 regla que establece que no puede tener referencias mutables e inmutables en el mismo
 alcance. Esa regla se aplica en el Listado 8-7, donde tenemos una referencia inmutable
-al primer elemento de un vector e intente agregar un elemento al final, que no
-funciona si también intentamos hacer referencia a ese elemento más adelante en la función:
+al primer elemento de un vector e intente agregar un elemento al final, lo que no
+funcionará si también intentamos hacer referencia a ese elemento más adelante en la función:
 
 ```rust,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch08-common-collections/listing-08-07/src/main.rs:here}}
@@ -179,9 +178,6 @@ en un vector de valores `i32` e imprimirlos.
 <span class="caption">Listado 8-8: Imprimiendo cada elemento en un vector
 iterando sobre los elementos usando un bucle `for`</span>
 
-We can also iterate over mutable references to each element in a mutable vector
-in order to make changes to all the elements. The `for` loop in Listing 8-9
-will add `50` to each element.
 También podemos iterar sobre referencias mutables a cada elemento en un vector mutable
 para realizar cambios en todos los elementos. El bucle `for` en el Listado 8-9
 agregará `50` a cada elemento.
@@ -201,10 +197,10 @@ section of Chapter 15.
 Para cambiar el valor al que se refiere la referencia mutable, tenemos que usar el
 operador de desreferencia (`*`) para obtener el valor en `i` antes de que podamos usar el
 operador `+=`. Hablaremos más sobre el operador de desreferencia en la sección
-["Seguir el puntero al valor con el operador de desreferencia"][deref]
+["Seguir el puntero hasta el valor con el operador de desreferencia"][deref]
  del Capítulo 15.
 
-### Uso de una enumeracion para almacenar varios tipos
+### Uso de una Enumeracion para Almacenar Varios Tipos
 
 Al comienzo de este capítulo, dijimos que los vectores solo pueden almacenar valores
 que son del mismo tipo. Esto puede resultar inconveniente; definitivamente hay
@@ -230,12 +226,12 @@ Rust necesita saber qué tipos estarán en el vector en tiempo de compilación p
 exactamente cuánta memoria en el montón se necesitará para almacenar cada elemento.
 La ventaja secundaria es que podemos ser explícitos sobre qué tipos están permitidos en
 este vector. Si Rust permitiera que un vector contenga cualquier tipo, habría posibilidad
-de que uno o más de los tipos causarían errores con las operaciones realizadas
+de que uno o más de los tipos causaran errores con las operaciones realizadas
 en los elementos del vector. Usar una enumeración más una expresión `match` significa
 que Rust se asegurará en el momento de la compilación de que se manejen todos los casos posibles, como
 discutimos en el Capítulo 6.
 
-Cuando escribe un programa, si no conoce el conjunto exhaustivo de tipos
+Cuando escribe un programa, si no conoce el conjunto exhaustivo de tipos,
 el programa los obtendrá en tiempo de ejecución para almacenar en un vector, la técnica de enumeración no
 trabaja. En su lugar, puede usar un objeto trait, que cubriremos en el Capítulo 17.
 

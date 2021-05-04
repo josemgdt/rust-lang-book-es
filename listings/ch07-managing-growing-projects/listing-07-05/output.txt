@@ -1,27 +1,27 @@
 $ cargo build
    Compiling restaurant v0.1.0 (file:///projects/restaurant)
-error[E0603]: function `add_to_waitlist` is private
+error[E0603]: function `poner_en_espera` is private
  --> src/lib.rs:9:37
   |
-9 |     crate::front_of_house::hosting::add_to_waitlist();
-  |                                     ^^^^^^^^^^^^^^^ private function
+9 |     crate::fachada::recepcion::poner_en_espera();
+  |                                ^^^^^^^^^^^^^^^ private function
   |
-note: the function `add_to_waitlist` is defined here
+note: the function `poner_en_espera` is defined here
  --> src/lib.rs:3:9
   |
-3 |         fn add_to_waitlist() {}
+3 |         fn poner_en_espera() {}
   |         ^^^^^^^^^^^^^^^^^^^^
 
-error[E0603]: function `add_to_waitlist` is private
+error[E0603]: function `poner_en_espera` is private
   --> src/lib.rs:12:30
    |
-12 |     front_of_house::hosting::add_to_waitlist();
-   |                              ^^^^^^^^^^^^^^^ private function
+12 |     fachada::recepcion::poner_en_espera();
+   |                         ^^^^^^^^^^^^^^^ private function
    |
-note: the function `add_to_waitlist` is defined here
+note: the function `poner_en_espera` is defined here
   --> src/lib.rs:3:9
    |
-3  |         fn add_to_waitlist() {}
+3  |         fn poner_en_espera() {}
    |         ^^^^^^^^^^^^^^^^^^^^
 
 error: aborting due to 2 previous errors

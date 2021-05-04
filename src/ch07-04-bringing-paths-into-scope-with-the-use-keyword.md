@@ -1,17 +1,17 @@
-## Traer rutas al alcance con la palabra clave `use`
+## Traer Rutas al Alcance con la Palabra Clave `use`
 
 Puede parecer que las rutas que hemos escrito hasta ahora para llamar a funciones son
 inconvenientemente largas y repetitivas. Por ejemplo, en el Listado 7-7, si
-eligió la ruta absoluta o relativa a la función `add_to_waitlist`, cada
-vez que queríamos llamar a `add_to_waitlist` teníamos que especificar `front_of_house` y
-también `hosting`. Afortunadamente, existe una forma de simplificar este proceso. Podemos
+eligió la ruta absoluta o relativa a la función `poner_en_espera`, cada
+vez que queríamos llamarla teníamos que especificar `fachada` y `recepcion`. 
+Afortunadamente, existe una forma de simplificar este proceso. Podemos
 traer una ruta a un alcance una vez y luego llamar a los elementos en esa ruta como
 items locales con la palabra clave `use`.
 
-En el Listado 7-11, traemos el módulo `crate::front_of_house::hosting` al
-alcance de la función `eat_at_restaurant` por lo que solo tenemos que especificar
-`hosting::add_to_waitlist` para llamar a la función `add_to_waitlist` en
-`eat_at_restaurant`.
+En el Listado 7-11, traemos el módulo `crate::fachada::recepcion` al
+alcance de la función `comer_en_restaurant`, por lo que solo tenemos que especificar
+`recepcion::poner_en_espera` para llamar a la función `poner_en_espera` en
+`comer_en_restaurant`.
 
 <span class="filename">​​Nombre de archivo: src/lib.rs</span>
 
@@ -23,10 +23,10 @@ alcance de la función `eat_at_restaurant` por lo que solo tenemos que especific
 `use`</span>
 
 Agregar `use` y una ruta en un alcance es similar a crear un enlace simbólico en
-el sistema de archivos. Añadiendo `use crate::front_of_house::hosting` en la caja
-root, `hosting` es ahora un nombre válido en ese ámbito, como si el módulo `hosting`
-se hubiese definido en la caja raíz. Caminos traídos al alcance con `use`
-también verifican la privacidad, como cualquier otro camino.
+el sistema de archivos. Añadiendo `use crate::fachada::recepcion` en la caja
+root, `recepcion` es ahora un nombre válido en ese ámbito, como si el módulo `recepcion`
+se hubiese definido en la caja raíz. Las rutas traídas al alcance con `use`
+también verifican la privacidad, como cualquier otra ruta.
 
 También puede traer un elemento al alcance con `use` y una ruta relativa. El listado
 7-12 muestra cómo especificar una ruta relativa para obtener el mismo comportamiento que en
@@ -41,12 +41,12 @@ el listado 7-11.
 <span class="caption">Listado 7-12: Traer un módulo al alcance con `use` y
 una ruta relativa</span>
 
-### Creando caminos idiomaticos `use`
+### Creando Rutas con `use`
 
-En el Listado 7-11, es posible que se haya preguntado por qué especificamos `usecrate::front_of_house::hosting`
-y luego llamamos a `hosting::add_to_waitlist` en
-`eat_at_restaurant` en lugar de especificar la ruta `use` hasta
-la función `add_to_waitlist` para lograr el mismo resultado, como en el Listado 7-13.
+En el Listado 7-11, es posible que se haya preguntado por qué especificamos `use crate::fachada::recepcion`
+y luego llamamos a `recepcion::poner_en_espera` en
+`comer_en_restaurant` en lugar de especificar la ruta `use` hasta
+la función `poner_en_espera` para lograr el mismo resultado, como en el Listado 7-13.
 
 <span class="filename"> ​​Nombre de archivo: src/lib.rs</span>
 
@@ -54,19 +54,19 @@ la función `add_to_waitlist` para lograr el mismo resultado, como en el Listado
 {{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-13/src/lib.rs}}
 ```
 
-<span class="caption">Listado 7-13: Incorporación de la función `add_to_waitlist`
-en el alcance con `use`, que es unidiomático</span>
+<span class="caption">Listado 7-13: Incorporación de la función `poner_en_espera`
+en el alcance con `use`, lo que no es idiomático</span>
 
 Aunque tanto el Listado 7-11 como el 7-13 realizan la misma tarea, el Listado 7-11 es
-la forma idiomática de llevar una función al alcance con `use`. Trayendo el
-el módulo principal de la función en el alcance con `use`, por lo que tenemos que especificar el módulo principal
-al llamar a la función deja en claro que la función no está localmente
+la forma propia del lenguaje para llevar una función al alcance con `use`. Trayendo
+el módulo principal de la función al alcance con `use`, por lo que tenemos que especificar el módulo principal
+al llamar a la función, deja en claro que la función no está localmente
 definida sin dejar de minimizar la repetición de la ruta completa. El código en el listado
-7-13 no es claro sobre dónde se define `add_to_waitlist`.
+7-13 no es claro sobre dónde se define `poner_en_espera`.
 
 Por otro lado, al traer estructuras, enumeraciones y otros elementos con `use`,
-es idiomático especificar la ruta completa. El listado 7-14 muestra la forma idiomática
-para llevar la estructura `HashMap` de la biblioteca estándar al alcance de una caja binaria.
+la forma propia del lenguaje es especificar la ruta completa. El listado 7-14 muestra la forma
+para llevar la estructura `HashMap` de la biblioteca estándar al alcance en una caja binaria.
 
 <span class="filename">Nombre de archivo: src/main.rs</span>
 
@@ -74,12 +74,12 @@ para llevar la estructura `HashMap` de la biblioteca estándar al alcance de una
 {{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-14/src/main.rs}}
 ```
 <span class = "caption"> Listado 7-14: Llevando `HashMap` al alcance en una
-forma idiomática </span>
+forma propia del lenguaje </span>
 
-No hay una razón sólida detrás de este modismo: es solo la convención la que
+No hay una razón sólida detrás de esto; es solo la convención que
 surgió, y la gente se ha acostumbrado a leer y escribir código Rust de esta manera.
 
-La excepción a este modismo es si traemos dos items con el mismo nombre
+La excepción es si traemos dos items con el mismo nombre
 dentro del alcance con declaraciones `use`, porque Rust no lo permite. El listado 7-15
 muestra cómo traer dos tipos `Result` al alcance que tienen el mismo nombre pero
 diferentes módulos principales y cómo hacer referencia a ellos.
@@ -98,7 +98,7 @@ Si en cambio especificamos `use std::fmt::Result` y `use std::io::Result`,
 tendriamos dos tipos de `Result` en el mismo ámbito y Rust no sabría a cuál de ellos
 se referia cuando usamos `Result`.
 
-### Proporcionar nuevos nombres con la palabra clave `as`
+### Proporcionar Nombres Nuevos con la Palabra Clave `as`
 
 Existe otra solución al problema de traer dos tipos con el mismo nombre
 en el mismo ámbito con `use`; después de la ruta, podemos especificar `as` y un nuevo
@@ -116,31 +116,10 @@ alcance con la palabra clave `as` </span>
 
 En la segunda declaración `use`, elegimos el nuevo nombre `IoResult` para el tipo
 `std::io::Result`, que no entrará en conflicto con el `Result` de `std::fmt`
-que también hemos incluido en el ámbito de aplicación. Listado 7-15 y Listado 7-16 son
+que también hemos incluido en el ámbito de aplicación. Los Listados 7-15 y 7-16 son
 considerados idiomáticos, ¡así que la elección depende de usted!
 
-### Re-exporting Names with `pub use`
-
-When we bring a name into scope with the `use` keyword, the name available in
-the new scope is private. To enable the code that calls our code to refer to
-that name as if it had been defined in that code’s scope, we can combine `pub`
-and . This technique is called *re-exporting* because we’re bringing
-an item into scope but also making that item available for others to bring into
-their scope.
-
-Listing 7-17 shows the code in Listing 7-11 with `use` in the root module
-changed to .
-
-<span class="filename">Filename: src/lib.rs</span>
-
-```rust,noplayground,test_harness
-{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-17/src/lib.rs}}
-```
-
-<span class="caption">Listing 7-17: Making a name available for any code to use
-from a new scope with `pub use`</span>
-
-### Reexportación de nombres con `pub use`
+### Reexportación de Nombres con `pub use`
 
 Cuando traemos un nombre al alcance con la palabra clave `use`, el nombre disponible en
 el nuevo ámbito es privado. Para habilitar el código que llama a nuestro código para hacer referencia a
@@ -161,9 +140,9 @@ cambiado a `pub use`.
 <span class="caption">Listado 7-17: Hacer que un nombre esté disponible para que lo use cualquier código
 desde un nuevo alcance con `pub use`</span>
 
-Al usar `pub use`, el código externo ahora puede llamar a la función `add_to_waitlist`
-usando `hosting::add_to_waitlist`. Si no hubiéramos especificado `pub use`,
-la función `eat_at_restaurant` podría llamar a `hosting::add_to_waitlist` en su
+Al usar `pub use`, el código externo ahora puede llamar a la función `poner_en_espera`
+usando `recepcion::poner_en_espera`. Si no hubiéramos especificado `pub use`,
+la función `comer_en_restaurant` podría llamar a `recepcion::poner_en_espera` en su
 alcance, pero el código externo no podría aprovechar esta nueva ruta.
 
 La reexportación es útil cuando la estructura interna de su código es diferente
@@ -193,22 +172,13 @@ agregó esta línea a *Cargo.toml*:
 {{#include ../listings/ch02-guessing-game-tutorial/listing-02-02/Cargo.toml:9:}}
 ```
 
-Then, to bring `rand` definitions into the scope of our package, we added a
-`use` line starting with the name of the crate, `rand`, and listed the items
-we wanted to bring into scope. Recall that in the [“Generating a Random
-Number”][rand]<!-- ignore --> section in Chapter 2, we brought the `Rng` trait
-into scope and called the `rand::thread_rng` function:
-
-```rust,ignore
-{{#rustdoc_include ../listings/ch02-guessing-game-tutorial/listing-02-03/src/main.rs:ch07-04}}
-```
-Agregar `rand` como una dependencia en * Cargo.toml * le dice a Cargo que descargue el
+Agregar `rand` como una dependencia en *Cargo.toml* le dice a Cargo que descargue el
 paquete `rand` y cualquier dependencia de [crates.io](https://crates.io/) y
 ponga `rand` a disposición de nuestro proyecto.
 
 Luego, para traer las definiciones de `rand` al alcance de nuestro paquete, agregamos una
 línea `use` que comienza con el nombre de la caja, `rand`, y enumera los elementos
-que queremos llevar al alcance. Recuerde que en la sección ["Generación de un Número aleatorio ”] [rand] <!-- ignore -->
+que queremos llevar al alcance. Recuerde que en la sección ["Generación de un Número aleatorio ”][rand] <!-- ignore -->
 en el Capítulo 2, trajimos el trait `Rng` en el alcance y llamó a la función `rand::thread_rng`:
 
 ```rust,ignore
@@ -232,7 +202,7 @@ use std::collections::HashMap;
 
 Esta es una ruta absoluta que comienza con `std`, el nombre de la caja de biblioteca estándar
 
-### Uso de rutas anidadas para limpiar grandes listas de `use`
+### Uso de Rutas Anidadas para Limpiar Grandes Listas de `use`
 
 Si usamos varios elementos definidos en la misma caja o en el mismo módulo,
 enumerar cada elemento en su propia línea puede ocupar mucho espacio en nuestros
@@ -265,8 +235,7 @@ mucho!
 
 Podemos usar una ruta anidada en cualquier nivel de una ruta, lo cual es útil al combinar
 dos declaraciones de `use` que comparten una ruta secundaria. Por ejemplo, el Listado 7-19 muestra dos
-sentencias `use`: una que trae `std::io` al alcance y otra que trae
-`std::io::Write`.
+sentencias `use`: una que trae `std::io` al alcance y otra que trae `std::io::Write`.
 
 <span class="filename">Nombre de archivo: src/lib.rs</span>
 
@@ -292,7 +261,7 @@ una declaración `use`</span>
 
 Esta línea trae `std::io` y `std::io::Write` al alcance.
 
-### El operador Glob
+### El Operador Glob
 
 Si queremos traer *todos* los elementos públicos definidos en una ruta al alcance, podemos
 especificar esa ruta seguida de `*`, el operador glob:
@@ -311,5 +280,5 @@ en el Capítulo 11. El operador glob también se utiliza a veces como parte del 
 de preludio: consulte [la documentación de la biblioteca estándar](../std/prelude/index.html#other-preludes)<!-- ignore -->
 para obtener más información sobre ese patrón.
 
-[rand]: ch02-00-guessing-game-tutorial.html#generando-un-numero-aleatorio
+[rand]: ch02-00-guessing-game-tutorial.html#generando-un-número-aleatorio
 [writing-tests]: ch11-01-writing-tests.html#como-escribir-pruebas

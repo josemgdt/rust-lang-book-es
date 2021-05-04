@@ -1,9 +1,9 @@
-mod front_of_house;
+mod fachada;
 
-pub use crate::front_of_house::hosting;
+pub use crate::fachada::recepcion;
 
-pub fn eat_at_restaurant() {
-    hosting::add_to_waitlist();
-    hosting::add_to_waitlist();
-    hosting::add_to_waitlist();
+pub fn comer_en_restaurant() {
+    hosting::poner_en_espera();
+    hosting::poner_en_espera();
+    hosting::poner_en_espera();
 }

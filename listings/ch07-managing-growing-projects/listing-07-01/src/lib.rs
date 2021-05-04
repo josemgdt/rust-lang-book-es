@@ -1,15 +1,15 @@
-mod front_of_house {
-    mod hosting {
-        fn add_to_waitlist() {}
+mod fachada {
+    mod recepcion {
+        fn poner_en_espera() {}
 
-        fn seat_at_table() {}
+        fn adjudicar_mesa() {}
     }
 
-    mod serving {
-        fn take_order() {}
+    mod servicio {
+        fn comanda() {}
 
-        fn serve_order() {}
+        fn servir_comanda() {}
 
-        fn take_payment() {}
+        fn cobrar() {}
     }
 }

@@ -1,10 +1,10 @@
-fn serve_order() {}
+fn servir_comanda() {}
 
-mod back_of_house {
-    fn fix_incorrect_order() {
-        cook_order();
-        super::serve_order();
+mod parte_de_atras {
+    fn correjir_comanda() {
+        cocinar_comanda();
+        super::servir_comanda();
     }
 
-    fn cook_order() {}
+    fn cocinar_comanda() {}
 }

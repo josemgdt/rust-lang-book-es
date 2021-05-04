@@ -1,13 +1,13 @@
-mod front_of_house {
-    pub mod hosting {
-        pub fn add_to_waitlist() {}
+mod fachada {
+    pub mod recepcion {
+        pub fn poner_en_espera() {}
     }
 }
 
-use self::front_of_house::hosting;
+use self::fachada::recepcion;
 
-pub fn eat_at_restaurant() {
-    hosting::add_to_waitlist();
-    hosting::add_to_waitlist();
-    hosting::add_to_waitlist();
+pub fn comer_en_restaurant() {
+    recepcion::poner_en_espera();
+    recepcion::poner_en_espera();
+    recepcion::poner_en_espera();
 }
