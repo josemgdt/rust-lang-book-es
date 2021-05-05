@@ -1,5 +1,5 @@
 fn main() {
     // ANCHOR: here
-    let s = String::from("initial contents");
+    let s = String::from("contenido inicial");
     // ANCHOR_END: here
 }

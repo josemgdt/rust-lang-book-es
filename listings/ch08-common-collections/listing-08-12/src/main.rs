@@ -1,10 +1,10 @@
 fn main() {
     // ANCHOR: here
-    let data = "initial contents";
+    let data = "contenido inicial";
 
     let s = data.to_string();
 
-    // the method also works on a literal directly:
-    let s = "initial contents".to_string();
+    // el metodo tambien traba en literales directamente:
+    let s = "contenido inicial".to_string();
     // ANCHOR_END: here
 }
